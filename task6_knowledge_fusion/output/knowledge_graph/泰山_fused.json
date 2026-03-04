@@ -1,0 +1,304 @@
+{
+  "scenic_spot": "泰山",
+  "fused_pois": [
+    "岱顶天街",
+    "天烛峰观景台",
+    "岱顶服务区",
+    "泰山站",
+    "天外村游客中心",
+    "中天门景区",
+    "南天门索道站",
+    "红门宫",
+    "红门游客中心",
+    "南天门景区",
+    "经石峪",
+    "玉皇顶景区",
+    "岱庙景区",
+    "十八盘起点",
+    "泰山站乘车",
+    "天街景区",
+    "天门",
+    "碧霞祠景区",
+    "五大夫松景区",
+    "十八盘景区",
+    "日观峰景区",
+    "登山"
+  ],
+  "poi_weights": {
+    "岱顶天街": 0.7,
+    "天烛峰观景台": 0.7,
+    "岱顶服务区": 0.7,
+    "泰山站": 0.7,
+    "天外村游客中心": 0.7,
+    "中天门景区": 1.0,
+    "南天门索道站": 0.7,
+    "红门宫": 0.94,
+    "红门游客中心": 0.7,
+    "南天门景区": 1.0,
+    "经石峪": 0.76,
+    "玉皇顶景区": 1.0,
+    "岱庙景区": 0.82,
+    "十八盘起点": 0.7,
+    "泰山站乘车": 0.7,
+    "天街景区": 0.45,
+    "天门": 0.45,
+    "碧霞祠景区": 0.45,
+    "五大夫松景区": 0.45,
+    "十八盘景区": 0.45,
+    "日观峰景区": 0.45,
+    "登山": 0.45
+  },
+  "statistics": {
+    "official_poi_count": 15,
+    "visitor_poi_count": 30,
+    "fused_poi_count": 22,
+    "visitor_supplemented_count": 7,
+    "advice_matched_count": 0,
+    "advice_unmatched_count": 2
+  },
+  "time_periods": {},
+  "normalized_routes": [
+    {
+      "from_poi": "泰山站乘车",
+      "to_poi": "红门游客中心",
+      "route_id": "main",
+      "sequence_index": 1,
+      "period": "清晨",
+      "transport": "",
+      "time_start": "",
+      "time_end": "",
+      "duration": "",
+      "source_format": "structured_time_route"
+    },
+    {
+      "from_poi": "红门宫",
+      "to_poi": "经石峪",
+      "route_id": "main",
+      "sequence_index": 2,
+      "period": "清晨",
+      "transport": "",
+      "time_start": "",
+      "time_end": "",
+      "duration": "30 分钟",
+      "source_format": "structured_time_route"
+    },
+    {
+      "from_poi": "经石峪",
+      "to_poi": "中天门景区",
+      "route_id": "main",
+      "sequence_index": 3,
+      "period": "清晨",
+      "transport": "",
+      "time_start": "",
+      "time_end": "",
+      "duration": "20 分钟",
+      "source_format": "structured_time_route"
+    },
+    {
+      "from_poi": "中天门景区",
+      "to_poi": "十八盘起点",
+      "route_id": "main",
+      "sequence_index": 4,
+      "period": "上午",
+      "transport": "",
+      "time_start": "",
+      "time_end": "",
+      "duration": "15 分钟",
+      "source_format": "structured_time_route"
+    },
+    {
+      "from_poi": "十八盘起点",
+      "to_poi": "南天门景区",
+      "route_id": "main",
+      "sequence_index": 5,
+      "period": "上午",
+      "transport": "",
+      "time_start": "",
+      "time_end": "",
+      "duration": "",
+      "source_format": "structured_time_route"
+    },
+    {
+      "from_poi": "南天门景区",
+      "to_poi": "岱顶天街",
+      "route_id": "main",
+      "sequence_index": 6,
+      "period": "中午",
+      "transport": "",
+      "time_start": "",
+      "time_end": "",
+      "duration": "10 分钟",
+      "source_format": "structured_time_route"
+    },
+    {
+      "from_poi": "岱顶天街",
+      "to_poi": "岱顶服务区",
+      "route_id": "main",
+      "sequence_index": 7,
+      "period": "中午",
+      "transport": "",
+      "time_start": "",
+      "time_end": "",
+      "duration": "",
+      "source_format": "structured_time_route"
+    },
+    {
+      "from_poi": "岱顶服务区",
+      "to_poi": "玉皇顶景区",
+      "route_id": "main",
+      "sequence_index": 8,
+      "period": "下午",
+      "transport": "",
+      "time_start": "",
+      "time_end": "",
+      "duration": "30 分钟",
+      "source_format": "structured_time_route"
+    },
+    {
+      "from_poi": "玉皇顶景区",
+      "to_poi": "天烛峰观景台",
+      "route_id": "main",
+      "sequence_index": 9,
+      "period": "下午",
+      "transport": "",
+      "time_start": "",
+      "time_end": "",
+      "duration": "20 分钟",
+      "source_format": "structured_time_route"
+    },
+    {
+      "from_poi": "天烛峰观景台",
+      "to_poi": "南天门索道站",
+      "route_id": "main",
+      "sequence_index": 10,
+      "period": "下午",
+      "transport": "",
+      "time_start": "",
+      "time_end": "",
+      "duration": "",
+      "source_format": "structured_time_route"
+    },
+    {
+      "from_poi": "南天门索道站",
+      "to_poi": "中天门景区",
+      "route_id": "main",
+      "sequence_index": 11,
+      "period": "下午",
+      "transport": "",
+      "time_start": "",
+      "time_end": "",
+      "duration": "",
+      "source_format": "structured_time_route"
+    },
+    {
+      "from_poi": "中天门景区",
+      "to_poi": "天外村游客中心",
+      "route_id": "main",
+      "sequence_index": 12,
+      "period": "下午",
+      "transport": "",
+      "time_start": "",
+      "time_end": "",
+      "duration": "",
+      "source_format": "structured_time_route"
+    },
+    {
+      "from_poi": "天外村游客中心",
+      "to_poi": "岱庙景区",
+      "route_id": "main",
+      "sequence_index": 13,
+      "period": "下午",
+      "transport": "",
+      "time_start": "",
+      "time_end": "",
+      "duration": "30 分钟",
+      "source_format": "structured_time_route"
+    },
+    {
+      "from_poi": "岱庙景区",
+      "to_poi": "泰山站",
+      "route_id": "main",
+      "sequence_index": 14,
+      "period": "傍晚",
+      "transport": "",
+      "time_start": "",
+      "time_end": "",
+      "duration": "",
+      "source_format": "structured_time_route"
+    }
+  ],
+  "route_normalization_report": {
+    "route_format": "arrow_text",
+    "parsed_route_count": 14,
+    "normalized_route_count": 14,
+    "official_poi_count": 15,
+    "time_period_count": 0
+  },
+  "recommended_route": {
+    "route_id": "main",
+    "reason": "single_route",
+    "score": 1.0,
+    "route_scores": {
+      "main": 1.0
+    }
+  },
+  "visitor_supplemented": [
+    "天街景区",
+    "天门",
+    "碧霞祠景区",
+    "五大夫松景区",
+    "十八盘景区",
+    "日观峰景区",
+    "登山"
+  ],
+  "visitor_supplemented_details": [
+    {
+      "poi": "天街景区",
+      "doc_frequency": 5,
+      "score": 1.0,
+      "source": "visitor"
+    },
+    {
+      "poi": "天门",
+      "doc_frequency": 5,
+      "score": 1.0,
+      "source": "visitor"
+    },
+    {
+      "poi": "碧霞祠景区",
+      "doc_frequency": 4,
+      "score": 0.87,
+      "source": "visitor"
+    },
+    {
+      "poi": "五大夫松景区",
+      "doc_frequency": 3,
+      "score": 0.74,
+      "source": "visitor"
+    },
+    {
+      "poi": "十八盘景区",
+      "doc_frequency": 3,
+      "score": 0.74,
+      "source": "visitor"
+    },
+    {
+      "poi": "日观峰景区",
+      "doc_frequency": 3,
+      "score": 0.74,
+      "source": "visitor"
+    },
+    {
+      "poi": "登山",
+      "doc_frequency": 3,
+      "score": 0.74,
+      "source": "visitor"
+    }
+  ],
+  "condition_cleaning_report": {
+    "input_advice_count": 0,
+    "output_advice_count": 0,
+    "dropped_count": 0,
+    "dropped_reasons": {}
+  }
+}

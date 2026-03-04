@@ -1,45 +1,35 @@
 {
   "summary": {
-    "total_cases": 15,
-    "correct": 9,
-    "incorrect": 6,
-    "not_resolved": 0,
-    "accuracy": "60.0%"
+    "total_cases": 29,
+    "correct": 2,
+    "incorrect": 5,
+    "not_resolved": 22,
+    "accuracy": "6.9%"
   },
   "by_pronoun_type": {
-    "personal": {
-      "total": 5,
-      "correct": 2,
-      "accuracy": 0.4
-    },
     "demonstrative_location": {
-      "total": 4,
-      "correct": 2,
-      "accuracy": 0.5
-    },
-    "demonstrative_phrase": {
       "total": 6,
-      "correct": 5,
-      "accuracy": 0.8333333333333334
+      "correct": 2,
+      "accuracy": 0.3333333333333333
+    },
+    "personal": {
+      "total": 1,
+      "correct": 0,
+      "accuracy": 0.0
     }
   },
   "by_antecedent_type": {
-    "Person": {
-      "total": 4,
-      "correct": 2,
+    "Object": {
+      "total": 2,
+      "correct": 1,
       "accuracy": 0.5
     },
     "POI": {
-      "total": 5,
-      "correct": 3,
-      "accuracy": 0.6
+      "total": 4,
+      "correct": 1,
+      "accuracy": 0.25
     },
     "Location": {
-      "total": 5,
-      "correct": 4,
-      "accuracy": 0.8
-    },
-    "Object": {
       "total": 1,
       "correct": 0,
       "accuracy": 0.0
@@ -47,64 +37,189 @@
   },
   "error_analysis": [
     {
-      "sentence_id": "故宫_故宫_travelog_4_12",
-      "sentence": "在这里,悬崖为游乐场特了一层实景体验的滤镜",
+      "sentence_id": "泰山_泰山_travelog_1_7",
+      "sentence": "下午14:45 我们抵达岱庙,这里是历代帝王封禅泰山的行宫,有千年的古柏、宋代的天贶殿、海量的碑刻,真的是山东的小故宫,文化底蕴拉满,我们在这里深度游览了1个半小时,把所有核心展厅都逛完了.",
       "pronoun": "这里",
-      "manual_antecedent": "奥陶纪",
-      "auto_antecedent": "山野",
+      "manual_antecedent": "岱庙",
+      "auto_antecedent": "泰山",
       "error_type": "incorrect_resolution",
-      "confidence": "medium",
-      "method": "nearest_location_in_context"
+      "confidence": "high",
+      "method": "nearest_poi_in_context"
     },
     {
-      "sentence_id": "黄山_黄山_travelog_1_9",
-      "sentence": "根据规划,公园内需建别墅群30000平方米,四星级酒店一处...",
-      "pronoun": "园内",
-      "manual_antecedent": "公园",
-      "auto_antecedent": "半山",
-      "error_type": "incorrect_resolution",
-      "confidence": "medium",
-      "method": "nearest_location_in_context"
+      "sentence_id": "西湖_西湖_travelog_1_2",
+      "sentence": "西湖十景之一,雷峰塔,这里可以俯瞰整个西湖全景,景色非常壮观,门票40元,建议坐电梯上去,不然爬楼梯会很累.",
+      "pronoun": "这里",
+      "manual_antecedent": "雷峰塔",
+      "auto_antecedent": null,
+      "error_type": "not_resolved",
+      "reason": "自动消解未找到结果"
     },
     {
-      "sentence_id": "九寨沟_九寨沟_travelog_1_3",
-      "sentence": "郫县因\"杜宇化鹃\"的美丽传说郫县又称鹃城县花为杜鹃花县鸟为杜鹃鸟.历史文化遗迹众多望丛祠,杜鹃城遗址,古城遗址,扬雄墓,子云亭(因一句\"南阳诸葛庐西蜀子云亭\"成名)等被列入国家重点文物管理局主编的\"中国名胜辞典\".此外还有何武墓,何公祠,郫筒井,严君平墓,梅花御井,蓝家坡山汉墓等.郫县郫筒镇有\"望从祠\"其名为纪念古蜀国的望帝和丛帝.望帝即望帝杜宇丛帝即开明又称鳖灵.李商隐诗句\"望帝春心托杜鹃\"所说的就是他们的故事.",
+      "sentence_id": "张家界_张家界_travelog_1_3",
+      "sentence": "第一站我们去了黄石寨,这里是张家界国家森林公园最大的凌空观景台,有'不上黄石寨,枉到张家界'的说法.",
+      "pronoun": "这里",
+      "manual_antecedent": "黄石寨",
+      "auto_antecedent": null,
+      "error_type": "not_resolved",
+      "reason": "自动消解未找到结果"
+    },
+    {
+      "sentence_id": "泰山_泰山_travelog_2_3",
+      "sentence": "我们遇到了很多挑山工，他们真的很辛苦，一步步背着重物上山。",
       "pronoun": "他们",
-      "manual_antecedent": "望帝和丛帝",
-      "auto_antecedent": "杜鹃",
-      "error_type": "incorrect_resolution",
-      "confidence": "high",
-      "method": "nearest_person_name_in_context"
+      "manual_antecedent": "挑山工",
+      "auto_antecedent": null,
+      "error_type": "not_resolved",
+      "reason": "自动消解未找到结果"
     },
     {
-      "sentence_id": "九寨沟_九寨沟_travelog_3_7",
-      "sentence": "他历经艰险困厄,幡然醒悟,于是苦行修炼,还勇斗孽龙,降魔治水,终成正果,得赐金身天龙.能施降甘霖,惠及四方,使这里风调雨顺,人寿安康,百姓幸福,从此褒赞之誉在民间传播开来.",
-      "pronoun": "他",
-      "manual_antecedent": "十三太子",
-      "auto_antecedent": "龙王",
-      "error_type": "incorrect_resolution",
-      "confidence": "high",
-      "method": "nearest_person_name_in_context"
-    },
-    {
-      "sentence_id": "九寨沟_九寨沟_travelog_4_11",
-      "sentence": "2020年2019年3月27日,我们与四川签署协同提高旅游业发展合同,它是两省区拓张经贸,搭建发展双赢的全局性对策.",
+      "sentence_id": "泰山_泰山_travelog_2_5",
+      "sentence": "关于登山杖，建议在山下买，它能帮你省很多力气。",
       "pronoun": "它",
-      "manual_antecedent": "合同",
-      "auto_antecedent": "旅游业",
-      "error_type": "incorrect_resolution",
-      "confidence": "medium",
-      "method": "nearest_object_in_context"
+      "manual_antecedent": "登山杖",
+      "auto_antecedent": null,
+      "error_type": "not_resolved",
+      "reason": "自动消解未找到结果"
     },
     {
-      "sentence_id": "九寨沟_九寨沟_travelog_3_3",
-      "sentence": "这里,山谷林木蓊郁,枫叶红过又随山风飘落,那枝头的红叶摇成小旗,在欢呼,歌唱,幽静的文昌阁则矗守在半山腰.辽东栎成为山上一道靓丽的风景线.",
+      "sentence_id": "西湖_西湖_travelog_2_4",
+      "sentence": "在断桥可以看到远处的宝石山，它在夕阳下显得格外美丽。",
+      "pronoun": "它",
+      "manual_antecedent": "宝石山",
+      "auto_antecedent": null,
+      "error_type": "not_resolved",
+      "reason": "自动消解未找到结果"
+    },
+    {
+      "sentence_id": "张家界_张家界_travelog_2_2",
+      "sentence": "百龙天梯非常快，它可以在几分钟内把游客送上山顶。",
+      "pronoun": "它",
+      "manual_antecedent": "百龙天梯",
+      "auto_antecedent": null,
+      "error_type": "not_resolved",
+      "reason": "自动消解未找到结果"
+    },
+    {
+      "sentence_id": "张家界_张家界_travelog_2_6",
+      "sentence": "金鞭溪的水很清澈，这里有很多猴子，千万不要手里拿着食物。",
       "pronoun": "这里",
-      "manual_antecedent": "九寨沟",
-      "auto_antecedent": "龙潭",
+      "manual_antecedent": "金鞭溪",
+      "auto_antecedent": null,
+      "error_type": "not_resolved",
+      "reason": "自动消解未找到结果"
+    },
+    {
+      "sentence_id": "西湖_西湖_travelog_3_1",
+      "sentence": "苏堤春晓是西湖十景之首，这个景点全长近3公里，两旁种满了柳树。",
+      "pronoun": "这个景点",
+      "manual_antecedent": "苏堤",
+      "auto_antecedent": null,
+      "error_type": "not_resolved",
+      "reason": "自动消解未找到结果"
+    },
+    {
+      "sentence_id": "泰山_泰山_travelog_3_2",
+      "sentence": "十八盘是泰山最险的一段路，这里垂直高度有400多米。",
+      "pronoun": "这里",
+      "manual_antecedent": "十八盘",
+      "auto_antecedent": null,
+      "error_type": "not_resolved",
+      "reason": "自动消解未找到结果"
+    },
+    {
+      "sentence_id": "泰山_泰山_travelog_3_4",
+      "sentence": "南天门就在眼前，它是天庭的入口，气势磅礴。",
+      "pronoun": "它",
+      "manual_antecedent": "南天门",
+      "auto_antecedent": null,
+      "error_type": "not_resolved",
+      "reason": "自动消解未找到结果"
+    },
+    {
+      "sentence_id": "西湖_西湖_travelog_4_1",
+      "sentence": "三潭印月在湖中心，需要坐船过去，那里是人民币一元背后的图案。",
+      "pronoun": "那里",
+      "manual_antecedent": "三潭印月",
+      "auto_antecedent": null,
+      "error_type": "not_resolved",
+      "reason": "自动消解未找到结果"
+    },
+    {
+      "sentence_id": "张家界_张家界_travelog_3_5",
+      "sentence": "天子山的御笔峰很特别，它像倒插的毛笔，非常逼真。",
+      "pronoun": "它",
+      "manual_antecedent": "御笔峰",
+      "auto_antecedent": null,
+      "error_type": "not_resolved",
+      "reason": "自动消解未找到结果"
+    },
+    {
+      "sentence_id": "张家界_张家界_travelog_4_2",
+      "sentence": "导游非常热情，他给我们讲解了很多关于阿凡达取景地的故事。",
+      "pronoun": "他",
+      "manual_antecedent": "导游",
+      "auto_antecedent": null,
+      "error_type": "not_resolved",
+      "reason": "自动消解未找到结果"
+    },
+    {
+      "sentence_id": "西湖_西湖_travelog_5_3",
+      "sentence": "我们在楼外楼吃了午饭，这里的西湖醋鱼味道一般，但东坡肉不错。",
+      "pronoun": "这里",
+      "manual_antecedent": "楼外楼",
+      "auto_antecedent": "西湖",
       "error_type": "incorrect_resolution",
-      "confidence": "medium",
-      "method": "nearest_location_in_context"
+      "confidence": "high",
+      "method": "nearest_poi_in_context"
+    },
+    {
+      "sentence_id": "泰山_泰山_travelog_4_1",
+      "sentence": "红门是徒步的起点，这里有很多卖香火的店铺。",
+      "pronoun": "这里",
+      "manual_antecedent": "红门",
+      "auto_antecedent": null,
+      "error_type": "not_resolved",
+      "reason": "自动消解未找到结果"
+    },
+    {
+      "sentence_id": "西湖_西湖_travelog_5_5",
+      "sentence": "灵隐寺香火很旺，这里求签很灵，很多人来还愿。",
+      "pronoun": "这里",
+      "manual_antecedent": "灵隐寺",
+      "auto_antecedent": "西湖",
+      "error_type": "incorrect_resolution",
+      "confidence": "high",
+      "method": "nearest_poi_in_context"
+    },
+    {
+      "sentence_id": "张家界_张家界_travelog_5_1",
+      "sentence": "十里画廊不需要爬山，可以选择坐小火车，它会带着你穿过峡谷。",
+      "pronoun": "它",
+      "manual_antecedent": "小火车",
+      "auto_antecedent": "金鞭溪",
+      "error_type": "incorrect_resolution",
+      "confidence": "high",
+      "method": "nearest_poi_for_it"
+    },
+    {
+      "sentence_id": "泰山_泰山_travelog_5_2",
+      "sentence": "玉皇顶是泰山的最高点，这里可以看到云海和日出。",
+      "pronoun": "这里",
+      "manual_antecedent": "玉皇顶",
+      "auto_antecedent": "天外村",
+      "error_type": "incorrect_resolution",
+      "confidence": "high",
+      "method": "nearest_poi_in_context"
+    },
+    {
+      "sentence_id": "西湖_西湖_travelog_3_4",
+      "sentence": "花港观鱼有很多红鲤鱼，它们在水里抢食，非常有趣。",
+      "pronoun": "它们",
+      "manual_antecedent": "红鲤鱼",
+      "auto_antecedent": null,
+      "error_type": "not_resolved",
+      "reason": "自动消解未找到结果"
     }
   ]
 }

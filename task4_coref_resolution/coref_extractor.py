@@ -288,17 +288,81 @@ class NearestNounResolver:
     def _load_poi_dicts(self):
         """加载POI词典"""
         self.poi_dicts = set()
-        dict_dir = '../task2_entity_recognition/custom_dicts/poi'
+        
+        # 获取当前脚本所在目录
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        # 修正路径：指向 task2 的 custom_dicts/poi
+        dict_dir = os.path.join(current_dir, '../task2_entity_recognition/custom_dicts/poi')
 
-        for spot in ['jiuzhaigou', 'gugong', 'huangshan']:
-            dict_path = os.path.join(dict_dir, f'{spot}.txt')
+        # 映射：中文名 -> 英文文件名
+        spot_map = {
+            '泰山': 'taishan',
+            '西湖': 'xihu',
+            '张家界': 'zhangjiajie'
+        }
+        
+        for spot_cn, filename in spot_map.items():
+            dict_path = os.path.join(dict_dir, f'{filename}.txt')
             if os.path.exists(dict_path):
-                with open(dict_path, 'r', encoding='utf-8') as f:
-                    for line in f:
-                        parts = line.strip().split()
-                        if parts:
-                            self.poi_dicts.add(parts[0])
-                            jieba.add_word(parts[0], 10000, 'n')
+                try:
+                    with open(dict_path, 'r', encoding='utf-8') as f:
+                        for line in f:
+                            parts = line.strip().split()
+                            if parts:
+                                poi = parts[0]
+                                self.poi_dicts.add(poi)
+                                # 将POI添加到jieba词典，确保分词正确
+                                jieba.add_word(poi, freq=10000, tag='n')
+                except Exception as e:
+                    print(f"Error loading dictionary {dict_path}: {e}")
+            else:
+                print(f"Warning: Dictionary not found: {dict_path}")
+
+    def _extract_nouns_from_text(self, text: str) -> List[Dict]:
+        """从文本中提取名词（倒序返回，最近的优先）"""
+        if not text:
+            return []
+            
+        candidates = []
+        words = pseg.cut(text)
+        
+        # POI后缀
+        poi_suffixes = ['海', '池', '宫', '殿', '门', '峰', '阁', '寺', '松', 
+                       '沟', '山', '区', '湖', '瀑', '滩', '寨', '瀑布', 
+                       '景区', '索道', '站', '桥', '路', '街', '园', '洞', 
+                       '溪', '界', '寨', '廊', '梯', '道', '台']
+                       
+        for word, flag in words:
+            # 名词或地名，或者是已知的POI
+            is_known_poi = word in self.poi_dicts
+            
+            if flag.startswith('n') or is_known_poi:
+                if len(word) >= 2:
+                    # 检查是否是景点类名词
+                    is_poi_suffix = any(word.endswith(suffix) for suffix in poi_suffixes)
+                    
+                    candidates.append({
+                        "entity": word,
+                        "pos_flag": flag,
+                        "is_poi": is_known_poi or is_poi_suffix,
+                        # 这里不需要计算距离，因为我们会倒序
+                    })
+
+        # 过滤噪声词
+        noise_words = {'热门', '门票', '区域', '时间', '路线', '攻略', '建议', '注意', 
+                      '如果', '选择', '游览', '提前', '预约', '因为', '所以', 
+                      '但是', '虽然', '装备', '交通', '住宿', '吃饭', '美食', 
+                      '价格', '费用', '时间', '有些', '可以', '需要', '我们', 
+                      '他们', '自己', '感觉', '觉得', '比如', '例如', '以及', 
+                      '还有', '包含', '包括', '不用', '不要', '一定', '最好', 
+                      '可能', '特别', '非常', '比较', '真的', '超级', '很多', 
+                      '一点', '一下', '专门', '上山', '下山', '上海', '外滩', 
+                      '北京', '中国', '有些', '那些', '这些'}
+                      
+        candidates = [c for c in candidates if c["entity"] not in noise_words]
+
+        # 倒序（最近的在前）
+        return list(reversed(candidates))
 
     def resolve(self, sentence: str, context: str, pronoun_info: Dict[str, Any],
                 scenic_spot: str) -> Dict[str, Any]:
@@ -331,8 +395,9 @@ class NearestNounResolver:
         all_candidates = candidates_current + candidates_context
 
         # 策略1：针对地点代词（这里/那儿/该景点）
-        if pronoun_type in ['demonstrative_location', 'demonstrative_phrase'] or pronoun in ['这里', '那儿', '该景点', '此地']:
+        if pronoun_type in ['demonstrative_location', 'demonstrative_phrase'] or pronoun in ['这里', '那儿', '该景点', '此地', '景区内']:
             # 1.1 优先匹配POI词典中的景点
+            # 注意：all_candidates 已经是倒序（最近的在前）
             poi_candidates = [c for c in all_candidates if c['entity'] in self.poi_dicts]
             if poi_candidates:
                 best_match = poi_candidates[0]
@@ -345,96 +410,49 @@ class NearestNounResolver:
                 }
             
             # 1.2 其次匹配地名（ns）
-            loc_candidates = [c for c in all_candidates if c['pos_flag'] == 'ns']
+            loc_candidates = [c for c in all_candidates if c['pos_flag'] == 'ns' or c['is_poi']]
             if loc_candidates:
                 best_match = loc_candidates[0]
                 return {
                     "pronoun": pronoun,
                     "antecedent": best_match['entity'],
-                    "resolution_method": "nearest_location_in_context",
+                    "resolution_method": "nearest_location_noun",
                     "confidence": "medium",
                     "reason": f"在上下文中找到最近的地名: {best_match['entity']}"
                 }
-                
-            # 1.3 再次匹配以地点后缀结尾的名词
-            loc_suffixes = ['亭', '台', '楼', '阁', '殿', '堂', '门', '宫', '祠', '庙', '寺', '观', '山', '河', '湖', '海', '沟', '寨', '园', '区']
-            suffix_candidates = [c for c in all_candidates if any(c['entity'].endswith(s) for s in loc_suffixes)]
-            if suffix_candidates:
-                best_match = suffix_candidates[0]
-                return {
-                    "pronoun": pronoun,
-                    "antecedent": best_match['entity'],
-                    "resolution_method": "nearest_loc_noun_in_context",
-                    "confidence": "medium",
-                    "reason": f"在上下文中找到最近的地点名词: {best_match['entity']}"
-                }
 
-        # 策略2：针对人称代词（他/她）优先匹配人名/称谓
-        if pronoun in ['他', '她', '他们', '她们']:
-            # 2.1 匹配人名（nr）
-            person_candidates = [c for c in all_candidates if c['pos_flag'] == 'nr']
-            if person_candidates:
-                best_match = person_candidates[0]
+        # 策略2：人称代词（它）- 可能指代物或地点
+        if pronoun in ['它', '它们']:
+             # 优先POI
+            poi_candidates = [c for c in all_candidates if c['entity'] in self.poi_dicts]
+            if poi_candidates:
+                best_match = poi_candidates[0]
                 return {
                     "pronoun": pronoun,
                     "antecedent": best_match['entity'],
-                    "resolution_method": "nearest_person_name_in_context",
+                    "resolution_method": "nearest_poi_for_it",
                     "confidence": "high",
-                    "reason": f"在上下文中找到最近的人名: {best_match['entity']}"
+                    "reason": f"为'{pronoun}'找到最近的POI: {best_match['entity']}"
                 }
             
-            # 2.2 匹配特定称谓
-            titles = ['游客', '导游', '师傅', '司机', '朋友', '家人', '皇帝', '妃子', '太子', '阿哥', '格格', '大臣', '诗人', '画家', '记者', '工作组']
-            title_candidates = [c for c in all_candidates if any(t in c['entity'] for t in titles)]
-            if title_candidates:
-                best_match = title_candidates[0]
+            # 其次名词
+            noun_candidates = [c for c in all_candidates if c['pos_flag'].startswith('n')]
+            if noun_candidates:
+                best_match = noun_candidates[0]
                 return {
                     "pronoun": pronoun,
                     "antecedent": best_match['entity'],
-                    "resolution_method": "nearest_person_title_in_context",
-                    "confidence": "high",
-                    "reason": f"在上下文中找到最近的人物称谓: {best_match['entity']}"
-                }
-
-        # 策略3：针对“它”，优先匹配非人非地点名词
-        if pronoun in ['它', '它们']:
-             # 排除明显的人物（nr）和时间（t）
-            obj_candidates = [c for c in all_candidates 
-                             if c['pos_flag'] not in ['nr', 't'] 
-                             and c['entity'] not in self.poi_dicts  # 尽量不指代POI（通常用这里）
-                             and not self._is_noise_word(c['entity'])]
-            if obj_candidates:
-                best_match = obj_candidates[0]
-                return {
-                    "pronoun": pronoun,
-                    "antecedent": best_match['entity'],
-                    "resolution_method": "nearest_object_in_context",
+                    "resolution_method": "nearest_noun_for_it",
                     "confidence": "medium",
-                    "reason": f"在上下文中找到最近的物体/名词: {best_match['entity']}"
+                    "reason": f"为'{pronoun}'找到最近名词: {best_match['entity']}"
                 }
 
-        # 策略4：通用回退策略 - 最近的名词
-        if all_candidates:
-            # 过滤明显的非实体词
-            filtered = [c for c in all_candidates
-                       if not self._is_noise_word(c['entity'])]
-            if filtered:
-                best_match = filtered[0]
-                return {
-                    "pronoun": pronoun,
-                    "antecedent": best_match['entity'],
-                    "resolution_method": "nearest_noun_fallback",
-                    "confidence": "low",
-                    "reason": f"在上下文中找到最近的名词: {best_match['entity']}"
-                }
-
-        # 策略5：如果都找不到，返回无法消解
         return {
             "pronoun": pronoun,
             "antecedent": None,
-            "resolution_method": "no_candidate",
-            "confidence": "low",
-            "reason": "在上下文内未找到合适的先行词"
+            "resolution_method": "failed",
+            "confidence": "none",
+            "reason": "未找到合适的指代对象"
         }
 
     def _extract_nouns_from_text(self, text: str) -> List[Dict[str, Any]]:
@@ -567,13 +585,18 @@ def process_all_data(data_path: str, output_dir: str) -> Dict[str, Any]:
 
     for sentence_data in all_sentences:
         auto_results = []
-        for pronoun in sentence_data['pronouns']:
+        for pronoun_info in sentence_data['pronouns']:
             result = resolver.resolve(
                 sentence_data['sentence'],
-                sentence_data.get('context', ''),  # 使用上下文
-                pronoun,
+                sentence_data.get('context', ''),
+                pronoun_info,
                 sentence_data['scenic_spot']
             )
+            
+            # 关键修改：将原始代词信息（包括位置）保留在结果中，以便评估时匹配
+            result['position'] = pronoun_info['position']
+            result['type'] = pronoun_info['type']
+            
             auto_results.append(result)
 
         sentence_data['auto_resolution'] = auto_results
@@ -645,7 +668,7 @@ def generate_statistics(sentences: List[Dict]) -> Dict[str, Any]:
     }
 
     # 选取示例句子
-    for spot in ['九寨沟', '故宫', '黄山']:
+    for spot in ['泰山', '西湖', '张家界']:
         spot_sentences = [s for s in sentences if s['scenic_spot'] == spot]
         if spot_sentences:
             stats['sample_sentences'][spot] = spot_sentences[:3]  # 取前3个作为示例

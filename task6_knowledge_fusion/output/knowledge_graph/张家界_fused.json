@@ -1,0 +1,193 @@
+{
+  "scenic_spot": "张家界",
+  "fused_pois": [
+    "袁家界景区",
+    "袁家界平地段”",
+    "“标志门",
+    "金鞭溪核心段",
+    "十里画廊景区",
+    "百龙天梯景区",
+    "“森林公园门票站",
+    "天子山索道",
+    "天子山环保车观光",
+    "四门",
+    "天子山自然保护区",
+    "金鞭溪景区",
+    "市区",
+    "路亚山",
+    "劈山",
+    "大门",
+    "奇阁"
+  ],
+  "poi_weights": {
+    "袁家界景区": 1.0,
+    "袁家界平地段”": 0.7,
+    "“标志门": 0.7,
+    "金鞭溪核心段": 0.7,
+    "十里画廊景区": 1.0,
+    "百龙天梯景区": 0.94,
+    "“森林公园门票站": 0.7,
+    "天子山索道": 0.7,
+    "天子山环保车观光": 0.7,
+    "四门": 0.45,
+    "天子山自然保护区": 0.45,
+    "金鞭溪景区": 0.45,
+    "市区": 0.45,
+    "路亚山": 0.45,
+    "劈山": 0.45,
+    "大门": 0.45,
+    "奇阁": 0.45
+  },
+  "statistics": {
+    "official_poi_count": 9,
+    "visitor_poi_count": 69,
+    "fused_poi_count": 17,
+    "visitor_supplemented_count": 8,
+    "advice_matched_count": 0,
+    "advice_unmatched_count": 11
+  },
+  "time_periods": {},
+  "normalized_routes": [
+    {
+      "from_poi": "“森林公园门票站",
+      "to_poi": "金鞭溪核心段",
+      "route_id": "main",
+      "sequence_index": 1,
+      "period": "未知时段",
+      "transport": "",
+      "time_start": "",
+      "time_end": "",
+      "duration": "",
+      "source_format": "structured_time_route"
+    },
+    {
+      "from_poi": "百龙天梯景区",
+      "to_poi": "袁家界景区",
+      "route_id": "main",
+      "sequence_index": 2,
+      "period": "未知时段",
+      "transport": "",
+      "time_start": "",
+      "time_end": "",
+      "duration": "",
+      "source_format": "structured_time_route"
+    },
+    {
+      "from_poi": "天子山索道",
+      "to_poi": "十里画廊景区",
+      "route_id": "main",
+      "sequence_index": 3,
+      "period": "未知时段",
+      "transport": "",
+      "time_start": "",
+      "time_end": "",
+      "duration": "",
+      "source_format": "structured_time_route"
+    },
+    {
+      "from_poi": "“标志门",
+      "to_poi": "十里画廊景区",
+      "route_id": "main",
+      "sequence_index": 4,
+      "period": "未知时段",
+      "transport": "",
+      "time_start": "",
+      "time_end": "",
+      "duration": "",
+      "source_format": "structured_time_route"
+    },
+    {
+      "from_poi": "天子山环保车观光",
+      "to_poi": "袁家界平地段”",
+      "route_id": "main",
+      "sequence_index": 5,
+      "period": "未知时段",
+      "transport": "",
+      "time_start": "",
+      "time_end": "",
+      "duration": "",
+      "source_format": "structured_time_route"
+    }
+  ],
+  "route_normalization_report": {
+    "route_format": "arrow_text",
+    "parsed_route_count": 5,
+    "normalized_route_count": 5,
+    "official_poi_count": 9,
+    "time_period_count": 0
+  },
+  "recommended_route": {
+    "route_id": "main",
+    "reason": "single_route",
+    "score": 1.0,
+    "route_scores": {
+      "main": 1.0
+    }
+  },
+  "visitor_supplemented": [
+    "四门",
+    "天子山自然保护区",
+    "金鞭溪景区",
+    "市区",
+    "路亚山",
+    "劈山",
+    "大门",
+    "奇阁"
+  ],
+  "visitor_supplemented_details": [
+    {
+      "poi": "四门",
+      "doc_frequency": 5,
+      "score": 1.0,
+      "source": "visitor"
+    },
+    {
+      "poi": "天子山自然保护区",
+      "doc_frequency": 5,
+      "score": 1.0,
+      "source": "visitor"
+    },
+    {
+      "poi": "金鞭溪景区",
+      "doc_frequency": 5,
+      "score": 1.0,
+      "source": "visitor"
+    },
+    {
+      "poi": "市区",
+      "doc_frequency": 3,
+      "score": 0.74,
+      "source": "visitor"
+    },
+    {
+      "poi": "路亚山",
+      "doc_frequency": 3,
+      "score": 0.74,
+      "source": "visitor"
+    },
+    {
+      "poi": "劈山",
+      "doc_frequency": 2,
+      "score": 0.61,
+      "source": "visitor"
+    },
+    {
+      "poi": "大门",
+      "doc_frequency": 2,
+      "score": 0.61,
+      "source": "visitor"
+    },
+    {
+      "poi": "奇阁",
+      "doc_frequency": 2,
+      "score": 0.61,
+      "source": "visitor"
+    }
+  ],
+  "condition_cleaning_report": {
+    "input_advice_count": 0,
+    "output_advice_count": 0,
+    "dropped_count": 0,
+    "dropped_reasons": {}
+  }
+}

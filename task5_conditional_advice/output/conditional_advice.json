@@ -1,451 +1,1056 @@
 {
   "metadata": {
-    "generated_at": "2026-03-03T23:20:02.630521",
+    "generated_at": "2026-03-04T22:18:56.967259",
     "source_file": "E:\\dataLab\\task5_conditional_advice\\../task1_data_collection/data/data_cleaned.xlsx",
     "total_records": 15,
-    "total_advice": 9,
+    "total_advice": 22,
     "scenic_spots": [
-      "九寨沟",
-      "故宫",
-      "黄山"
+      "泰山",
+      "西湖",
+      "张家界"
     ]
   },
   "conditional_advice": [
     {
-      "advice_id": "故宫_travelog_2_adv_0001",
-      "scenic_spot": "故宫",
-      "travelog_id": "故宫_travelog_2",
-      "visitor_type": "general",
+      "advice_id": "泰山_travelog_3_adv_0001",
+      "scenic_spot": "泰山",
+      "travelog_id": "泰山_travelog_3",
+      "visitor_type": "photographer",
       "condition": {
-        "text": "要回家过年",
-        "type": "other",
-        "type_label": "其他条件",
-        "normalized": "其他条件: 要回家过年"
+        "text": "步行5分钟至玉皇顶餐厅",
+        "type": "transport",
+        "type_label": "交通条件",
+        "normalized": "交通条件: 步行5分钟至玉皇顶餐厅"
       },
       "advice": {
-        "text": "最好是点对点,不要过多聚首",
-        "action": "最好是点对点,不要过多聚首",
+        "text": "推荐泰山炒鸡、小米粥),休整10分钟至12:30",
+        "action": "推荐泰山炒鸡、小米粥),休整10分钟至1",
         "target_entities": []
       },
-      "pattern_type": "if_then",
-      "sentence": "张伯礼同时提醒:要是要回家过年,特定要严峻遵守防疫要求,最好是点对点,不要过多聚首.",
-      "evidence_span": "张伯礼同时提醒:要是要回家过年,特定要严峻遵守防疫要求,最好是点对点,不要过多聚首.",
+      "pattern_type": "fallback",
+      "sentence": "11:30:从唐摩崖出发,步行5分钟至玉皇顶餐厅,用餐45分钟(11:35-12:20),人均40元(推荐泰山炒鸡、小米粥),休整10分钟至12:30.",
+      "evidence_span": "11:30:从唐摩崖出发,步行5分钟至玉皇顶餐厅,用餐45分钟(11:35-12:20),人均40元(推荐泰山炒鸡、小米粥),休整10分钟至12:30.",
+      "confidence": 0.9
+    },
+    {
+      "advice_id": "泰山_travelog_4_adv_0001",
+      "scenic_spot": "泰山",
+      "travelog_id": "泰山_travelog_4",
+      "visitor_type": "photographer",
+      "condition": {
+        "text": "含停留时长+体能",
+        "type": "time_duration",
+        "type_label": "时长条件",
+        "normalized": "时长条件: 含停留时长+体能"
+      },
+      "advice": {
+        "text": "建议+文化讲解",
+        "action": "建议+文化讲解",
+        "target_entities": []
+      },
+      "pattern_type": "fallback",
+      "sentence": "层级1(整体):3天2晚深度环线(基于官方路线优化,分体能段+文化分支) 层级2(每日结构):核心段+休整段+小众文化分支段 层级3(时段细分):清晨/上午/中午/下午/傍晚,含停留时长+体能建议+文化讲解.",
+      "evidence_span": "层级1(整体):3天2晚深度环线(基于官方路线优化,分体能段+文化分支) 层级2(每日结构):核心段+休整段+小众文化分支段 层级3(时段细分):清晨/上午/中午/下午/傍晚,含停留时长+体能建议+文化讲解.",
+      "confidence": 0.85
+    },
+    {
+      "advice_id": "西湖_travelog_1_adv_0001",
+      "scenic_spot": "西湖",
+      "travelog_id": "西湖_travelog_1",
+      "visitor_type": "photographer",
+      "condition": {
+        "text": "节假日西湖人超级多",
+        "type": "crowd",
+        "type_label": "人流条件",
+        "normalized": "人流条件: 旺季西湖人超级多"
+      },
+      "advice": {
+        "text": "建议早上6:30就出发,避开人流高峰,不然拍照全是人头!",
+        "action": "建议早上6:30就出发,避开人流高峰,不",
+        "target_entities": [
+          "早上"
+        ]
+      },
+      "pattern_type": "fallback",
+      "sentence": "节假日西湖人超级多,建议早上6:30就出发,避开人流高峰,不然拍照全是人头!",
+      "evidence_span": "节假日西湖人超级多,建议早上6:30就出发,避开人流高峰,不然拍照全是人头!",
+      "confidence": 0.9
+    },
+    {
+      "advice_id": "西湖_travelog_2_adv_0001",
+      "scenic_spot": "西湖",
+      "travelog_id": "西湖_travelog_2",
+      "visitor_type": "beginner",
+      "condition": {
+        "text": "要获取完整的西湖人文景点讲解词、文史资料、小众打卡点位的朋友",
+        "type": "other",
+        "type_label": "其他条件",
+        "normalized": "其他条件: 要获取完整的西湖人文景点讲解词、文史资料、小众打卡点位的朋友"
+      },
+      "advice": {
+        "text": "可以给我发私信,也可以加我的交流:,我会把整理好的资料免费发给大家",
+        "action": "可以给我发私信,也可以加我的交流:,我会",
+        "target_entities": []
+      },
+      "pattern_type": "desire_then",
+      "sentence": "想要获取完整的西湖人文景点讲解词、文史资料、小众打卡点位的朋友,可以给我发私信,也可以加我的交流:,我会把整理好的资料免费发给大家.",
+      "evidence_span": "想要获取完整的西湖人文景点讲解词、文史资料、小众打卡点位的朋友,可以给我发私信,也可以加我的交流:,我会把整理好的资料免费发给大家.",
       "confidence": 0.8
     },
     {
-      "advice_id": "故宫_travelog_5_adv_0001",
-      "scenic_spot": "故宫",
-      "travelog_id": "故宫_travelog_5",
-      "visitor_type": "general",
+      "advice_id": "西湖_travelog_2_adv_0002",
+      "scenic_spot": "西湖",
+      "travelog_id": "西湖_travelog_2",
+      "visitor_type": "beginner",
       "condition": {
-        "text": "看完升旗后可以在天安门广场上转转,等到8点",
+        "text": "这条路线以人文景点为主",
+        "type": "route",
+        "type_label": "路线条件",
+        "normalized": "路线条件: 这条路线以人文景点为主"
+      },
+      "advice": {
+        "text": "建议大家提前了解一下西湖的历史,逛的时候会更有代入感2",
+        "action": "建议大家提前了解一下西湖的历史,逛的时候",
+        "target_entities": []
+      },
+      "pattern_type": "fallback",
+      "sentence": "这条路线以人文景点为主,建议大家提前了解一下西湖的历史,逛的时候会更有代入感 2.",
+      "evidence_span": "这条路线以人文景点为主,建议大家提前了解一下西湖的历史,逛的时候会更有代入感 2.",
+      "confidence": 0.9
+    },
+    {
+      "advice_id": "西湖_travelog_2_adv_0003",
+      "scenic_spot": "西湖",
+      "travelog_id": "西湖_travelog_2",
+      "visitor_type": "beginner",
+      "condition": {
+        "text": "提前了解一下西湖的历史",
         "type": "time",
         "type_label": "时间条件",
-        "normalized": "时间条件: 看完升旗后可以在天安门广场上转转,等到8点"
+        "normalized": "时间条件: 提前了解一下西湖的历史"
       },
       "advice": {
-        "text": "可以在天安门广场去排队参观毛主席纪念堂",
-        "action": "可以在天安门广场去排队参观毛主席纪念堂",
-        "target_entities": []
-      },
-      "pattern_type": "condition_suffix_then",
-      "sentence": "看完升旗后可以在天安门广场上转转,等到8点的时候,可以在天安门广场去排队参观毛主席纪念堂.",
-      "evidence_span": "看完升旗后可以在天安门广场上转转,等到8点的时候,可以在天安门广场去排队参观毛主席纪念堂.",
-      "confidence": 0.95
-    },
-    {
-      "advice_id": "故宫_travelog_5_adv_0002",
-      "scenic_spot": "故宫",
-      "travelog_id": "故宫_travelog_5",
-      "visitor_type": "general",
-      "condition": {
-        "text": "出来后你就从天安门广场的地下通道到天安门城楼附近",
-        "type": "other",
-        "type_label": "其他条件",
-        "normalized": "其他条件: 出来后你就从天安门广场的地下通道到天安门城楼附近"
-      },
-      "advice": {
-        "text": "可以到天安门城楼上去看看，下来后你一直往里面走",
-        "action": "可以到天安门城楼上去看看",
+        "text": "建议大家提前了解一下西湖的历史",
+        "action": "建议大家提前了解一下西湖的历史",
         "target_entities": []
       },
       "pattern_type": "fallback",
-      "sentence": "出来后你就从天安门广场的地下通道到天安门城楼附近,你可以到天安门城楼上去看看,下来后你一直往里面走,就是故宫的午门,沿着中轴线向北游览三大殿,从神武门出来,对面就是景山公园,从景山公园的西 起了个大早,飞机11:00左右到达北京机场,出机场坐了机场大巴,16元一张票.",
-      "evidence_span": "出来后你就从天安门广场的地下通道到天安门城楼附近，你可以到天安门城楼上去看看，下来后你一直往里面走",
-      "confidence": 0.7
-    },
-    {
-      "advice_id": "故宫_travelog_5_adv_0003",
-      "scenic_spot": "故宫",
-      "travelog_id": "故宫_travelog_5",
-      "visitor_type": "general",
-      "condition": {
-        "text": "就是故宫的午门",
-        "type": "route",
-        "type_label": "路线条件",
-        "normalized": "路线条件: 就是故宫的午门"
-      },
-      "advice": {
-        "text": "可以到天安门城楼上去看看，下来后你一直往里面走，就是故宫的午门",
-        "action": "可以到天安门城楼上去看看",
-        "target_entities": []
-      },
-      "pattern_type": "fallback",
-      "sentence": "出来后你就从天安门广场的地下通道到天安门城楼附近,你可以到天安门城楼上去看看,下来后你一直往里面走,就是故宫的午门,沿着中轴线向北游览三大殿,从神武门出来,对面就是景山公园,从景山公园的西 起了个大早,飞机11:00左右到达北京机场,出机场坐了机场大巴,16元一张票.",
-      "evidence_span": "你可以到天安门城楼上去看看，下来后你一直往里面走，就是故宫的午门",
+      "sentence": "这条路线以人文景点为主,建议大家提前了解一下西湖的历史,逛的时候会更有代入感 2.",
+      "evidence_span": "建议大家提前了解一下西湖的历史",
       "confidence": 0.9
     },
     {
-      "advice_id": "故宫_travelog_5_adv_0004",
-      "scenic_spot": "故宫",
-      "travelog_id": "故宫_travelog_5",
-      "visitor_type": "general",
+      "advice_id": "西湖_travelog_2_adv_0004",
+      "scenic_spot": "西湖",
+      "travelog_id": "西湖_travelog_2",
+      "visitor_type": "beginner",
       "condition": {
-        "text": "详细点的路线~酒店在天安门那边",
-        "type": "route",
-        "type_label": "路线条件",
-        "normalized": "路线条件: 详细点的路线~酒店在天安门那边"
+        "text": "只需要提前预约就",
+        "type": "time",
+        "type_label": "时间条件",
+        "normalized": "时间条件: 只需要提前预约就"
       },
       "advice": {
-        "text": "推荐详细点的路线~酒店在天安门那边,想去长城,798,三里屯,故宫",
-        "action": "推荐详细点的路线~酒店在天安门那边,想去",
+        "text": "可以进去，大家一定要提前预约早上8:00我们从湖滨出发，步行20分钟就到了断桥残雪",
+        "action": "可以进去",
         "target_entities": [
-          "路线"
+          "预约",
+          "早上"
         ]
       },
       "pattern_type": "fallback",
-      "sentence": "请推荐详细点的路线~酒店在天安门那边,想去长城,798,三里屯,故宫.",
-      "evidence_span": "请推荐详细点的路线~酒店在天安门那边,想去长城,798,三里屯,故宫.",
+      "sentence": "很多小众人文景点都免费开放,只需要提前预约就可以进去,大家一定要提前预约 早上8:00 我们从湖滨出发,步行20分钟就到了断桥残雪,早上的断桥人非常少,完全没有节假日的人头攒动,我们可以安安静静的感受断桥的历史.",
+      "evidence_span": "只需要提前预约就可以进去，大家一定要提前预约 早上8:00 我们从湖滨出发，步行20分钟就到了断桥残雪",
       "confidence": 0.9
     },
     {
-      "advice_id": "故宫_travelog_5_adv_0005",
-      "scenic_spot": "故宫",
-      "travelog_id": "故宫_travelog_5",
-      "visitor_type": "general",
+      "advice_id": "西湖_travelog_3_adv_0001",
+      "scenic_spot": "西湖",
+      "travelog_id": "西湖_travelog_3",
+      "visitor_type": "photographer",
       "condition": {
-        "text": "十一假期以后",
-        "type": "other",
-        "type_label": "其他条件",
-        "normalized": "其他条件: 十一假期以后"
+        "text": "步行5分钟至花港观鱼餐厅(11",
+        "type": "transport",
+        "type_label": "交通条件",
+        "normalized": "交通条件: 步行5分钟至花港观鱼餐厅(11"
       },
       "advice": {
-        "text": "可以坐一站5路汽车从北门进,故宫最好多转转,珍宝馆是单收费的,不过看看挺不错的",
-        "action": "可以坐一站5路汽车从北门进,故宫最好多转",
-        "target_entities": [
-          "北门"
-        ]
-      },
-      "pattern_type": "if_then",
-      "sentence": "请指点下~ 我建议您分这样几天: 第一天,早起一点儿,上午游览故宫,如果是十一假期以后,从南门进,顺便看看天安门,大剧院,如果是十一期间,故宫好像有些地方不开放,你可以坐一站5路汽车从北门进,故宫最好多转转,珍宝馆是单收费的,不过看看挺不错的.",
-      "evidence_span": "请指点下~ 我建议您分这样几天: 第一天,早起一点儿,上午游览故宫,如果是十一假期以后,从南门进,顺便看看天安门,大剧院,如果是十一期间,故宫好像有些地方不开放,你可以坐一站5路汽车从北门进,故宫最好多转转,珍宝馆是单收费的,不过看看挺不错的.",
-      "confidence": 0.85
-    },
-    {
-      "advice_id": "故宫_travelog_5_adv_0006",
-      "scenic_spot": "故宫",
-      "travelog_id": "故宫_travelog_5",
-      "visitor_type": "general",
-      "condition": {
-        "text": "指点下~我",
-        "type": "other",
-        "type_label": "其他条件",
-        "normalized": "其他条件: 指点下~我"
-      },
-      "advice": {
-        "text": "建议您分这样几天:第一天，早起一点儿，上午游览故宫",
-        "action": "建议您分这样几天:第一天",
-        "target_entities": [
-          "第一天"
-        ]
-      },
-      "pattern_type": "fallback",
-      "sentence": "请指点下~ 我建议您分这样几天: 第一天,早起一点儿,上午游览故宫,如果是十一假期以后,从南门进,顺便看看天安门,大剧院,如果是十一期间,故宫好像有些地方不开放,你可以坐一站5路汽车从北门进,故宫最好多转转,珍宝馆是单收费的,不过看看挺不错的.",
-      "evidence_span": "请指点下~ 我建议您分这样几天: 第一天，早起一点儿，上午游览故宫",
-      "confidence": 0.7
-    },
-    {
-      "advice_id": "故宫_travelog_5_adv_0007",
-      "scenic_spot": "故宫",
-      "travelog_id": "故宫_travelog_5",
-      "visitor_type": "general",
-      "condition": {
-        "text": "十一",
-        "type": "other",
-        "type_label": "其他条件",
-        "normalized": "其他条件: 十一"
-      },
-      "advice": {
-        "text": "可以坐一站5路汽车从北门进",
-        "action": "可以坐一站5路汽车从北门进",
-        "target_entities": [
-          "北门"
-        ]
-      },
-      "pattern_type": "if_then",
-      "sentence": "请指点下~ 我建议您分这样几天: 第一天,早起一点儿,上午游览故宫,如果是十一假期以后,从南门进,顺便看看天安门,大剧院,如果是十一期间,故宫好像有些地方不开放,你可以坐一站5路汽车从北门进,故宫最好多转转,珍宝馆是单收费的,不过看看挺不错的.",
-      "evidence_span": "如果是十一期间，故宫好像有些地方不开放，你可以坐一站5路汽车从北门进",
-      "confidence": 0.85
-    },
-    {
-      "advice_id": "黄山_travelog_5_adv_0001",
-      "scenic_spot": "黄山",
-      "travelog_id": "黄山_travelog_5",
-      "visitor_type": "general",
-      "condition": {
-        "text": "山下两晚商务酒店标准间(补单房差加160元/人/天×2天)6",
-        "type": "other",
-        "type_label": "其他条件",
-        "normalized": "其他条件: 山下两晚商务酒店标准间(补单房差加160元/人/天×2天)6"
-      },
-      "advice": {
-        "text": "建议购买旅游意外险20元/人",
-        "action": "建议购买旅游意外险20元/人",
+        "text": "推荐西湖醋鱼、龙井虾仁),休整10分钟至12:30",
+        "action": "推荐西湖醋鱼、龙井虾仁),休整10分钟至",
         "target_entities": []
       },
       "pattern_type": "fallback",
-      "sentence": "不含玻璃栈道78元/人自理) 4,住宿:山下两晚商务酒店标准间(补单房差加160元/人/天×2天) 6,保险:旅行社责任险,建议购买旅游意外险20元/人",
-      "evidence_span": "不含玻璃栈道78元/人自理) 4,住宿:山下两晚商务酒店标准间(补单房差加160元/人/天×2天) 6,保险:旅行社责任险,建议购买旅游意外险20元/人",
+      "sentence": "11:30:游船从三潭印月出发,航行15分钟至花港码头(11:45),步行5分钟至花港观鱼餐厅(11:50),用餐30分钟(11:50-12:20),人均60元(推荐西湖醋鱼、龙井虾仁),休整10分钟至12:30.",
+      "evidence_span": "11:30:游船从三潭印月出发,航行15分钟至花港码头(11:45),步行5分钟至花港观鱼餐厅(11:50),用餐30分钟(11:50-12:20),人均60元(推荐西湖醋鱼、龙井虾仁),休整10分钟至12:30.",
+      "confidence": 0.9
+    },
+    {
+      "advice_id": "西湖_travelog_4_adv_0001",
+      "scenic_spot": "西湖",
+      "travelog_id": "西湖_travelog_4",
+      "visitor_type": "photographer",
+      "condition": {
+        "text": "含停留时长+摄影",
+        "type": "time_duration",
+        "type_label": "时长条件",
+        "normalized": "时长条件: 含停留时长+摄影"
+      },
+      "advice": {
+        "text": "建议+季节适配",
+        "action": "建议+季节适配",
+        "target_entities": []
+      },
+      "pattern_type": "fallback",
+      "sentence": "层级1(整体):3天2晚季节适配环线(基于官方路线优化,分摄影时段+季节分支) 层级2(每日结构):核心摄影段+休整段+小众季节分支段 层级3(时段细分):清晨/上午/中午/下午/傍晚,含停留时长+摄影建议+季节适配.",
+      "evidence_span": "层级1(整体):3天2晚季节适配环线(基于官方路线优化,分摄影时段+季节分支) 层级2(每日结构):核心摄影段+休整段+小众季节分支段 层级3(时段细分):清晨/上午/中午/下午/傍晚,含停留时长+摄影建议+季节适配.",
+      "confidence": 0.85
+    },
+    {
+      "advice_id": "西湖_travelog_4_adv_0002",
+      "scenic_spot": "西湖",
+      "travelog_id": "西湖_travelog_4",
+      "visitor_type": "photographer",
+      "condition": {
+        "text": "摄影+季节层级(整体→每日摄影段→核心/休整/小众→时段/摄影",
+        "type": "other",
+        "type_label": "其他条件",
+        "normalized": "其他条件: 摄影+季节层级(整体→每日摄影段→核心/休整/小众→时段/摄影"
+      },
+      "advice": {
+        "text": "建议/季节),按春季摄影黄金时段设计,增加小众机位和茶文化体验,适配深度游客",
+        "action": "建议/季节),按春季摄影黄金时段设计,增",
+        "target_entities": [
+          "时段"
+        ]
+      },
+      "pattern_type": "fallback",
+      "sentence": "实际路线:摄影+季节层级(整体→每日摄影段→核心/休整/小众→时段/摄影建议/季节),按春季摄影黄金时段设计,增加小众机位和茶文化体验,适配深度游客.",
+      "evidence_span": "实际路线:摄影+季节层级(整体→每日摄影段→核心/休整/小众→时段/摄影建议/季节),按春季摄影黄金时段设计,增加小众机位和茶文化体验,适配深度游客.",
+      "confidence": 0.75
+    },
+    {
+      "advice_id": "西湖_travelog_5_adv_0001",
+      "scenic_spot": "西湖",
+      "travelog_id": "西湖_travelog_5",
+      "visitor_type": "photographer",
+      "condition": {
+        "text": "排队10分钟登船",
+        "type": "crowd",
+        "type_label": "人流条件",
+        "normalized": "人流条件: 排队10分钟登船"
+      },
+      "advice": {
+        "text": "最好,因为它的视野无遮挡",
+        "action": "最好,因为它的视野无遮挡",
+        "target_entities": []
+      },
+      "pattern_type": "fallback",
+      "sentence": "购买游船票后,排队10分钟登船,它的船舱很宽敞,能坐50人,这里的座位靠窗的最好,因为它的视野无遮挡.",
+      "evidence_span": "购买游船票后,排队10分钟登船,它的船舱很宽敞,能坐50人,这里的座位靠窗的最好,因为它的视野无遮挡.",
+      "confidence": 0.85
+    },
+    {
+      "advice_id": "张家界_travelog_1_adv_0001",
+      "scenic_spot": "张家界",
+      "travelog_id": "张家界_travelog_1",
+      "visitor_type": "elderly",
+      "condition": {
+        "text": "要获取高清张家界路线图、避坑指南、私藏小众机位、本地美食",
+        "type": "route",
+        "type_label": "路线条件",
+        "normalized": "路线条件: 要获取高清张家界路线图、避坑指南、私藏小众机位、本地美食"
+      },
+      "advice": {
+        "text": "推荐的朋友,可以加我电话:,邮箱:,免费发给大家",
+        "action": "推荐的朋友,可以加我电话:,邮箱:,免费",
+        "target_entities": []
+      },
+      "pattern_type": "desire_then",
+      "sentence": "想要获取高清张家界路线图、避坑指南、私藏小众机位、本地美食推荐的朋友,可以加我电话:,邮箱:,免费发给大家!",
+      "evidence_span": "想要获取高清张家界路线图、避坑指南、私藏小众机位、本地美食推荐的朋友,可以加我电话:,邮箱:,免费发给大家!",
+      "confidence": 1.0
+    },
+    {
+      "advice_id": "张家界_travelog_1_adv_0002",
+      "scenic_spot": "张家界",
+      "travelog_id": "张家界_travelog_1",
+      "visitor_type": "elderly",
+      "condition": {
+        "text": "走路的",
+        "type": "other",
+        "type_label": "其他条件",
+        "normalized": "其他条件: 走路的"
+      },
+      "advice": {
+        "text": "可以直接冲",
+        "action": "可以直接冲",
+        "target_entities": []
+      },
+      "pattern_type": "desire_then",
+      "sentence": "索道:百龙天梯单程72元/人,天子山索道单程72元/人,黄石寨索道单程65元/人,十里画廊小火车单程38元/人,不想走路的可以直接冲!",
+      "evidence_span": "索道:百龙天梯单程72元/人,天子山索道单程72元/人,黄石寨索道单程65元/人,十里画廊小火车单程38元/人,不想走路的可以直接冲!",
+      "confidence": 0.8
+    },
+    {
+      "advice_id": "张家界_travelog_2_adv_0001",
+      "scenic_spot": "张家界",
+      "travelog_id": "张家界_travelog_2",
+      "visitor_type": "elderly",
+      "condition": {
+        "text": "早上7",
+        "type": "time",
+        "type_label": "时间条件",
+        "normalized": "时间条件: 上午7"
+      },
+      "advice": {
+        "text": "可以避开人流,因为常规游客都是从起点往终点走,我们反着走,全程几乎看不到人,完全承包了整个金鞭溪!",
+        "action": "可以避开人流,因为常规游客都是从起点往终",
+        "target_entities": []
+      },
+      "pattern_type": "fallback",
+      "sentence": "早上7:00 我们起床吃了早饭,从武陵源门票站入园,乘坐景区环保车前往水绕四门,车程10分钟,早上7:20抵达水绕四门,也就是金鞭溪的终点,我们今天选择反穿金鞭溪,从终点走到起点,这样可以避开人流,因为常规游客都是从起点往终点走,我们反着走,全程几乎看不到人,完全承包了整个金鞭溪!",
+      "evidence_span": "早上7:00 我们起床吃了早饭,从武陵源门票站入园,乘坐景区环保车前往水绕四门,车程10分钟,早上7:20抵达水绕四门,也就是金鞭溪的终点,我们今天选择反穿金鞭溪,从终点走到起点,这样可以避开人流,因为常规游客都是从起点往终点走,我们反着走,全程几乎看不到人,完全承包了整个金鞭溪!",
+      "confidence": 0.8
+    },
+    {
+      "advice_id": "张家界_travelog_2_adv_0002",
+      "scenic_spot": "张家界",
+      "travelog_id": "张家界_travelog_2",
+      "visitor_type": "elderly",
+      "condition": {
+        "text": "今天选择反穿金鞭溪",
+        "type": "other",
+        "type_label": "其他条件",
+        "normalized": "其他条件: 今天选择反穿金鞭溪"
+      },
+      "advice": {
+        "text": "可以避开人流",
+        "action": "可以避开人流",
+        "target_entities": []
+      },
+      "pattern_type": "fallback",
+      "sentence": "早上7:00 我们起床吃了早饭,从武陵源门票站入园,乘坐景区环保车前往水绕四门,车程10分钟,早上7:20抵达水绕四门,也就是金鞭溪的终点,我们今天选择反穿金鞭溪,从终点走到起点,这样可以避开人流,因为常规游客都是从起点往终点走,我们反着走,全程几乎看不到人,完全承包了整个金鞭溪!",
+      "evidence_span": "我们今天选择反穿金鞭溪，从终点走到起点，这样可以避开人流",
       "confidence": 0.7
+    },
+    {
+      "advice_id": "张家界_travelog_2_adv_0003",
+      "scenic_spot": "张家界",
+      "travelog_id": "张家界_travelog_2",
+      "visitor_type": "elderly",
+      "condition": {
+        "text": "从终点走到起点",
+        "type": "other",
+        "type_label": "其他条件",
+        "normalized": "其他条件: 从终点走到起点"
+      },
+      "advice": {
+        "text": "可以避开人流，因为常规游客都是从起点往终点走",
+        "action": "可以避开人流",
+        "target_entities": []
+      },
+      "pattern_type": "fallback",
+      "sentence": "早上7:00 我们起床吃了早饭,从武陵源门票站入园,乘坐景区环保车前往水绕四门,车程10分钟,早上7:20抵达水绕四门,也就是金鞭溪的终点,我们今天选择反穿金鞭溪,从终点走到起点,这样可以避开人流,因为常规游客都是从起点往终点走,我们反着走,全程几乎看不到人,完全承包了整个金鞭溪!",
+      "evidence_span": "从终点走到起点，这样可以避开人流，因为常规游客都是从起点往终点走",
+      "confidence": 0.7
+    },
+    {
+      "advice_id": "张家界_travelog_2_adv_0004",
+      "scenic_spot": "张家界",
+      "travelog_id": "张家界_travelog_2",
+      "visitor_type": "elderly",
+      "condition": {
+        "text": "早上6",
+        "type": "time",
+        "type_label": "时间条件",
+        "normalized": "时间条件: 上午6"
+      },
+      "advice": {
+        "text": "最好的地方",
+        "action": "最好的地方",
+        "target_entities": []
+      },
+      "pattern_type": "fallback",
+      "sentence": "早上6:00 我们就起床了,前往老屋场看日出,老屋场是张家界看日出最好的地方,人特别少,完全没有常规景点的人头攒动,我们从民宿出发,步行1个小时,早上7:00抵达老屋场的观景台,刚好赶上了日出,橘红色的太阳从峰林后面慢慢升起来,整个天空都变成了金色,阳光洒在峰林和梯田上,真的太美了,我们所有人都被眼前的风景震撼到了,完全说不出话!",
+      "evidence_span": "早上6:00 我们就起床了，前往老屋场看日出，老屋场是张家界看日出最好的地方",
+      "confidence": 0.85
+    },
+    {
+      "advice_id": "张家界_travelog_2_adv_0005",
+      "scenic_spot": "张家界",
+      "travelog_id": "张家界_travelog_2",
+      "visitor_type": "elderly",
+      "condition": {
+        "text": "的太震撼了中午12:30我们",
+        "type": "time",
+        "type_label": "时间条件",
+        "normalized": "时间条件: 的太震撼了中午12:30我们"
+      },
+      "advice": {
+        "text": "可以360度看张家界的峰林全景，真的太震撼了中午12:30我们在黄石寨山顶的补给点吃了午饭，是提前带的自热米饭和零食",
+        "action": "可以360度看张家界的峰林全景",
+        "target_entities": []
+      },
+      "pattern_type": "fallback",
+      "sentence": "上午10:30 我们抵达黄石寨山顶,沿着环形步道走了一圈,全程步行2个小时,打卡了六奇阁、摘星台、五指峰、天桥遗墩所有核心景点,我们去的时候,旅行团都已经走了,人特别少,我们可以安安静静的看风景,黄石寨的观景台真的绝了,可以360度看张家界的峰林全景,真的太震撼了 中午12:30 我们在黄石寨山顶的补给点吃了午饭,是提前带的自热米饭和零食,休息了1个小时,下午13:30我们选择从黄石寨的后山步道下山,前往琵琶溪,这条路线是小众的徒步路线,全程4公里,都是下坡,人特别少,沿途的风景特别原始,我们走了1个半小时,下午15:00抵达琵琶溪.",
+      "evidence_span": "可以360度看张家界的峰林全景，真的太震撼了 中午12:30 我们在黄石寨山顶的补给点吃了午饭，是提前带的自热米饭和零食",
+      "confidence": 0.8
+    },
+    {
+      "advice_id": "张家界_travelog_3_adv_0001",
+      "scenic_spot": "张家界",
+      "travelog_id": "张家界_travelog_3",
+      "visitor_type": "elderly",
+      "condition": {
+        "text": "步行10分钟至天子山餐厅(12",
+        "type": "transport",
+        "type_label": "交通条件",
+        "normalized": "交通条件: 步行10分钟至天子山餐厅(12"
+      },
+      "advice": {
+        "text": "推荐三下锅、葛根粉),休整10分钟至13:00",
+        "action": "推荐三下锅、葛根粉),休整10分钟至13",
+        "target_entities": []
+      },
+      "pattern_type": "fallback",
+      "sentence": "12:00:从天子山索道上站出发,步行10分钟至天子山餐厅(12:10),用餐40分钟(12:10-12:50),人均50元(推荐三下锅、葛根粉),休整10分钟至13:00.",
+      "evidence_span": "12:00:从天子山索道上站出发,步行10分钟至天子山餐厅(12:10),用餐40分钟(12:10-12:50),人均50元(推荐三下锅、葛根粉),休整10分钟至13:00.",
+      "confidence": 0.9
+    },
+    {
+      "advice_id": "张家界_travelog_4_adv_0001",
+      "scenic_spot": "张家界",
+      "travelog_id": "张家界_travelog_4",
+      "visitor_type": "photographer",
+      "condition": {
+        "text": "含停留时长+恐高",
+        "type": "time_duration",
+        "type_label": "时长条件",
+        "normalized": "时长条件: 含停留时长+恐高"
+      },
+      "advice": {
+        "text": "建议+观景时段",
+        "action": "建议+观景时段",
+        "target_entities": [
+          "时段"
+        ]
+      },
+      "pattern_type": "fallback",
+      "sentence": "层级1(整体):3天2晚恐高适配环线(基于官方路线优化,分观景时段+恐高分支) 层级2(每日结构):核心观景段+休整段+小众恐高分支段 层级3(时段细分):清晨/上午/中午/下午/傍晚,含停留时长+恐高建议+观景时段.",
+      "evidence_span": "层级1(整体):3天2晚恐高适配环线(基于官方路线优化,分观景时段+恐高分支) 层级2(每日结构):核心观景段+休整段+小众恐高分支段 层级3(时段细分):清晨/上午/中午/下午/傍晚,含停留时长+恐高建议+观景时段.",
+      "confidence": 0.85
+    },
+    {
+      "advice_id": "张家界_travelog_5_adv_0001",
+      "scenic_spot": "张家界",
+      "travelog_id": "张家界_travelog_5",
+      "visitor_type": "elderly",
+      "condition": {
+        "text": "你恐高",
+        "type": "other",
+        "type_label": "其他条件",
+        "normalized": "其他条件: 你恐高"
+      },
+      "advice": {
+        "text": "建议坐它",
+        "action": "建议坐它",
+        "target_entities": []
+      },
+      "pattern_type": "if_then",
+      "sentence": "水绕四门的旁边是百龙天梯,它是世界最高的户外电梯,这里的运行高度有335米,它的速度很快,66秒就能到顶,要是你恐高,不建议坐它.",
+      "evidence_span": "水绕四门的旁边是百龙天梯,它是世界最高的户外电梯,这里的运行高度有335米,它的速度很快,66秒就能到顶,要是你恐高,不建议坐它.",
+      "confidence": 0.85
+    },
+    {
+      "advice_id": "张家界_travelog_5_adv_0002",
+      "scenic_spot": "张家界",
+      "travelog_id": "张家界_travelog_5",
+      "visitor_type": "elderly",
+      "condition": {
+        "text": "你恐高",
+        "type": "other",
+        "type_label": "其他条件",
+        "normalized": "其他条件: 你恐高"
+      },
+      "advice": {
+        "text": "不要靠近它的边缘,它的下面是万丈深渊",
+        "action": "不要靠近它的边缘,它",
+        "target_entities": []
+      },
+      "pattern_type": "if_not_then",
+      "sentence": "走在天下第一桥上,它的护栏是铁制的,这里的风很大,吹得护栏晃动,要是你恐高,不要靠近它的边缘,它的下面是万丈深渊.",
+      "evidence_span": "走在天下第一桥上,它的护栏是铁制的,这里的风很大,吹得护栏晃动,要是你恐高,不要靠近它的边缘,它的下面是万丈深渊.",
+      "confidence": 0.8
     }
   ],
   "condition_mapping": {
-    "other": {
-      "其他条件: 要回家过年": {
-        "condition_type": "other",
-        "condition_label": "其他条件",
+    "transport": {
+      "交通条件: 步行5分钟至玉皇顶餐厅": {
+        "condition_type": "transport",
+        "condition_label": "交通条件",
         "condition_raw_examples": [
-          "要回家过年"
+          "步行5分钟至玉皇顶餐厅"
         ],
         "advice_count": 1,
         "unique_advice_count": 1,
         "advice_frequency": [
           {
-            "advice_text": "最好是点对点,不要过多聚首",
+            "advice_text": "推荐泰山炒鸡、小米粥),休整10分钟至12:30",
             "count": 1
           }
         ],
         "record_examples": [
           {
-            "advice_id": "故宫_travelog_2_adv_0001",
-            "advice_text": "最好是点对点,不要过多聚首",
-            "action": "最好是点对点,不要过多聚首",
-            "scenic_spot": "故宫",
-            "travelog_id": "故宫_travelog_2",
-            "confidence": 0.8,
-            "evidence_sentence": "张伯礼同时提醒:要是要回家过年,特定要严峻遵守防疫要求,最好是点对点,不要过多聚首."
+            "advice_id": "泰山_travelog_3_adv_0001",
+            "advice_text": "推荐泰山炒鸡、小米粥),休整10分钟至12:30",
+            "action": "推荐泰山炒鸡、小米粥),休整10分钟至1",
+            "scenic_spot": "泰山",
+            "travelog_id": "泰山_travelog_3",
+            "confidence": 0.9,
+            "evidence_sentence": "11:30:从唐摩崖出发,步行5分钟至玉皇顶餐厅,用餐45分钟(11:35-12:20),人均40元(推荐泰山炒鸡、小米粥),休整10分钟至12:30."
           }
         ]
       },
-      "其他条件: 出来后你就从天安门广场的地下通道到天安门城楼附近": {
-        "condition_type": "other",
-        "condition_label": "其他条件",
+      "交通条件: 步行5分钟至花港观鱼餐厅(11": {
+        "condition_type": "transport",
+        "condition_label": "交通条件",
         "condition_raw_examples": [
-          "出来后你就从天安门广场的地下通道到天安门城楼附近"
+          "步行5分钟至花港观鱼餐厅(11"
         ],
         "advice_count": 1,
         "unique_advice_count": 1,
         "advice_frequency": [
           {
-            "advice_text": "可以到天安门城楼上去看看，下来后你一直往里面走",
+            "advice_text": "推荐西湖醋鱼、龙井虾仁),休整10分钟至12:30",
             "count": 1
           }
         ],
         "record_examples": [
           {
-            "advice_id": "故宫_travelog_5_adv_0002",
-            "advice_text": "可以到天安门城楼上去看看，下来后你一直往里面走",
-            "action": "可以到天安门城楼上去看看",
-            "scenic_spot": "故宫",
-            "travelog_id": "故宫_travelog_5",
-            "confidence": 0.7,
-            "evidence_sentence": "出来后你就从天安门广场的地下通道到天安门城楼附近，你可以到天安门城楼上去看看，下来后你一直往里面走"
+            "advice_id": "西湖_travelog_3_adv_0001",
+            "advice_text": "推荐西湖醋鱼、龙井虾仁),休整10分钟至12:30",
+            "action": "推荐西湖醋鱼、龙井虾仁),休整10分钟至",
+            "scenic_spot": "西湖",
+            "travelog_id": "西湖_travelog_3",
+            "confidence": 0.9,
+            "evidence_sentence": "11:30:游船从三潭印月出发,航行15分钟至花港码头(11:45),步行5分钟至花港观鱼餐厅(11:50),用餐30分钟(11:50-12:20),人均60元(推荐西湖醋鱼、龙井虾仁),休整10分钟至12:30."
           }
         ]
       },
-      "其他条件: 十一假期以后": {
-        "condition_type": "other",
-        "condition_label": "其他条件",
+      "交通条件: 步行10分钟至天子山餐厅(12": {
+        "condition_type": "transport",
+        "condition_label": "交通条件",
         "condition_raw_examples": [
-          "十一假期以后"
+          "步行10分钟至天子山餐厅(12"
         ],
         "advice_count": 1,
         "unique_advice_count": 1,
         "advice_frequency": [
           {
-            "advice_text": "可以坐一站5路汽车从北门进,故宫最好多转转,珍宝馆是单收费的,不过看看挺不错的",
+            "advice_text": "推荐三下锅、葛根粉),休整10分钟至13:00",
             "count": 1
           }
         ],
         "record_examples": [
           {
-            "advice_id": "故宫_travelog_5_adv_0005",
-            "advice_text": "可以坐一站5路汽车从北门进,故宫最好多转转,珍宝馆是单收费的,不过看看挺不错的",
-            "action": "可以坐一站5路汽车从北门进,故宫最好多转",
-            "scenic_spot": "故宫",
-            "travelog_id": "故宫_travelog_5",
-            "confidence": 0.85,
-            "evidence_sentence": "请指点下~ 我建议您分这样几天: 第一天,早起一点儿,上午游览故宫,如果是十一假期以后,从南门进,顺便看看天安门,大剧院,如果是十一期间,故宫好像有些地方不开放,你可以坐一站5路汽车从北门进,故宫最好多转转,珍宝馆是单收费的,不过看看挺不错的."
-          }
-        ]
-      },
-      "其他条件: 指点下~我": {
-        "condition_type": "other",
-        "condition_label": "其他条件",
-        "condition_raw_examples": [
-          "指点下~我"
-        ],
-        "advice_count": 1,
-        "unique_advice_count": 1,
-        "advice_frequency": [
-          {
-            "advice_text": "建议您分这样几天:第一天，早起一点儿，上午游览故宫",
-            "count": 1
-          }
-        ],
-        "record_examples": [
-          {
-            "advice_id": "故宫_travelog_5_adv_0006",
-            "advice_text": "建议您分这样几天:第一天，早起一点儿，上午游览故宫",
-            "action": "建议您分这样几天:第一天",
-            "scenic_spot": "故宫",
-            "travelog_id": "故宫_travelog_5",
-            "confidence": 0.7,
-            "evidence_sentence": "请指点下~ 我建议您分这样几天: 第一天，早起一点儿，上午游览故宫"
-          }
-        ]
-      },
-      "其他条件: 十一": {
-        "condition_type": "other",
-        "condition_label": "其他条件",
-        "condition_raw_examples": [
-          "十一"
-        ],
-        "advice_count": 1,
-        "unique_advice_count": 1,
-        "advice_frequency": [
-          {
-            "advice_text": "可以坐一站5路汽车从北门进",
-            "count": 1
-          }
-        ],
-        "record_examples": [
-          {
-            "advice_id": "故宫_travelog_5_adv_0007",
-            "advice_text": "可以坐一站5路汽车从北门进",
-            "action": "可以坐一站5路汽车从北门进",
-            "scenic_spot": "故宫",
-            "travelog_id": "故宫_travelog_5",
-            "confidence": 0.85,
-            "evidence_sentence": "如果是十一期间，故宫好像有些地方不开放，你可以坐一站5路汽车从北门进"
-          }
-        ]
-      },
-      "其他条件: 山下两晚商务酒店标准间(补单房差加160元/人/天×2天)6": {
-        "condition_type": "other",
-        "condition_label": "其他条件",
-        "condition_raw_examples": [
-          "山下两晚商务酒店标准间(补单房差加160元/人/天×2天)6"
-        ],
-        "advice_count": 1,
-        "unique_advice_count": 1,
-        "advice_frequency": [
-          {
-            "advice_text": "建议购买旅游意外险20元/人",
-            "count": 1
-          }
-        ],
-        "record_examples": [
-          {
-            "advice_id": "黄山_travelog_5_adv_0001",
-            "advice_text": "建议购买旅游意外险20元/人",
-            "action": "建议购买旅游意外险20元/人",
-            "scenic_spot": "黄山",
-            "travelog_id": "黄山_travelog_5",
-            "confidence": 0.7,
-            "evidence_sentence": "不含玻璃栈道78元/人自理) 4,住宿:山下两晚商务酒店标准间(补单房差加160元/人/天×2天) 6,保险:旅行社责任险,建议购买旅游意外险20元/人"
+            "advice_id": "张家界_travelog_3_adv_0001",
+            "advice_text": "推荐三下锅、葛根粉),休整10分钟至13:00",
+            "action": "推荐三下锅、葛根粉),休整10分钟至13",
+            "scenic_spot": "张家界",
+            "travelog_id": "张家界_travelog_3",
+            "confidence": 0.9,
+            "evidence_sentence": "12:00:从天子山索道上站出发,步行10分钟至天子山餐厅(12:10),用餐40分钟(12:10-12:50),人均50元(推荐三下锅、葛根粉),休整10分钟至13:00."
           }
         ]
       }
     },
-    "time": {
-      "时间条件: 看完升旗后可以在天安门广场上转转,等到8点": {
-        "condition_type": "time",
-        "condition_label": "时间条件",
+    "time_duration": {
+      "时长条件: 含停留时长+体能": {
+        "condition_type": "time_duration",
+        "condition_label": "时长条件",
         "condition_raw_examples": [
-          "看完升旗后可以在天安门广场上转转,等到8点"
+          "含停留时长+体能"
         ],
         "advice_count": 1,
         "unique_advice_count": 1,
         "advice_frequency": [
           {
-            "advice_text": "可以在天安门广场去排队参观毛主席纪念堂",
+            "advice_text": "建议+文化讲解",
             "count": 1
           }
         ],
         "record_examples": [
           {
-            "advice_id": "故宫_travelog_5_adv_0001",
-            "advice_text": "可以在天安门广场去排队参观毛主席纪念堂",
-            "action": "可以在天安门广场去排队参观毛主席纪念堂",
-            "scenic_spot": "故宫",
-            "travelog_id": "故宫_travelog_5",
-            "confidence": 0.95,
-            "evidence_sentence": "看完升旗后可以在天安门广场上转转,等到8点的时候,可以在天安门广场去排队参观毛主席纪念堂."
+            "advice_id": "泰山_travelog_4_adv_0001",
+            "advice_text": "建议+文化讲解",
+            "action": "建议+文化讲解",
+            "scenic_spot": "泰山",
+            "travelog_id": "泰山_travelog_4",
+            "confidence": 0.85,
+            "evidence_sentence": "层级1(整体):3天2晚深度环线(基于官方路线优化,分体能段+文化分支) 层级2(每日结构):核心段+休整段+小众文化分支段 层级3(时段细分):清晨/上午/中午/下午/傍晚,含停留时长+体能建议+文化讲解."
+          }
+        ]
+      },
+      "时长条件: 含停留时长+摄影": {
+        "condition_type": "time_duration",
+        "condition_label": "时长条件",
+        "condition_raw_examples": [
+          "含停留时长+摄影"
+        ],
+        "advice_count": 1,
+        "unique_advice_count": 1,
+        "advice_frequency": [
+          {
+            "advice_text": "建议+季节适配",
+            "count": 1
+          }
+        ],
+        "record_examples": [
+          {
+            "advice_id": "西湖_travelog_4_adv_0001",
+            "advice_text": "建议+季节适配",
+            "action": "建议+季节适配",
+            "scenic_spot": "西湖",
+            "travelog_id": "西湖_travelog_4",
+            "confidence": 0.85,
+            "evidence_sentence": "层级1(整体):3天2晚季节适配环线(基于官方路线优化,分摄影时段+季节分支) 层级2(每日结构):核心摄影段+休整段+小众季节分支段 层级3(时段细分):清晨/上午/中午/下午/傍晚,含停留时长+摄影建议+季节适配."
+          }
+        ]
+      },
+      "时长条件: 含停留时长+恐高": {
+        "condition_type": "time_duration",
+        "condition_label": "时长条件",
+        "condition_raw_examples": [
+          "含停留时长+恐高"
+        ],
+        "advice_count": 1,
+        "unique_advice_count": 1,
+        "advice_frequency": [
+          {
+            "advice_text": "建议+观景时段",
+            "count": 1
+          }
+        ],
+        "record_examples": [
+          {
+            "advice_id": "张家界_travelog_4_adv_0001",
+            "advice_text": "建议+观景时段",
+            "action": "建议+观景时段",
+            "scenic_spot": "张家界",
+            "travelog_id": "张家界_travelog_4",
+            "confidence": 0.85,
+            "evidence_sentence": "层级1(整体):3天2晚恐高适配环线(基于官方路线优化,分观景时段+恐高分支) 层级2(每日结构):核心观景段+休整段+小众恐高分支段 层级3(时段细分):清晨/上午/中午/下午/傍晚,含停留时长+恐高建议+观景时段."
+          }
+        ]
+      }
+    },
+    "crowd": {
+      "人流条件: 旺季西湖人超级多": {
+        "condition_type": "crowd",
+        "condition_label": "人流条件",
+        "condition_raw_examples": [
+          "节假日西湖人超级多"
+        ],
+        "advice_count": 1,
+        "unique_advice_count": 1,
+        "advice_frequency": [
+          {
+            "advice_text": "建议早上6:30就出发,避开人流高峰,不然拍照全是人头!",
+            "count": 1
+          }
+        ],
+        "record_examples": [
+          {
+            "advice_id": "西湖_travelog_1_adv_0001",
+            "advice_text": "建议早上6:30就出发,避开人流高峰,不然拍照全是人头!",
+            "action": "建议早上6:30就出发,避开人流高峰,不",
+            "scenic_spot": "西湖",
+            "travelog_id": "西湖_travelog_1",
+            "confidence": 0.9,
+            "evidence_sentence": "节假日西湖人超级多,建议早上6:30就出发,避开人流高峰,不然拍照全是人头!"
+          }
+        ]
+      },
+      "人流条件: 排队10分钟登船": {
+        "condition_type": "crowd",
+        "condition_label": "人流条件",
+        "condition_raw_examples": [
+          "排队10分钟登船"
+        ],
+        "advice_count": 1,
+        "unique_advice_count": 1,
+        "advice_frequency": [
+          {
+            "advice_text": "最好,因为它的视野无遮挡",
+            "count": 1
+          }
+        ],
+        "record_examples": [
+          {
+            "advice_id": "西湖_travelog_5_adv_0001",
+            "advice_text": "最好,因为它的视野无遮挡",
+            "action": "最好,因为它的视野无遮挡",
+            "scenic_spot": "西湖",
+            "travelog_id": "西湖_travelog_5",
+            "confidence": 0.85,
+            "evidence_sentence": "购买游船票后,排队10分钟登船,它的船舱很宽敞,能坐50人,这里的座位靠窗的最好,因为它的视野无遮挡."
+          }
+        ]
+      }
+    },
+    "other": {
+      "其他条件: 要获取完整的西湖人文景点讲解词、文史资料、小众打卡点位的朋友": {
+        "condition_type": "other",
+        "condition_label": "其他条件",
+        "condition_raw_examples": [
+          "要获取完整的西湖人文景点讲解词、文史资料、小众打卡点位的朋友"
+        ],
+        "advice_count": 1,
+        "unique_advice_count": 1,
+        "advice_frequency": [
+          {
+            "advice_text": "可以给我发私信,也可以加我的交流:,我会把整理好的资料免费发给大家",
+            "count": 1
+          }
+        ],
+        "record_examples": [
+          {
+            "advice_id": "西湖_travelog_2_adv_0001",
+            "advice_text": "可以给我发私信,也可以加我的交流:,我会把整理好的资料免费发给大家",
+            "action": "可以给我发私信,也可以加我的交流:,我会",
+            "scenic_spot": "西湖",
+            "travelog_id": "西湖_travelog_2",
+            "confidence": 0.8,
+            "evidence_sentence": "想要获取完整的西湖人文景点讲解词、文史资料、小众打卡点位的朋友,可以给我发私信,也可以加我的交流:,我会把整理好的资料免费发给大家."
+          }
+        ]
+      },
+      "其他条件: 摄影+季节层级(整体→每日摄影段→核心/休整/小众→时段/摄影": {
+        "condition_type": "other",
+        "condition_label": "其他条件",
+        "condition_raw_examples": [
+          "摄影+季节层级(整体→每日摄影段→核心/休整/小众→时段/摄影"
+        ],
+        "advice_count": 1,
+        "unique_advice_count": 1,
+        "advice_frequency": [
+          {
+            "advice_text": "建议/季节),按春季摄影黄金时段设计,增加小众机位和茶文化体验,适配深度游客",
+            "count": 1
+          }
+        ],
+        "record_examples": [
+          {
+            "advice_id": "西湖_travelog_4_adv_0002",
+            "advice_text": "建议/季节),按春季摄影黄金时段设计,增加小众机位和茶文化体验,适配深度游客",
+            "action": "建议/季节),按春季摄影黄金时段设计,增",
+            "scenic_spot": "西湖",
+            "travelog_id": "西湖_travelog_4",
+            "confidence": 0.75,
+            "evidence_sentence": "实际路线:摄影+季节层级(整体→每日摄影段→核心/休整/小众→时段/摄影建议/季节),按春季摄影黄金时段设计,增加小众机位和茶文化体验,适配深度游客."
+          }
+        ]
+      },
+      "其他条件: 走路的": {
+        "condition_type": "other",
+        "condition_label": "其他条件",
+        "condition_raw_examples": [
+          "走路的"
+        ],
+        "advice_count": 1,
+        "unique_advice_count": 1,
+        "advice_frequency": [
+          {
+            "advice_text": "可以直接冲",
+            "count": 1
+          }
+        ],
+        "record_examples": [
+          {
+            "advice_id": "张家界_travelog_1_adv_0002",
+            "advice_text": "可以直接冲",
+            "action": "可以直接冲",
+            "scenic_spot": "张家界",
+            "travelog_id": "张家界_travelog_1",
+            "confidence": 0.8,
+            "evidence_sentence": "索道:百龙天梯单程72元/人,天子山索道单程72元/人,黄石寨索道单程65元/人,十里画廊小火车单程38元/人,不想走路的可以直接冲!"
+          }
+        ]
+      },
+      "其他条件: 今天选择反穿金鞭溪": {
+        "condition_type": "other",
+        "condition_label": "其他条件",
+        "condition_raw_examples": [
+          "今天选择反穿金鞭溪"
+        ],
+        "advice_count": 1,
+        "unique_advice_count": 1,
+        "advice_frequency": [
+          {
+            "advice_text": "可以避开人流",
+            "count": 1
+          }
+        ],
+        "record_examples": [
+          {
+            "advice_id": "张家界_travelog_2_adv_0002",
+            "advice_text": "可以避开人流",
+            "action": "可以避开人流",
+            "scenic_spot": "张家界",
+            "travelog_id": "张家界_travelog_2",
+            "confidence": 0.7,
+            "evidence_sentence": "我们今天选择反穿金鞭溪，从终点走到起点，这样可以避开人流"
+          }
+        ]
+      },
+      "其他条件: 从终点走到起点": {
+        "condition_type": "other",
+        "condition_label": "其他条件",
+        "condition_raw_examples": [
+          "从终点走到起点"
+        ],
+        "advice_count": 1,
+        "unique_advice_count": 1,
+        "advice_frequency": [
+          {
+            "advice_text": "可以避开人流，因为常规游客都是从起点往终点走",
+            "count": 1
+          }
+        ],
+        "record_examples": [
+          {
+            "advice_id": "张家界_travelog_2_adv_0003",
+            "advice_text": "可以避开人流，因为常规游客都是从起点往终点走",
+            "action": "可以避开人流",
+            "scenic_spot": "张家界",
+            "travelog_id": "张家界_travelog_2",
+            "confidence": 0.7,
+            "evidence_sentence": "从终点走到起点，这样可以避开人流，因为常规游客都是从起点往终点走"
+          }
+        ]
+      },
+      "其他条件: 你恐高": {
+        "condition_type": "other",
+        "condition_label": "其他条件",
+        "condition_raw_examples": [
+          "你恐高"
+        ],
+        "advice_count": 2,
+        "unique_advice_count": 2,
+        "advice_frequency": [
+          {
+            "advice_text": "建议坐它",
+            "count": 1
+          },
+          {
+            "advice_text": "不要靠近它的边缘,它的下面是万丈深渊",
+            "count": 1
+          }
+        ],
+        "record_examples": [
+          {
+            "advice_id": "张家界_travelog_5_adv_0001",
+            "advice_text": "建议坐它",
+            "action": "建议坐它",
+            "scenic_spot": "张家界",
+            "travelog_id": "张家界_travelog_5",
+            "confidence": 0.85,
+            "evidence_sentence": "水绕四门的旁边是百龙天梯,它是世界最高的户外电梯,这里的运行高度有335米,它的速度很快,66秒就能到顶,要是你恐高,不建议坐它."
+          },
+          {
+            "advice_id": "张家界_travelog_5_adv_0002",
+            "advice_text": "不要靠近它的边缘,它的下面是万丈深渊",
+            "action": "不要靠近它的边缘,它",
+            "scenic_spot": "张家界",
+            "travelog_id": "张家界_travelog_5",
+            "confidence": 0.8,
+            "evidence_sentence": "走在天下第一桥上,它的护栏是铁制的,这里的风很大,吹得护栏晃动,要是你恐高,不要靠近它的边缘,它的下面是万丈深渊."
           }
         ]
       }
     },
     "route": {
-      "路线条件: 就是故宫的午门": {
+      "路线条件: 这条路线以人文景点为主": {
         "condition_type": "route",
         "condition_label": "路线条件",
         "condition_raw_examples": [
-          "就是故宫的午门"
+          "这条路线以人文景点为主"
         ],
         "advice_count": 1,
         "unique_advice_count": 1,
         "advice_frequency": [
           {
-            "advice_text": "可以到天安门城楼上去看看，下来后你一直往里面走，就是故宫的午门",
+            "advice_text": "建议大家提前了解一下西湖的历史,逛的时候会更有代入感2",
             "count": 1
           }
         ],
         "record_examples": [
           {
-            "advice_id": "故宫_travelog_5_adv_0003",
-            "advice_text": "可以到天安门城楼上去看看，下来后你一直往里面走，就是故宫的午门",
-            "action": "可以到天安门城楼上去看看",
-            "scenic_spot": "故宫",
-            "travelog_id": "故宫_travelog_5",
+            "advice_id": "西湖_travelog_2_adv_0002",
+            "advice_text": "建议大家提前了解一下西湖的历史,逛的时候会更有代入感2",
+            "action": "建议大家提前了解一下西湖的历史,逛的时候",
+            "scenic_spot": "西湖",
+            "travelog_id": "西湖_travelog_2",
             "confidence": 0.9,
-            "evidence_sentence": "你可以到天安门城楼上去看看，下来后你一直往里面走，就是故宫的午门"
+            "evidence_sentence": "这条路线以人文景点为主,建议大家提前了解一下西湖的历史,逛的时候会更有代入感 2."
           }
         ]
       },
-      "路线条件: 详细点的路线~酒店在天安门那边": {
+      "路线条件: 要获取高清张家界路线图、避坑指南、私藏小众机位、本地美食": {
         "condition_type": "route",
         "condition_label": "路线条件",
         "condition_raw_examples": [
-          "详细点的路线~酒店在天安门那边"
+          "要获取高清张家界路线图、避坑指南、私藏小众机位、本地美食"
         ],
         "advice_count": 1,
         "unique_advice_count": 1,
         "advice_frequency": [
           {
-            "advice_text": "推荐详细点的路线~酒店在天安门那边,想去长城,798,三里屯,故宫",
+            "advice_text": "推荐的朋友,可以加我电话:,邮箱:,免费发给大家",
             "count": 1
           }
         ],
         "record_examples": [
           {
-            "advice_id": "故宫_travelog_5_adv_0004",
-            "advice_text": "推荐详细点的路线~酒店在天安门那边,想去长城,798,三里屯,故宫",
-            "action": "推荐详细点的路线~酒店在天安门那边,想去",
-            "scenic_spot": "故宫",
-            "travelog_id": "故宫_travelog_5",
+            "advice_id": "张家界_travelog_1_adv_0001",
+            "advice_text": "推荐的朋友,可以加我电话:,邮箱:,免费发给大家",
+            "action": "推荐的朋友,可以加我电话:,邮箱:,免费",
+            "scenic_spot": "张家界",
+            "travelog_id": "张家界_travelog_1",
+            "confidence": 1.0,
+            "evidence_sentence": "想要获取高清张家界路线图、避坑指南、私藏小众机位、本地美食推荐的朋友,可以加我电话:,邮箱:,免费发给大家!"
+          }
+        ]
+      }
+    },
+    "time": {
+      "时间条件: 提前了解一下西湖的历史": {
+        "condition_type": "time",
+        "condition_label": "时间条件",
+        "condition_raw_examples": [
+          "提前了解一下西湖的历史"
+        ],
+        "advice_count": 1,
+        "unique_advice_count": 1,
+        "advice_frequency": [
+          {
+            "advice_text": "建议大家提前了解一下西湖的历史",
+            "count": 1
+          }
+        ],
+        "record_examples": [
+          {
+            "advice_id": "西湖_travelog_2_adv_0003",
+            "advice_text": "建议大家提前了解一下西湖的历史",
+            "action": "建议大家提前了解一下西湖的历史",
+            "scenic_spot": "西湖",
+            "travelog_id": "西湖_travelog_2",
             "confidence": 0.9,
-            "evidence_sentence": "请推荐详细点的路线~酒店在天安门那边,想去长城,798,三里屯,故宫."
+            "evidence_sentence": "建议大家提前了解一下西湖的历史"
+          }
+        ]
+      },
+      "时间条件: 只需要提前预约就": {
+        "condition_type": "time",
+        "condition_label": "时间条件",
+        "condition_raw_examples": [
+          "只需要提前预约就"
+        ],
+        "advice_count": 1,
+        "unique_advice_count": 1,
+        "advice_frequency": [
+          {
+            "advice_text": "可以进去，大家一定要提前预约早上8:00我们从湖滨出发，步行20分钟就到了断桥残雪",
+            "count": 1
+          }
+        ],
+        "record_examples": [
+          {
+            "advice_id": "西湖_travelog_2_adv_0004",
+            "advice_text": "可以进去，大家一定要提前预约早上8:00我们从湖滨出发，步行20分钟就到了断桥残雪",
+            "action": "可以进去",
+            "scenic_spot": "西湖",
+            "travelog_id": "西湖_travelog_2",
+            "confidence": 0.9,
+            "evidence_sentence": "只需要提前预约就可以进去，大家一定要提前预约 早上8:00 我们从湖滨出发，步行20分钟就到了断桥残雪"
+          }
+        ]
+      },
+      "时间条件: 上午7": {
+        "condition_type": "time",
+        "condition_label": "时间条件",
+        "condition_raw_examples": [
+          "早上7"
+        ],
+        "advice_count": 1,
+        "unique_advice_count": 1,
+        "advice_frequency": [
+          {
+            "advice_text": "可以避开人流,因为常规游客都是从起点往终点走,我们反着走,全程几乎看不到人,完全承包了整个金鞭溪!",
+            "count": 1
+          }
+        ],
+        "record_examples": [
+          {
+            "advice_id": "张家界_travelog_2_adv_0001",
+            "advice_text": "可以避开人流,因为常规游客都是从起点往终点走,我们反着走,全程几乎看不到人,完全承包了整个金鞭溪!",
+            "action": "可以避开人流,因为常规游客都是从起点往终",
+            "scenic_spot": "张家界",
+            "travelog_id": "张家界_travelog_2",
+            "confidence": 0.8,
+            "evidence_sentence": "早上7:00 我们起床吃了早饭,从武陵源门票站入园,乘坐景区环保车前往水绕四门,车程10分钟,早上7:20抵达水绕四门,也就是金鞭溪的终点,我们今天选择反穿金鞭溪,从终点走到起点,这样可以避开人流,因为常规游客都是从起点往终点走,我们反着走,全程几乎看不到人,完全承包了整个金鞭溪!"
+          }
+        ]
+      },
+      "时间条件: 上午6": {
+        "condition_type": "time",
+        "condition_label": "时间条件",
+        "condition_raw_examples": [
+          "早上6"
+        ],
+        "advice_count": 1,
+        "unique_advice_count": 1,
+        "advice_frequency": [
+          {
+            "advice_text": "最好的地方",
+            "count": 1
+          }
+        ],
+        "record_examples": [
+          {
+            "advice_id": "张家界_travelog_2_adv_0004",
+            "advice_text": "最好的地方",
+            "action": "最好的地方",
+            "scenic_spot": "张家界",
+            "travelog_id": "张家界_travelog_2",
+            "confidence": 0.85,
+            "evidence_sentence": "早上6:00 我们就起床了，前往老屋场看日出，老屋场是张家界看日出最好的地方"
+          }
+        ]
+      },
+      "时间条件: 的太震撼了中午12:30我们": {
+        "condition_type": "time",
+        "condition_label": "时间条件",
+        "condition_raw_examples": [
+          "的太震撼了中午12:30我们"
+        ],
+        "advice_count": 1,
+        "unique_advice_count": 1,
+        "advice_frequency": [
+          {
+            "advice_text": "可以360度看张家界的峰林全景，真的太震撼了中午12:30我们在黄石寨山顶的补给点吃了午饭，是提前带的自热米饭和零食",
+            "count": 1
+          }
+        ],
+        "record_examples": [
+          {
+            "advice_id": "张家界_travelog_2_adv_0005",
+            "advice_text": "可以360度看张家界的峰林全景，真的太震撼了中午12:30我们在黄石寨山顶的补给点吃了午饭，是提前带的自热米饭和零食",
+            "action": "可以360度看张家界的峰林全景",
+            "scenic_spot": "张家界",
+            "travelog_id": "张家界_travelog_2",
+            "confidence": 0.8,
+            "evidence_sentence": "可以360度看张家界的峰林全景，真的太震撼了 中午12:30 我们在黄石寨山顶的补给点吃了午饭，是提前带的自热米饭和零食"
           }
         ]
       }

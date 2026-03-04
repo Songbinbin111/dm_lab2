@@ -1,132 +1,52 @@
-# 任务6：多源程序性知识的融合与可视化
+# 实验项目6：多源程序性知识的融合与图谱可视化
 
-## 任务目标
+## 对应科研点
+知识图谱构建与表示。
 
-1. 将官方指南的结构化路线与游客游记中提取的实体进行融合。
-2. 构建包含“推荐路线 + 游客高频景点”的综合游览知识图。
-3. 绘制知识图谱（节点：景点/条件；边：先后顺序/条件关系）。
+## 实验目标
+将不同来源（官网、游记）的知识整合，并进行图形化展示。
 
-## 当前实现概览
+## 实验主要内容
+1. **数据融合**：将实验3输出的官方路线结构化数据与实验2提取的实体（景点、交通、时间）进行融合，建立实体间的关联。同时可融入实验5的条件性建议作为边属性。
+2. **图谱构建**：使用图数据库（Neo4j）或图分析库（NetworkX）构建知识图谱，定义节点类型（景点、操作、时间等）和边类型（先后顺序、条件关系、包含关系等）。
+3. **可视化**：绘制知识图谱，展示至少一个景区的完整游览知识网络，突出关键节点和关系。
 
-当前版本已实现以下关键能力：
+## 实验技术方法
+1. **图数据库**：Neo4j（使用Cypher查询语言）或NetworkX。
+2. **可视化**：Neo4j Browser、Matplotlib（NetworkX绘图）、PyVis等。
+3. **数据整合**：Python脚本处理JSON数据，生成节点和关系列表。
 
-1. **路线统一解析**：兼容 task3 的三类路线格式，并统一为标准边结构 `normalized_routes`。
-2. **游客高频景点补充**：基于 task1 游记文档频次统计 + 规则过滤 + 评分策略，将高质量游客景点补充为图节点。
-3. **推荐路线识别**：
-   - 单路线景区：直接采用 `main`。
-   - 多路线景区：按“游客覆盖度 + 路线完整度”评分选择推荐路线。
-4. **条件关系构建**：沿用 task5 条件类型，并在 task6 进行轻量清洗与结构化增强。
-5. **图谱可视化**：
-   - 每个景区生成一张综合知识图谱。
+## 实验主要步骤
+1. 整合实验3和实验2的输出数据，设计图谱的节点类型和关系类型，生成节点和边的CSV文件。
+2. 将数据导入Neo4j（或使用NetworkX构建图），并编写查询/绘图代码生成可视化图谱。
+3. 调整图谱布局，截取关键部分，保存可视化结果，并简单分析图谱中的核心节点和路径。
 
-## 文件结构
+---
 
-```text
-task6_knowledge_fusion/
-├── main.py
-├── data_loader.py
-├── knowledge_fusion.py
-├── graph_builder.py
-├── visualizer.py
-├── README.md
-├── config/
-│   ├── node_types.json
-│   └── edge_types.json
-└── output/
-    ├── knowledge_graph/
-    │   ├── 九寨沟_fused.json
-    │   ├── 故宫_fused.json
-    │   ├── 黄山_fused.json
-    │   ├── 九寨沟_graph.json
-    │   ├── 故宫_graph.json
-    │   ├── 黄山_graph.json
-    │   ├── 九寨沟_quality_report.json
-    │   ├── 故宫_quality_report.json
-    │   └── 黄山_quality_report.json
-    └── visualizations/
-        ├── 九寨沟_knowledge_graph.png
-        ├── 故宫_knowledge_graph.png
-        └── 黄山_knowledge_graph.png
-```
+## 脚本操作指南
 
-## 运行方式
+### 文件结构
+- `data_loader.py`: 数据加载与融合
+- `graph_builder.py`: 图谱构建 (NetworkX)
+- `visualizer.py`: 可视化
+- `main.py`: 主程序
+- `config/`: 配置文件
+  - `node_types.json`: 节点类型定义
+  - `edge_types.json`: 边类型定义
+- `output/`: 输出结果
+  - `knowledge_graph/`: 图谱数据 (JSON)
+    - `*_fused.json`: 融合后的数据
+    - `*_graph.json`: 图谱结构数据
+    - `*_quality_report.json`: 质量报告
+  - `visualizations/`: 可视化图片
 
-```bash
-cd task6_knowledge_fusion
-python main.py
-```
+### 运行步骤
 
-分阶段运行：
+1. **执行融合与构建**：
+   ```bash
+   python main.py
+   ```
+   支持参数：`--fusion` (仅融合), `--build` (仅构建), `--visualize` (仅可视化), `--spot 故宫` (指定景区)。
 
-```bash
-# 仅执行融合
-python main.py --fusion
-
-# 仅构建图谱
-python main.py --build
-
-# 仅生成可视化
-python main.py --visualize
-
-# 处理单个景区
-python main.py --spot 故宫
-```
-
-## 模块说明
-
-### data_loader.py
-
-职责：
-1. 加载 task2 实体结果、task3 路线结构、task5 条件建议。
-2. 加载 task1 游记原文，按景区统计游客 POI 的文档频次（1~5）。
-
-关键点：
-1. `visitor_poi_freq` 不再固定为 1，而是基于真实游记频次统计。
-2. 若缺少 pandas 或源文件不可读，会自动回退为保守策略（频次=1）。
-
-### knowledge_fusion.py
-
-职责：
-1. POI 标准化与噪声过滤。
-2. 路线统一解析（`RouteNormalizer`）。
-3. 官方路线 + 游客高频景点融合。
-4. 推荐路线选择。
-
-融合策略（当前）：
-1. 官方 POI 作为骨架。
-2. 游客候选需满足：
-- 文档频次达到阈值；
-- 通过候选合法性过滤（非泛词、非明显噪声）；
-- 评分达到最低门槛。
-3. 对通过筛选的游客景点写入 `visitor_supplemented`，并真实进入节点层。
-
-## 任务过程
-
-- **第 1 步：执行融合流程**
-  ```bash
-  python main.py
-  ```
-  或者分阶段运行：
-
-  ~~~bash
-  # 仅执行融合
-  python main.py --fusion
-
-  # 仅构建图谱
-  python main.py --build
-
-  # 仅生成可视化
-  python main.py --visualize
-
-  # 处理单个景区
-  python main.py --spot 故宫
-  ~~~
-
-  正确结果如下：
-
-- 注意事项：
-
-  - **依赖关系**：这是项目的汇总任务，必须确保任务 1-5 的输出文件都已正确生成。
-  - **图谱质量**：如果生成的图谱节点过多或过乱，可以调整 `knowledge_fusion.py` 中的评分阈值。
-
-- **预计耗时**：10 分钟
+2. **结果检查**：
+   查看 `output/knowledge_graph/` 下的 JSON 图谱数据和 `output/visualizations/` 下的图片。

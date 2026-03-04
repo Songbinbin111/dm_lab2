@@ -72,7 +72,7 @@ def main():
         spots = [args.spot]
         print(f"\n处理指定景区: {args.spot}")
     else:
-        spots = ['九寨沟', '故宫', '黄山']
+        spots = ['泰山', '西湖', '张家界']
         print(f"\n处理所有景区: {', '.join(spots)}")
 
     from data_loader import MultiSourceDataLoader

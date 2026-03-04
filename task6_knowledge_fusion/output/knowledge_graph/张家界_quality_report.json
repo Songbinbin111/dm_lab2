@@ -1,0 +1,107 @@
+{
+  "scenic_spot": "张家界",
+  "generated_at": "2026-03-04T22:30:30.464451",
+  "fusion_statistics": {
+    "official_poi_count": 9,
+    "visitor_poi_count": 69,
+    "fused_poi_count": 17,
+    "visitor_supplemented_count": 8,
+    "advice_matched_count": 0,
+    "advice_unmatched_count": 11
+  },
+  "route_normalization_report": {
+    "route_format": "arrow_text",
+    "parsed_route_count": 5,
+    "normalized_route_count": 5,
+    "official_poi_count": 9,
+    "time_period_count": 0
+  },
+  "recommended_route": {
+    "route_id": "main",
+    "reason": "single_route",
+    "score": 1.0,
+    "route_scores": {
+      "main": 1.0
+    }
+  },
+  "visitor_supplemented": [
+    "四门",
+    "天子山自然保护区",
+    "金鞭溪景区",
+    "市区",
+    "路亚山",
+    "劈山",
+    "大门",
+    "奇阁"
+  ],
+  "visitor_supplemented_details": [
+    {
+      "poi": "四门",
+      "doc_frequency": 5,
+      "score": 1.0,
+      "source": "visitor"
+    },
+    {
+      "poi": "天子山自然保护区",
+      "doc_frequency": 5,
+      "score": 1.0,
+      "source": "visitor"
+    },
+    {
+      "poi": "金鞭溪景区",
+      "doc_frequency": 5,
+      "score": 1.0,
+      "source": "visitor"
+    },
+    {
+      "poi": "市区",
+      "doc_frequency": 3,
+      "score": 0.74,
+      "source": "visitor"
+    },
+    {
+      "poi": "路亚山",
+      "doc_frequency": 3,
+      "score": 0.74,
+      "source": "visitor"
+    },
+    {
+      "poi": "劈山",
+      "doc_frequency": 2,
+      "score": 0.61,
+      "source": "visitor"
+    },
+    {
+      "poi": "大门",
+      "doc_frequency": 2,
+      "score": 0.61,
+      "source": "visitor"
+    },
+    {
+      "poi": "奇阁",
+      "doc_frequency": 2,
+      "score": 0.61,
+      "source": "visitor"
+    }
+  ],
+  "condition_cleaning_report": {
+    "input_advice_count": 0,
+    "output_advice_count": 0,
+    "dropped_count": 0,
+    "dropped_reasons": {},
+    "kept_other_subtypes": {},
+    "condition_node_count": 0
+  },
+  "graph_statistics": {
+    "total_nodes": 17,
+    "total_edges": 5,
+    "node_types": {
+      "poi": 17
+    },
+    "edge_types": {
+      "sequence": 5
+    },
+    "condition_subtypes": {}
+  },
+  "condition_advice_samples": []
+}

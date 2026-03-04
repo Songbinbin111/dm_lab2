@@ -206,13 +206,36 @@ class ConditionalAdviceVisualizer:
         """绘制游客类型对比图"""
         by_type = self.visitor_analysis.get('visitor_type_analysis', {}).get('by_type', {})
 
-        # 确保有数据，即使是空的
-        preferred_types = ['family', 'elderly', 'couple', 'general']
-        for vtype in preferred_types:
+        # 动态获取数据中存在的游客类型，按数量排序
+        existing_types = sorted(
+            [t for t in by_type.keys() if by_type[t].get('count', 0) > 0],
+            key=lambda t: by_type[t].get('count', 0),
+            reverse=True
+        )
+
+        # 预定义的优先展示类型
+        preferred_types = ['family', 'elderly', 'couple', 'photographer', 'beginner', 'experienced', 'solo', 'general']
+        
+        # 构建最终展示列表（最多4个）
+        main_types = []
+        
+        # 1. 先加入有数据的类型（按数量降序）
+        for vtype in existing_types:
+            if vtype in preferred_types and len(main_types) < 4:
+                main_types.append(vtype)
+        
+        # 2. 如果不足4个，用预定义类型填充（保持多样性）
+        fill_candidates = ['family', 'elderly', 'couple', 'general']
+        for vtype in fill_candidates:
+            if len(main_types) >= 4:
+                break
+            if vtype not in main_types:
+                main_types.append(vtype)
+
+        # 确保数据结构完整
+        for vtype in main_types:
             if vtype not in by_type:
                 by_type[vtype] = {'count': 0, 'condition_type_distribution': {}}
-
-        main_types = preferred_types
 
         fig, axes = plt.subplots(2, 2, figsize=(14, 10))
         axes = axes.flatten()
@@ -224,6 +247,8 @@ class ConditionalAdviceVisualizer:
 
             if cond_dist:
                 cond_items = sorted(cond_dist.items(), key=lambda x: x[1], reverse=True)
+                # 取前5个条件类型，避免过多拥挤
+                cond_items = cond_items[:5]
                 cond_labels = [self._get_condition_label(k) for k, _ in cond_items]
                 cond_values = [v for _, v in cond_items]
                 cond_colors = [self.condition_color_map.get(k, '#9CA3AF') for k, _ in cond_items]
@@ -231,7 +256,7 @@ class ConditionalAdviceVisualizer:
                 bars = ax.barh(cond_labels, cond_values, color=cond_colors)
 
                 for bar, val in zip(bars, cond_values):
-                    ax.text(val + 0.3, bar.get_y() + bar.get_height() / 2, str(val), va='center', fontsize=9)
+                    ax.text(val + 0.1, bar.get_y() + bar.get_height() / 2, str(val), va='center', fontsize=9)
 
                 ax.set_xlabel('建议数量', fontsize=10)
                 ax.set_title(f'{self._get_visitor_label(vtype)} - 条件分布', fontsize=12, fontweight='bold')
@@ -254,8 +279,8 @@ class ConditionalAdviceVisualizer:
         """绘制景区对比柱状图"""
         by_spot = self.by_scenic_spot
         
-        # 强制包含九寨沟、故宫、黄山
-        target_spots = ['九寨沟', '故宫', '黄山']
+        # 强制包含泰山、西湖、张家界
+        target_spots = ['泰山', '西湖', '张家界']
         
         # 确保每个景区都在 by_spot 中，即使数据为空
         for spot in target_spots:

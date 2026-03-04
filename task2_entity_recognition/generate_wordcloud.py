@@ -113,7 +113,16 @@ def main():
 
     # 读取JSON数据
     print("\n[1/3] 读取entity_results.json...")
-    with open('entity_results.json', 'r', encoding='utf-8') as f:
+    input_file = os.path.join('output', 'entity_results.json')
+    if not os.path.exists(input_file):
+        # Fallback to current directory for backward compatibility or if not found
+        if os.path.exists('entity_results.json'):
+            input_file = 'entity_results.json'
+        else:
+            print(f"错误: 找不到 {input_file}")
+            exit(1)
+            
+    with open(input_file, 'r', encoding='utf-8') as f:
         data = json.load(f)
 
     results = data['results']
@@ -125,9 +134,9 @@ def main():
         os.makedirs(base_dir, exist_ok=True)
 
     spot_name_map = {
-        '九寨沟': 'jiuzhaigou',
-        '故宫': 'gugong',
-        '黄山': 'huangshan'
+        '泰山': 'taishan',
+        '西湖': 'xihu',
+        '张家界': 'zhangjiajie'
     }
 
     for record in results:
@@ -164,7 +173,11 @@ def main():
         # 交通词云
         all_transport = []
         for cat in ['basic', 'specific', 'time_distance']:
-            all_transport.extend(record['transport'].get(cat, []))
+            items = record['transport'].get(cat, [])
+            all_transport.extend(items)
+        
+        # print(f"DEBUG: {spot_cn} transport: {all_transport}") # Debugging
+            
         if all_transport:
             transport_freq = Counter(all_transport)
             output_path = os.path.join(base_dir, spot_en, 'transport.png')

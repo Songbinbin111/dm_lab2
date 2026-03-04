@@ -28,7 +28,7 @@ var queryKeywordHints = []string{
 var hanWordRegexp = regexp.MustCompile(`\p{Han}{2,}`)
 
 type KGQueryParams struct {
-	ScenicSpot string `json:"scenic_spot,omitempty" jsonschema_description:"景区名称，可选值包括九寨沟、故宫、黄山"`
+	ScenicSpot string `json:"scenic_spot,omitempty" jsonschema_description:"景区名称，可选值包括泰山、西湖、张家界"`
 	Query      string `json:"query" jsonschema_description:"用户原始旅游需求"`
 	TopK       *int   `json:"top_k,omitempty" jsonschema_description:"返回建议数量，默认5"`
 }

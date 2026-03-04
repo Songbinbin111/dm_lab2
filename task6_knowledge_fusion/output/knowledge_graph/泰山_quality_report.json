@@ -1,0 +1,100 @@
+{
+  "scenic_spot": "泰山",
+  "generated_at": "2026-03-04T22:30:29.910152",
+  "fusion_statistics": {
+    "official_poi_count": 15,
+    "visitor_poi_count": 30,
+    "fused_poi_count": 22,
+    "visitor_supplemented_count": 7,
+    "advice_matched_count": 0,
+    "advice_unmatched_count": 2
+  },
+  "route_normalization_report": {
+    "route_format": "arrow_text",
+    "parsed_route_count": 14,
+    "normalized_route_count": 14,
+    "official_poi_count": 15,
+    "time_period_count": 0
+  },
+  "recommended_route": {
+    "route_id": "main",
+    "reason": "single_route",
+    "score": 1.0,
+    "route_scores": {
+      "main": 1.0
+    }
+  },
+  "visitor_supplemented": [
+    "天街景区",
+    "天门",
+    "碧霞祠景区",
+    "五大夫松景区",
+    "十八盘景区",
+    "日观峰景区",
+    "登山"
+  ],
+  "visitor_supplemented_details": [
+    {
+      "poi": "天街景区",
+      "doc_frequency": 5,
+      "score": 1.0,
+      "source": "visitor"
+    },
+    {
+      "poi": "天门",
+      "doc_frequency": 5,
+      "score": 1.0,
+      "source": "visitor"
+    },
+    {
+      "poi": "碧霞祠景区",
+      "doc_frequency": 4,
+      "score": 0.87,
+      "source": "visitor"
+    },
+    {
+      "poi": "五大夫松景区",
+      "doc_frequency": 3,
+      "score": 0.74,
+      "source": "visitor"
+    },
+    {
+      "poi": "十八盘景区",
+      "doc_frequency": 3,
+      "score": 0.74,
+      "source": "visitor"
+    },
+    {
+      "poi": "日观峰景区",
+      "doc_frequency": 3,
+      "score": 0.74,
+      "source": "visitor"
+    },
+    {
+      "poi": "登山",
+      "doc_frequency": 3,
+      "score": 0.74,
+      "source": "visitor"
+    }
+  ],
+  "condition_cleaning_report": {
+    "input_advice_count": 0,
+    "output_advice_count": 0,
+    "dropped_count": 0,
+    "dropped_reasons": {},
+    "kept_other_subtypes": {},
+    "condition_node_count": 0
+  },
+  "graph_statistics": {
+    "total_nodes": 22,
+    "total_edges": 14,
+    "node_types": {
+      "poi": 22
+    },
+    "edge_types": {
+      "sequence": 14
+    },
+    "condition_subtypes": {}
+  },
+  "condition_advice_samples": []
+}

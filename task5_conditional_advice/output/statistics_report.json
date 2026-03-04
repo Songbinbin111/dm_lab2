@@ -1,26 +1,33 @@
 {
-  "total_advice": 9,
+  "total_advice": 22,
   "total_travelogs": 15,
-  "avg_advice_per_travelog": 0.6,
+  "avg_advice_per_travelog": 1.47,
   "by_condition_type": {
-    "other": 6,
-    "time": 1,
-    "route": 2
+    "transport": 3,
+    "time_duration": 3,
+    "crowd": 2,
+    "other": 7,
+    "route": 2,
+    "time": 5
   },
   "by_scenic_spot": {
-    "故宫": 8,
-    "黄山": 1
+    "泰山": 2,
+    "西湖": 9,
+    "张家界": 11
   },
   "by_visitor_type": {
-    "general": 9
+    "photographer": 8,
+    "beginner": 4,
+    "elderly": 10
   },
   "pattern_distribution": {
-    "if_then": 3,
-    "condition_suffix_then": 1,
-    "fallback": 5
+    "fallback": 17,
+    "desire_then": 3,
+    "if_then": 1,
+    "if_not_then": 1
   },
   "confidence_distribution": {
-    "high": 9,
+    "high": 22,
     "medium": 0,
     "low": 0
   }

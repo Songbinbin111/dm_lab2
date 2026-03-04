@@ -65,11 +65,11 @@ class FormatDetector:
         has_time_ranges = bool(re.search(r'\d{1,2}:\d{2}-\d{1,2}:\d{2}', text))
 
         if arrow_count > 5 and has_time_ranges:
-            return 'formatted_route'  # 九寨沟格式
+            return 'formatted_route'  # 箭头路线格式
         elif numbered_lines > 5:
-            return 'numbered_list'     # 故宫格式
+            return 'numbered_list'     # 编号列表格式
         else:
-            return 'descriptive'       # 黄山游记格式
+            return 'descriptive'       # 描述性格式
 
 
 # =============================================================================
@@ -82,26 +82,53 @@ class POIExtractor:
     def __init__(self):
         # 加载自定义词典
         self._load_dicts()
+        # 加载需要排除的词（交通和时间词典）
+        self._load_exclude_dicts()
+        
         # 常见景点后缀
-        self.poi_suffixes = ['海', '池', '宫', '殿', '门', '峰', '阁', '寺', '松', '沟', '山', '区', '湖', '瀑', '滩', '寨', '瀑布', '景区']
+        self.poi_suffixes = ['海', '池', '宫', '殿', '门', '峰', '阁', '寺', '松', '沟', '山', '区', '湖', '瀑', '滩', '寨', '瀑布', '景区', '索道', '站', '桥', '路', '街', '园', '洞', '溪', '界', '寨', '廊', '梯', '道', '台']
         # 高频噪声词（会被误识别为POI）
         self.poi_noise_words = {
             '热门', '门票', '门票价格', '区域', '区分', '山水', '海拔', '风景区', '景区',
-            '小时', '分钟', '公里', '路线', '攻略', '旅程', '景观'
+            '小时', '分钟', '公里', '路线', '攻略', '旅程', '景观', '建议', '注意',
+            '如果', '选择', '游览', '提前', '预约', '因为', '所以', '但是', '虽然',
+            '装备', '交通', '住宿', '吃饭', '美食', '价格', '费用', '时间', '有些',
+            '可以', '需要', '我们', '他们', '自己', '感觉', '觉得', '比如', '例如',
+            '以及', '还有', '包含', '包括', '不用', '不要', '一定', '最好', '可能',
+            '特别', '非常', '比较', '真的', '超级', '很多', '一点', '一下', '专门',
+            '上山', '下山', '上海', '外滩', '北京', '中国', '有些', '那些', '这些',
+             '迷路', '入园', '出园', '味道', '分段', '休息区', '商业街', '登山',
+             '核心区', '云海', '日出', '索道', '缆车', '大巴', '公交', '地铁',
+             '机场', '车站', '高铁', '火车', '打车', '拼车', '包车', '自驾',
+             '核心', '休整', '小众', '环线', '大门', '后门', '侧门', '出口', '入口',
+             '回头路', '走路', '电梯', '公园', '观景台', '天梯', '市区', '山峰', 
+             '步道', '石板路', '劈山', '奇阁'
         }
+
+    def _load_exclude_dicts(self):
+        """加载需要排除的词典（交通和时间）"""
+        self.exclude_words = set()
+        for filename in ['transport.txt', 'time.txt']:
+            path = os.path.join('custom_dicts', filename)
+            if os.path.exists(path):
+                with open(path, 'r', encoding='utf-8') as f:
+                    for line in f:
+                        parts = line.strip().split()
+                        if parts:
+                            self.exclude_words.add(parts[0])
 
     def _load_dicts(self):
         """加载自定义词典"""
         dict_dir = 'custom_dicts/poi'
         self.poi_dicts = {
-            'jiuzhaigou': set(),
-            'gugong': set(),
-            'huangshan': set(),
+            'taishan': set(),
+            'xihu': set(),
+            'zhangjiajie': set(),
             'common': set()
         }
 
         # 加载各景区词典
-        for spot in ['jiuzhaigou', 'gugong', 'huangshan']:
+        for spot in ['taishan', 'xihu', 'zhangjiajie']:
             dict_path = os.path.join(dict_dir, f'{spot}.txt')
             if os.path.exists(dict_path):
                 with open(dict_path, 'r', encoding='utf-8') as f:
@@ -112,7 +139,7 @@ class POIExtractor:
                             self.poi_dicts['common'].add(parts[0])
 
         # 为Jieba加载词典
-        for spot in ['jiuzhaigou', 'gugong', 'huangshan']:
+        for spot in ['taishan', 'xihu', 'zhangjiajie']:
             dict_path = os.path.join(dict_dir, f'{spot}.txt')
             if os.path.exists(dict_path):
                 jieba.load_userdict(dict_path)
@@ -143,26 +170,103 @@ class POIExtractor:
         # 描述性文本总是需要处理
         entities.extend(self._extract_from_descriptive(text, scenic_spot))
 
+        # 全局清洗和过滤
+        cleaned_entities = []
+        for entity in entities:
+            # 1. 长度过滤
+            if len(entity) < 2 or len(entity) > 10:
+                continue
+            
+            # 2. 噪声词过滤
+            if entity in self.poi_noise_words:
+                continue
+            
+            # 排除交通和时间词汇
+            if entity in self.exclude_words:
+                continue
+                
+            # 3. 数字和特殊字符过滤
+            # 只允许纯中文，或者是自定义词典中的词
+            # 过滤包含 / 的词
+            if '/' in entity:
+                continue
+                
+            if not re.match(r'^[\u4e00-\u9fa5]+$', entity):
+                 if entity not in self.poi_dicts['common']:
+                     continue
+            
+            # 4. 包含特定关键词的过滤（针对误提取的长词）
+            noise_chars = ['票', '费', '元', '钱', '车', '住', '吃', '穿', '带', '买']
+            if any(char in entity for char in noise_chars) and entity not in self.poi_dicts['common']:
+                continue
+
+            cleaned_entities.append(entity)
+
         # 保序去重
-        return stable_unique(entities)
+        return stable_unique(cleaned_entities)
+
+    def _clean_and_validate(self, text: str, scenic_spot: str) -> List[str]:
+        """清洗并验证POI（核心优化）"""
+        # 1. 基础清洗：去除括号及内容
+        cleaned = re.sub(r'[\(（][^\)）]+[\)）]', '', text).strip()
+        if not cleaned:
+            return []
+            
+        # 2. 如果清洗后的文本就在自定义词典中，直接返回
+        if cleaned in self.poi_dicts['common']:
+            return [cleaned]
+            
+        # 3. 使用Jieba分词提取其中的已知POI
+        words = jieba.cut(cleaned)
+        found_pois = []
+        for word in words:
+            if word in self.poi_dicts['common']:
+                found_pois.append(word)
+        
+        if found_pois:
+            return found_pois
+            
+        # 4. 如果没有找到已知POI，但文本看起来像是一个单一景点，尝试返回它
+        # 长度检查
+        if 2 <= len(cleaned) <= 10:
+             # 避免返回包含大量标点的长句
+             if not re.search(r'[，。；,.;]', cleaned):
+                 # 再次检查后缀
+                 if any(cleaned.endswith(suffix) for suffix in self.poi_suffixes):
+                     return [cleaned]
+        
+        return []
 
     def _extract_from_arrow_route(self, text: str) -> List[str]:
         """从箭头路线中提取景点"""
-        # 移除时间信息部分
-        cleaned = re.sub(r'\([^)]*\d+:\d{2}[^)]*\)', '', text)
+        # 移除时间标记 [上午] 等
+        text = re.sub(r'\[.*?\]', '', text)
+        
         # 提取箭头连接的词
-        pois = re.findall(r'([^\d→\n（]+?)→', cleaned)
-        return [p.strip() for p in pois if p.strip() and len(p.strip()) >= 2]
+        parts = re.split(r'[→]', text)
+        
+        results = []
+        for part in parts:
+            part = part.strip()
+            if not part:
+                continue
+                
+            # 清洗并验证
+            # 注意：scenic_spot 参数在 _extract_from_arrow_route 中没有传递进来
+            # 但 _clean_and_validate 实际上只用到了 self.poi_dicts，所以不需要 scenic_spot
+            # 这里为了接口一致性，我们可以暂时传空，或者修改接口
+            pois = self._clean_and_validate(part, '')
+            results.extend(pois)
+            
+        return results
 
     def _extract_from_numbered_list(self, text: str) -> List[str]:
         """从编号列表中提取景点"""
-        pois = re.findall(r'\d+\.\s*([^\n（]+)', text)
+        lines = re.findall(r'\d+\.\s*([^\n]+)', text)
         results = []
-        for poi in pois:
-            # 清理括号内容
-            cleaned = re.sub(r'[（(][^）)]*[）)]', '', poi).strip()
-            if cleaned and len(cleaned) >= 2:
-                results.append(cleaned)
+        for line in lines:
+            pois = self._clean_and_validate(line, '')
+            results.extend(pois)
         return results
 
     def _extract_from_descriptive(self, text: str, scenic_spot: str) -> List[str]:
@@ -512,18 +616,19 @@ class WordCloudGenerator:
 
     def create_output_dirs(self, scenic_spots: List[str]):
         """创建词云图输出目录结构"""
-        base_dir = 'wordcloud'
+        base_dir = os.path.join('output', 'wordcloud')
         if not os.path.exists(base_dir):
             os.makedirs(base_dir)
 
         # 景区名称映射（中文 -> 英文）
         spot_name_map = {
-            '九寨沟': 'jiuzhaigou',
-            '故宫': 'gugong',
-            '黄山': 'huangshan'
+            '泰山': 'taishan',
+            '西湖': 'xihu',
+            '张家界': 'zhangjiajie'
         }
 
         for spot in scenic_spots:
+            # 确保景区名称在映射表中
             spot_en = spot_name_map.get(spot, spot)
             spot_dir = os.path.join(base_dir, spot_en)
             if not os.path.exists(spot_dir):
@@ -610,6 +715,11 @@ def process_record(row: pd.Series, detectors: Dict, extractors: Dict) -> Dict:
 
 def save_results(results: List[Dict], stats: Dict, output_path: str):
     """保存JSON结果"""
+    # Ensure output directory exists
+    output_dir = os.path.dirname(output_path)
+    if output_dir and not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+
     output_data = {
         'metadata': {
             'generated_at': datetime.now().isoformat(),
@@ -673,7 +783,7 @@ def main():
         print(f"    {item['entity']}: {item['count']}次")
 
     # 5. 保存结果
-    save_results(results, stats, 'entity_results.json')
+    save_results(results, stats, os.path.join('output', 'entity_results.json'))
 
     # 6. 生成词云图
     print("\n[5/5] 生成词云图...")
@@ -686,20 +796,23 @@ def main():
 
         # 景区名称映射（中文 -> 英文）
         spot_name_map = {
-            '九寨沟': 'jiuzhaigou',
-            '故宫': 'gugong',
-            '黄山': 'huangshan'
+            '泰山': 'taishan',
+            '西湖': 'xihu',
+            '张家界': 'zhangjiajie'
         }
 
         # 为每个景区生成3张词云图
         for record in results:
             spot_cn = record['scenic_spot']
             spot_en = spot_name_map.get(spot_cn, spot_cn)
+            
+            # Base directory for wordclouds
+            base_wc_dir = os.path.join('output', 'wordcloud')
 
             # POI词云
             if record['poi']:
                 poi_freq = Counter(record['poi'])
-                output_path = f'wordcloud/{spot_en}/poi.png'
+                output_path = os.path.join(base_wc_dir, spot_en, 'poi.png')
                 wc_gen.generate_wordcloud(dict(poi_freq), output_path, f'{spot_cn} - 景点POI')
 
             # 交通词云
@@ -708,7 +821,7 @@ def main():
                 all_transport.extend(record['transport'].get(cat, []))
             if all_transport:
                 transport_freq = Counter(all_transport)
-                output_path = f'wordcloud/{spot_en}/transport.png'
+                output_path = os.path.join(base_wc_dir, spot_en, 'transport.png')
                 wc_gen.generate_wordcloud(dict(transport_freq), output_path, f'{spot_cn} - 交通方式')
 
             # 时间词云
@@ -717,10 +830,10 @@ def main():
                 all_time.extend(record['time'].get(cat, []))
             if all_time:
                 time_freq = Counter(all_time)
-                output_path = f'wordcloud/{spot_en}/time.png'
+                output_path = os.path.join(base_wc_dir, spot_en, 'time.png')
                 wc_gen.generate_wordcloud(dict(time_freq), output_path, f'{spot_cn} - 时间节点')
 
-        print(f"已生成 {len(results) * 3} 张词云图到 wordcloud/ 目录")
+        print(f"已生成 {len(results) * 3} 张词云图到 output/wordcloud/ 目录")
     except Exception as e:
         print(f"词云图生成失败: {e}")
 

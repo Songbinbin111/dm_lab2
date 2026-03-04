@@ -1,41 +1,62 @@
-# 任务 7：旅游规划智能助手 (Agent)
+# 实验项目7：程序性知识应用：旅游规划Agent
 
-## 任务目标
-构建基于知识图谱的交互式 Agent。
+## 对应科研点
+基于知识图谱和LLM的问答与生成。
 
-## 文件结构
+## 实验目标
+基于已构建的知识图谱，结合大语言模型（LLM）与智能体（Agent）技术，设计并实现一个“旅游规划Agent”。该Agent能够理解用户自然语言请求，通过“思考”（调用LLM进行意图解析与规划）、“观察”（查询知识图谱获取景点信息）和“行动”（生成个性化游览路线与建议），最终输出结构化或自然语言的旅游规划方案。
 
-```text
-task7_agent/
-├── main.go
-├── knowledge_graph_tool.go
-├── go.mod
-├── go.sum
-└── .env
-```
+## 实验主要内容
+1. **Agent框架设计**：采用ReAct（Reasoning + Acting）模式设计Agent，使其具备循环推理与工具调用能力。
+    - **意图解析器**：利用LLM对用户输入进行解析，提取关键约束（如“带孩子”暗示亲子类景点、“一天”暗示时间限制）。
+    - **图谱查询工具**：封装知识图谱的查询接口，供Agent调用获取符合约束的景点列表及属性。
+    - **路线规划器**：结合查询结果与LLM的常识知识，生成合理的游览顺序、时间安排及注意事项。
+    - **LLM集成**：通过API或本地部署调用LLM（如GPT系列、ChatGLM等），用于自然语言理解、决策生成和最终建议润色。
+    - **交互流程实现**：搭建简单的命令行或Web界面，接收用户输入，驱动Agent执行“思考-观察-行动”循环，直至生成最终建议并返回。
 
-## 任务过程
+## 技术方法
+1. **LLM调用**：采用智谱AI (ZhipuAI) API 提供语言生成能力。
+2. **Agent开发框架**：使用 Go 语言和 CloudWeGo Eino 框架搭建 ReAct Agent。
+3. **工具封装**：将图谱查询定义为 Agent 可调用的工具函数，利用 Task 6 生成的知识图谱数据。
+4. **交互界面**：提供简单的 Web 界面进行交互。
 
-- **第 1 步：智谱AI开放平台登录**:
+## 实验主要步骤
+1. 搭建 Agent 基础框架，实现 LLM 调用和工具函数封装。
+2. 设计提示模板，实现“思考-观察-行动”循环，调试意图解析与图谱查询的配合。
+3. 测试多个输入场景（如“带老人游玩”、“情侣一日游”），优化 Agent 决策逻辑，生成最终建议。
 
-  登录 [智谱AI开放平台](https://open.bigmodel.cn/)，在 API Keys 页面创建一个新的密钥（Secret Key）。复制这个新创建的密钥。
+---
 
-- **第 2 步：环境配置**
-  安装 Go 语言（1.225版本）(从[Go官网](https://golang.google.cn/dl/)下载对应系统环境的)，并在 `task7_agent` 目录下创建 `.env` 文件（3min）：
-  ```env
-  OPENAI_API_KEY=your_zhipu_key_here
-  OPENAI_API_BASE=https://open.bigmodel.cn/api/paas/v4
-  OPENAI_MODEL_NAME="glm-4"
-  ```
+## 脚本操作指南
 
-- **第 3 步：运行 Agent**
-  ```bash
-  go run .
-  ```
+### 文件结构
+- `main.go`: Agent 主程序
+- `knowledge_graph_tool.go`: 知识图谱查询工具
+- `chatmodel.go`: 聊天模型封装
+- `server.go`: Web 服务端
+- `zhipu.go`: 智谱 AI 适配
+- `web/`: 前端界面资源
+- `.env`: 配置文件
 
-  注意事项**：
+### 运行步骤
 
-  - **端口冲突**：默认使用 8080 端口，若被占用请在 `main.go` 中修改。
-  - **工具链接**：Agent 会读取任务 6 的 JSON 路径，请确保路径配置正确。
+1. **配置环境**：
+   安装 Go 语言环境 (1.23+)，并在 `task7_agent` 目录下创建 `.env` 文件，填入智谱AI的 API Key。
+   ```env
+   OPENAI_API_KEY=your_zhipu_key_here
+   OPENAI_API_BASE=https://open.bigmodel.cn/api/paas/v4
+   OPENAI_MODEL_NAME="glm-4"
+   ```
 
-- **预计耗时**：40 - 60 分钟
+2. **运行 Agent**：
+   ```bash
+   go run .
+   ```
+   如果默认端口 8080 被占用，可以通过环境变量指定端口：
+   ```bash
+   # Windows PowerShell
+   $env:PORT="8081"; go run .
+   ```
+
+3. **交互测试**：
+   服务启动后，在浏览器访问 `http://127.0.0.1:8080` (或指定端口)，即可与旅游规划 Agent 进行对话。

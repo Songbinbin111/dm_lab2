@@ -27,16 +27,16 @@ class MultiSourceDataLoader:
 
     # 景区名称映射（标准化）
     SPOT_NAME_MAP = {
-        '九寨沟': 'jiuzhaigou',
-        '故宫': 'gugong',
-        '黄山': 'huangshan'
+        '泰山': 'taishan',
+        '西湖': 'xihu',
+        '张家界': 'zhangjiajie'
     }
 
     # 英文名到中文名映射
     SPOT_EN_TO_CN = {
-        'jiuzhaigou': '九寨沟',
-        'gugong': '故宫',
-        'huangshan': '黄山'
+        'taishan': '泰山',
+        'xihu': '西湖',
+        'zhangjiajie': '张家界'
     }
 
     def __init__(self, project_root: str = None):

@@ -1,0 +1,106 @@
+{
+  "parsed": {
+    "scenic_spot": "张家界",
+    "route_format": "arrow_text",
+    "total_pois": 5,
+    "pois": [
+      "“森林公园门票站",
+      "十里画廊",
+      "袁家界",
+      "袁家界平地段”",
+      "金鞭溪核心段"
+    ],
+    "routes": [
+      {
+        "from_poi": "“森林公园门票站",
+        "to_poi": "金鞭溪核心段",
+        "poi": "金鞭溪核心段",
+        "time_range": "",
+        "period": "未知时段",
+        "duration": "",
+        "details": "",
+        "full_text": "“森林公园门票站→金鞭溪核心段"
+      },
+      {
+        "from_poi": "百龙天梯",
+        "to_poi": "袁家界",
+        "poi": "袁家界",
+        "time_range": "",
+        "period": "未知时段",
+        "duration": "",
+        "details": "乾坤柱、天下第一桥",
+        "full_text": "百龙天梯→袁家界(乾坤柱、天下第一桥)"
+      },
+      {
+        "from_poi": "天子山索道",
+        "to_poi": "十里画廊",
+        "poi": "十里画廊",
+        "time_range": "",
+        "period": "未知时段",
+        "duration": "",
+        "details": "",
+        "full_text": "天子山索道→十里画廊"
+      },
+      {
+        "from_poi": "“标志门",
+        "to_poi": "十里画廊",
+        "poi": "十里画廊",
+        "time_range": "",
+        "period": "未知时段",
+        "duration": "",
+        "details": "小火车",
+        "full_text": "“标志门→十里画廊(小火车)"
+      },
+      {
+        "from_poi": "天子山环保车观光",
+        "to_poi": "袁家界平地段”",
+        "poi": "袁家界平地段”",
+        "time_range": "",
+        "period": "未知时段",
+        "duration": "",
+        "details": "",
+        "full_text": "天子山环保车观光→袁家界平地段”"
+      }
+    ]
+  },
+  "hierarchy": {
+    "scenic_spot": "张家界",
+    "structure_type": "sequence_based",
+    "hierarchy": {
+      "游览路线": {
+        "sections": [
+          {
+            "name": "第一阶段",
+            "pois": [
+              "“森林公园门票站",
+              "金鞭溪核心段"
+            ]
+          },
+          {
+            "name": "第二阶段",
+            "pois": [
+              "袁家界",
+              "十里画廊"
+            ]
+          },
+          {
+            "name": "第三阶段",
+            "pois": [
+              "十里画廊",
+              "袁家界平地段”"
+            ]
+          }
+        ],
+        "total_pois": 6,
+        "full_sequence": [
+          "“森林公园门票站",
+          "金鞭溪核心段",
+          "袁家界",
+          "十里画廊",
+          "十里画廊",
+          "袁家界平地段”"
+        ]
+      }
+    }
+  }
+}

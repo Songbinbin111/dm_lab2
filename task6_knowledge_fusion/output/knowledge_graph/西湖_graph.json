@@ -1,0 +1,346 @@
+{
+  "metadata": {
+    "scenic_spot": "西湖",
+    "generated_at": "2026-03-04T22:30:30.191189",
+    "graph_stats": {
+      "total_nodes": 22,
+      "total_edges": 3
+    },
+    "condition_cleaning_report": {
+      "input_advice_count": 3,
+      "output_advice_count": 3,
+      "dropped_count": 0,
+      "dropped_reasons": {},
+      "kept_other_subtypes": {},
+      "condition_node_count": 2
+    }
+  },
+  "nodes": [
+    {
+      "id": "poi_湖滨",
+      "type": "poi",
+      "label": "湖滨",
+      "properties": {
+        "display_label": "湖滨",
+        "source": "official",
+        "weight": 1.0,
+        "importance_score": 1.0,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_断桥残雪",
+      "type": "poi",
+      "label": "断桥残雪",
+      "properties": {
+        "display_label": "断桥残雪",
+        "source": "official",
+        "weight": 1.0,
+        "importance_score": 1.0,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_曲院风荷景区",
+      "type": "poi",
+      "label": "曲院风荷景区",
+      "properties": {
+        "display_label": "曲院风荷景区",
+        "source": "official",
+        "weight": 1.0,
+        "importance_score": 1.0,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_九溪",
+      "type": "poi",
+      "label": "九溪",
+      "properties": {
+        "display_label": "九溪",
+        "source": "official",
+        "weight": 0.7,
+        "importance_score": 0.7,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_雷峰塔景区",
+      "type": "poi",
+      "label": "雷峰塔景区",
+      "properties": {
+        "display_label": "雷峰塔景区",
+        "source": "official",
+        "weight": 1.0,
+        "importance_score": 1.0,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_三潭印月景区",
+      "type": "poi",
+      "label": "三潭印月景区",
+      "properties": {
+        "display_label": "三潭印月景区",
+        "source": "official",
+        "weight": 0.94,
+        "importance_score": 0.94,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_飞来峰",
+      "type": "poi",
+      "label": "飞来峰",
+      "properties": {
+        "display_label": "飞来峰",
+        "source": "official",
+        "weight": 0.82,
+        "importance_score": 0.82,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_白堤景区",
+      "type": "poi",
+      "label": "白堤景区",
+      "properties": {
+        "display_label": "白堤景区",
+        "source": "official",
+        "weight": 1.0,
+        "importance_score": 1.0,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_花港观鱼景区",
+      "type": "poi",
+      "label": "花港观鱼景区",
+      "properties": {
+        "display_label": "花港观鱼景区",
+        "source": "official",
+        "weight": 0.94,
+        "importance_score": 0.94,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_苏堤春晓",
+      "type": "poi",
+      "label": "苏堤春晓",
+      "properties": {
+        "display_label": "苏堤春晓",
+        "source": "official",
+        "weight": 1.0,
+        "importance_score": 1.0,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_灵隐寺景区",
+      "type": "poi",
+      "label": "灵隐寺景区",
+      "properties": {
+        "display_label": "灵隐寺景区",
+        "source": "official",
+        "weight": 0.82,
+        "importance_score": 0.82,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_平湖秋月景区",
+      "type": "poi",
+      "label": "平湖秋月景区",
+      "properties": {
+        "display_label": "平湖秋月景区",
+        "source": "official",
+        "weight": 1.0,
+        "importance_score": 1.0,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_雷峰",
+      "type": "poi",
+      "label": "雷峰",
+      "properties": {
+        "display_label": "雷峰",
+        "source": "visitor",
+        "weight": 0.45,
+        "importance_score": 0.45,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_高峰",
+      "type": "poi",
+      "label": "高峰",
+      "properties": {
+        "display_label": "高峰",
+        "source": "visitor",
+        "weight": 0.45,
+        "importance_score": 0.45,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_鱼池",
+      "type": "poi",
+      "label": "鱼池",
+      "properties": {
+        "display_label": "鱼池",
+        "source": "visitor",
+        "weight": 0.45,
+        "importance_score": 0.45,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_孤山景区",
+      "type": "poi",
+      "label": "孤山景区",
+      "properties": {
+        "display_label": "孤山景区",
+        "source": "visitor",
+        "weight": 0.45,
+        "importance_score": 0.45,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_环湖",
+      "type": "poi",
+      "label": "环湖",
+      "properties": {
+        "display_label": "环湖",
+        "source": "visitor",
+        "weight": 0.45,
+        "importance_score": 0.45,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_荷花池",
+      "type": "poi",
+      "label": "荷花池",
+      "properties": {
+        "display_label": "荷花池",
+        "source": "visitor",
+        "weight": 0.45,
+        "importance_score": 0.45,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_华严殿",
+      "type": "poi",
+      "label": "华严殿",
+      "properties": {
+        "display_label": "华严殿",
+        "source": "visitor",
+        "weight": 0.45,
+        "importance_score": 0.45,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_天王殿",
+      "type": "poi",
+      "label": "天王殿",
+      "properties": {
+        "display_label": "天王殿",
+        "source": "visitor",
+        "weight": 0.45,
+        "importance_score": 0.45,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "condition_time_只需要提前预约就",
+      "type": "condition",
+      "label": "只需要提前预约就",
+      "properties": {
+        "display_label": "只需要提前预约就",
+        "raw_condition": "只需要提前预约就",
+        "condition_type": "time",
+        "condition_type_label": "时间条件",
+        "condition_subtype": "time",
+        "confidence": 0.98,
+        "advice_samples": [
+          "可以进去，大家一定要提前预约早上8:00我们从湖滨出发，步行20分钟就到了断桥残雪"
+        ],
+        "connected_pois": [
+          "断桥残雪",
+          "湖滨"
+        ],
+        "weight": 1.1,
+        "importance_score": 0.76,
+        "original_type": "condition"
+      }
+    },
+    {
+      "id": "condition_crowd_节假日西湖人超级多",
+      "type": "condition",
+      "label": "节假日西湖人超级多",
+      "properties": {
+        "display_label": "节假日西湖人超级多",
+        "raw_condition": "节假日西湖人超级多",
+        "condition_type": "crowd",
+        "condition_type_label": "人流条件",
+        "condition_subtype": "crowd",
+        "confidence": 0.95,
+        "advice_samples": [
+          "建议早上6:30就出发,避开人流高峰,不然拍照全是人头!"
+        ],
+        "connected_pois": [
+          "高峰"
+        ],
+        "weight": 0.9500000000000001,
+        "importance_score": 0.6799999999999999,
+        "original_type": "condition"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "condition_time_只需要提前预约就",
+      "target": "poi_断桥残雪",
+      "type": "conditional",
+      "properties": {
+        "advice": "可以进去，大家一定要提前预约早上8:00我们从湖滨出发，步行20分钟就到了断桥残雪",
+        "advice_samples": [
+          "可以进去，大家一定要提前预约早上8:00我们从湖滨出发，步行20分钟就到了断桥残雪"
+        ],
+        "support_count": 1,
+        "weight": 0.8
+      }
+    },
+    {
+      "source": "condition_time_只需要提前预约就",
+      "target": "poi_湖滨",
+      "type": "conditional",
+      "properties": {
+        "advice": "可以进去，大家一定要提前预约早上8:00我们从湖滨出发，步行20分钟就到了断桥残雪",
+        "advice_samples": [
+          "可以进去，大家一定要提前预约早上8:00我们从湖滨出发，步行20分钟就到了断桥残雪"
+        ],
+        "support_count": 1,
+        "weight": 0.8
+      }
+    },
+    {
+      "source": "condition_crowd_节假日西湖人超级多",
+      "target": "poi_高峰",
+      "type": "conditional",
+      "properties": {
+        "advice": "建议早上6:30就出发,避开人流高峰,不然拍照全是人头!",
+        "advice_samples": [
+          "建议早上6:30就出发,避开人流高峰,不然拍照全是人头!"
+        ],
+        "support_count": 1,
+        "weight": 0.8
+      }
+    }
+  ]
+}

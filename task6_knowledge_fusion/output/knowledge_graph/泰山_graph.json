@@ -1,0 +1,706 @@
+{
+  "metadata": {
+    "scenic_spot": "泰山",
+    "generated_at": "2026-03-04T22:30:29.908254",
+    "graph_stats": {
+      "total_nodes": 22,
+      "total_edges": 14
+    },
+    "condition_cleaning_report": {
+      "input_advice_count": 0,
+      "output_advice_count": 0,
+      "dropped_count": 0,
+      "dropped_reasons": {},
+      "kept_other_subtypes": {},
+      "condition_node_count": 0
+    }
+  },
+  "nodes": [
+    {
+      "id": "poi_岱顶天街",
+      "type": "poi",
+      "label": "岱顶天街",
+      "properties": {
+        "display_label": "岱顶天街",
+        "source": "official",
+        "weight": 0.7,
+        "importance_score": 0.7,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_天烛峰观景台",
+      "type": "poi",
+      "label": "天烛峰观景台",
+      "properties": {
+        "display_label": "天烛峰观景台",
+        "source": "official",
+        "weight": 0.7,
+        "importance_score": 0.7,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_岱顶服务区",
+      "type": "poi",
+      "label": "岱顶服务区",
+      "properties": {
+        "display_label": "岱顶服务区",
+        "source": "official",
+        "weight": 0.7,
+        "importance_score": 0.7,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_泰山站",
+      "type": "poi",
+      "label": "泰山站",
+      "properties": {
+        "display_label": "泰山站",
+        "source": "official",
+        "weight": 0.7,
+        "importance_score": 0.7,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_天外村游客中心",
+      "type": "poi",
+      "label": "天外村游客中心",
+      "properties": {
+        "display_label": "天外村游客中心",
+        "source": "official",
+        "weight": 0.7,
+        "importance_score": 0.7,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_中天门景区",
+      "type": "poi",
+      "label": "中天门景区",
+      "properties": {
+        "display_label": "中天门景区",
+        "source": "official",
+        "weight": 1.0,
+        "importance_score": 1.0,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_南天门索道站",
+      "type": "poi",
+      "label": "南天门索道站",
+      "properties": {
+        "display_label": "南天门索道站",
+        "source": "official",
+        "weight": 0.7,
+        "importance_score": 0.7,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_红门宫",
+      "type": "poi",
+      "label": "红门宫",
+      "properties": {
+        "display_label": "红门宫",
+        "source": "official",
+        "weight": 0.94,
+        "importance_score": 0.94,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_红门游客中心",
+      "type": "poi",
+      "label": "红门游客中心",
+      "properties": {
+        "display_label": "红门游客中心",
+        "source": "official",
+        "weight": 0.7,
+        "importance_score": 0.7,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_南天门景区",
+      "type": "poi",
+      "label": "南天门景区",
+      "properties": {
+        "display_label": "南天门景区",
+        "source": "official",
+        "weight": 1.0,
+        "importance_score": 1.0,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_经石峪",
+      "type": "poi",
+      "label": "经石峪",
+      "properties": {
+        "display_label": "经石峪",
+        "source": "official",
+        "weight": 0.76,
+        "importance_score": 0.76,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_玉皇顶景区",
+      "type": "poi",
+      "label": "玉皇顶景区",
+      "properties": {
+        "display_label": "玉皇顶景区",
+        "source": "official",
+        "weight": 1.0,
+        "importance_score": 1.0,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_岱庙景区",
+      "type": "poi",
+      "label": "岱庙景区",
+      "properties": {
+        "display_label": "岱庙景区",
+        "source": "official",
+        "weight": 0.82,
+        "importance_score": 0.82,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_十八盘起点",
+      "type": "poi",
+      "label": "十八盘起点",
+      "properties": {
+        "display_label": "十八盘起点",
+        "source": "official",
+        "weight": 0.7,
+        "importance_score": 0.7,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_泰山站乘车",
+      "type": "poi",
+      "label": "泰山站乘车",
+      "properties": {
+        "display_label": "泰山站乘车",
+        "source": "official",
+        "weight": 0.7,
+        "importance_score": 0.7,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_天街景区",
+      "type": "poi",
+      "label": "天街景区",
+      "properties": {
+        "display_label": "天街景区",
+        "source": "visitor",
+        "weight": 0.45,
+        "importance_score": 0.45,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_天门",
+      "type": "poi",
+      "label": "天门",
+      "properties": {
+        "display_label": "天门",
+        "source": "visitor",
+        "weight": 0.45,
+        "importance_score": 0.45,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_碧霞祠景区",
+      "type": "poi",
+      "label": "碧霞祠景区",
+      "properties": {
+        "display_label": "碧霞祠景区",
+        "source": "visitor",
+        "weight": 0.45,
+        "importance_score": 0.45,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_五大夫松景区",
+      "type": "poi",
+      "label": "五大夫松景区",
+      "properties": {
+        "display_label": "五大夫松景区",
+        "source": "visitor",
+        "weight": 0.45,
+        "importance_score": 0.45,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_十八盘景区",
+      "type": "poi",
+      "label": "十八盘景区",
+      "properties": {
+        "display_label": "十八盘景区",
+        "source": "visitor",
+        "weight": 0.45,
+        "importance_score": 0.45,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_日观峰景区",
+      "type": "poi",
+      "label": "日观峰景区",
+      "properties": {
+        "display_label": "日观峰景区",
+        "source": "visitor",
+        "weight": 0.45,
+        "importance_score": 0.45,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_登山",
+      "type": "poi",
+      "label": "登山",
+      "properties": {
+        "display_label": "登山",
+        "source": "visitor",
+        "weight": 0.45,
+        "importance_score": 0.45,
+        "original_type": "poi"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "poi_岱顶天街",
+      "target": "poi_岱顶服务区",
+      "type": "sequence",
+      "properties": {
+        "support_count": 1,
+        "route_ids": [
+          "main"
+        ],
+        "route_support": {
+          "main": 1
+        },
+        "sequence_indices": [
+          7
+        ],
+        "recommended_route_id": "main",
+        "recommended_support_count": 1,
+        "recommended_sequence_indices": [
+          7
+        ],
+        "is_recommended": true,
+        "transport": "",
+        "source_format": "structured_time_route",
+        "time_windows": [],
+        "durations": [],
+        "weight": 1.0,
+        "importance_score": 1.0
+      }
+    },
+    {
+      "source": "poi_天烛峰观景台",
+      "target": "poi_南天门索道站",
+      "type": "sequence",
+      "properties": {
+        "support_count": 1,
+        "route_ids": [
+          "main"
+        ],
+        "route_support": {
+          "main": 1
+        },
+        "sequence_indices": [
+          10
+        ],
+        "recommended_route_id": "main",
+        "recommended_support_count": 1,
+        "recommended_sequence_indices": [
+          10
+        ],
+        "is_recommended": true,
+        "transport": "",
+        "source_format": "structured_time_route",
+        "time_windows": [],
+        "durations": [],
+        "weight": 1.0,
+        "importance_score": 1.0
+      }
+    },
+    {
+      "source": "poi_岱顶服务区",
+      "target": "poi_玉皇顶景区",
+      "type": "sequence",
+      "properties": {
+        "support_count": 1,
+        "route_ids": [
+          "main"
+        ],
+        "route_support": {
+          "main": 1
+        },
+        "sequence_indices": [
+          8
+        ],
+        "recommended_route_id": "main",
+        "recommended_support_count": 1,
+        "recommended_sequence_indices": [
+          8
+        ],
+        "is_recommended": true,
+        "transport": "",
+        "source_format": "structured_time_route",
+        "time_windows": [],
+        "durations": [
+          "30 分钟"
+        ],
+        "weight": 1.0,
+        "importance_score": 1.0
+      }
+    },
+    {
+      "source": "poi_天外村游客中心",
+      "target": "poi_岱庙景区",
+      "type": "sequence",
+      "properties": {
+        "support_count": 1,
+        "route_ids": [
+          "main"
+        ],
+        "route_support": {
+          "main": 1
+        },
+        "sequence_indices": [
+          13
+        ],
+        "recommended_route_id": "main",
+        "recommended_support_count": 1,
+        "recommended_sequence_indices": [
+          13
+        ],
+        "is_recommended": true,
+        "transport": "",
+        "source_format": "structured_time_route",
+        "time_windows": [],
+        "durations": [
+          "30 分钟"
+        ],
+        "weight": 1.0,
+        "importance_score": 1.0
+      }
+    },
+    {
+      "source": "poi_中天门景区",
+      "target": "poi_十八盘起点",
+      "type": "sequence",
+      "properties": {
+        "support_count": 1,
+        "route_ids": [
+          "main"
+        ],
+        "route_support": {
+          "main": 1
+        },
+        "sequence_indices": [
+          4
+        ],
+        "recommended_route_id": "main",
+        "recommended_support_count": 1,
+        "recommended_sequence_indices": [
+          4
+        ],
+        "is_recommended": true,
+        "transport": "",
+        "source_format": "structured_time_route",
+        "time_windows": [],
+        "durations": [
+          "15 分钟"
+        ],
+        "weight": 1.0,
+        "importance_score": 1.0
+      }
+    },
+    {
+      "source": "poi_中天门景区",
+      "target": "poi_天外村游客中心",
+      "type": "sequence",
+      "properties": {
+        "support_count": 1,
+        "route_ids": [
+          "main"
+        ],
+        "route_support": {
+          "main": 1
+        },
+        "sequence_indices": [
+          12
+        ],
+        "recommended_route_id": "main",
+        "recommended_support_count": 1,
+        "recommended_sequence_indices": [
+          12
+        ],
+        "is_recommended": true,
+        "transport": "",
+        "source_format": "structured_time_route",
+        "time_windows": [],
+        "durations": [],
+        "weight": 1.0,
+        "importance_score": 1.0
+      }
+    },
+    {
+      "source": "poi_南天门索道站",
+      "target": "poi_中天门景区",
+      "type": "sequence",
+      "properties": {
+        "support_count": 1,
+        "route_ids": [
+          "main"
+        ],
+        "route_support": {
+          "main": 1
+        },
+        "sequence_indices": [
+          11
+        ],
+        "recommended_route_id": "main",
+        "recommended_support_count": 1,
+        "recommended_sequence_indices": [
+          11
+        ],
+        "is_recommended": true,
+        "transport": "",
+        "source_format": "structured_time_route",
+        "time_windows": [],
+        "durations": [],
+        "weight": 1.0,
+        "importance_score": 1.0
+      }
+    },
+    {
+      "source": "poi_红门宫",
+      "target": "poi_经石峪",
+      "type": "sequence",
+      "properties": {
+        "support_count": 1,
+        "route_ids": [
+          "main"
+        ],
+        "route_support": {
+          "main": 1
+        },
+        "sequence_indices": [
+          2
+        ],
+        "recommended_route_id": "main",
+        "recommended_support_count": 1,
+        "recommended_sequence_indices": [
+          2
+        ],
+        "is_recommended": true,
+        "transport": "",
+        "source_format": "structured_time_route",
+        "time_windows": [],
+        "durations": [
+          "30 分钟"
+        ],
+        "weight": 1.0,
+        "importance_score": 1.0
+      }
+    },
+    {
+      "source": "poi_南天门景区",
+      "target": "poi_岱顶天街",
+      "type": "sequence",
+      "properties": {
+        "support_count": 1,
+        "route_ids": [
+          "main"
+        ],
+        "route_support": {
+          "main": 1
+        },
+        "sequence_indices": [
+          6
+        ],
+        "recommended_route_id": "main",
+        "recommended_support_count": 1,
+        "recommended_sequence_indices": [
+          6
+        ],
+        "is_recommended": true,
+        "transport": "",
+        "source_format": "structured_time_route",
+        "time_windows": [],
+        "durations": [
+          "10 分钟"
+        ],
+        "weight": 1.0,
+        "importance_score": 1.0
+      }
+    },
+    {
+      "source": "poi_经石峪",
+      "target": "poi_中天门景区",
+      "type": "sequence",
+      "properties": {
+        "support_count": 1,
+        "route_ids": [
+          "main"
+        ],
+        "route_support": {
+          "main": 1
+        },
+        "sequence_indices": [
+          3
+        ],
+        "recommended_route_id": "main",
+        "recommended_support_count": 1,
+        "recommended_sequence_indices": [
+          3
+        ],
+        "is_recommended": true,
+        "transport": "",
+        "source_format": "structured_time_route",
+        "time_windows": [],
+        "durations": [
+          "20 分钟"
+        ],
+        "weight": 1.0,
+        "importance_score": 1.0
+      }
+    },
+    {
+      "source": "poi_玉皇顶景区",
+      "target": "poi_天烛峰观景台",
+      "type": "sequence",
+      "properties": {
+        "support_count": 1,
+        "route_ids": [
+          "main"
+        ],
+        "route_support": {
+          "main": 1
+        },
+        "sequence_indices": [
+          9
+        ],
+        "recommended_route_id": "main",
+        "recommended_support_count": 1,
+        "recommended_sequence_indices": [
+          9
+        ],
+        "is_recommended": true,
+        "transport": "",
+        "source_format": "structured_time_route",
+        "time_windows": [],
+        "durations": [
+          "20 分钟"
+        ],
+        "weight": 1.0,
+        "importance_score": 1.0
+      }
+    },
+    {
+      "source": "poi_岱庙景区",
+      "target": "poi_泰山站",
+      "type": "sequence",
+      "properties": {
+        "support_count": 1,
+        "route_ids": [
+          "main"
+        ],
+        "route_support": {
+          "main": 1
+        },
+        "sequence_indices": [
+          14
+        ],
+        "recommended_route_id": "main",
+        "recommended_support_count": 1,
+        "recommended_sequence_indices": [
+          14
+        ],
+        "is_recommended": true,
+        "transport": "",
+        "source_format": "structured_time_route",
+        "time_windows": [],
+        "durations": [],
+        "weight": 1.0,
+        "importance_score": 1.0
+      }
+    },
+    {
+      "source": "poi_十八盘起点",
+      "target": "poi_南天门景区",
+      "type": "sequence",
+      "properties": {
+        "support_count": 1,
+        "route_ids": [
+          "main"
+        ],
+        "route_support": {
+          "main": 1
+        },
+        "sequence_indices": [
+          5
+        ],
+        "recommended_route_id": "main",
+        "recommended_support_count": 1,
+        "recommended_sequence_indices": [
+          5
+        ],
+        "is_recommended": true,
+        "transport": "",
+        "source_format": "structured_time_route",
+        "time_windows": [],
+        "durations": [],
+        "weight": 1.0,
+        "importance_score": 1.0
+      }
+    },
+    {
+      "source": "poi_泰山站乘车",
+      "target": "poi_红门游客中心",
+      "type": "sequence",
+      "properties": {
+        "support_count": 1,
+        "route_ids": [
+          "main"
+        ],
+        "route_support": {
+          "main": 1
+        },
+        "sequence_indices": [
+          1
+        ],
+        "recommended_route_id": "main",
+        "recommended_support_count": 1,
+        "recommended_sequence_indices": [
+          1
+        ],
+        "is_recommended": true,
+        "transport": "",
+        "source_format": "structured_time_route",
+        "time_windows": [],
+        "durations": [],
+        "weight": 1.0,
+        "importance_score": 1.0
+      }
+    }
+  ]
+}

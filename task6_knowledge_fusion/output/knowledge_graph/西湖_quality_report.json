@@ -1,0 +1,132 @@
+{
+  "scenic_spot": "西湖",
+  "generated_at": "2026-03-04T22:30:30.194085",
+  "fusion_statistics": {
+    "official_poi_count": 12,
+    "visitor_poi_count": 54,
+    "fused_poi_count": 20,
+    "visitor_supplemented_count": 8,
+    "advice_matched_count": 3,
+    "advice_unmatched_count": 7
+  },
+  "route_normalization_report": {
+    "route_format": "narrative_text",
+    "parsed_route_count": 13,
+    "normalized_route_count": 0,
+    "official_poi_count": 12,
+    "time_period_count": 0
+  },
+  "recommended_route": {
+    "route_id": "",
+    "reason": "no_route"
+  },
+  "visitor_supplemented": [
+    "雷峰",
+    "高峰",
+    "鱼池",
+    "孤山景区",
+    "环湖",
+    "荷花池",
+    "华严殿",
+    "天王殿"
+  ],
+  "visitor_supplemented_details": [
+    {
+      "poi": "雷峰",
+      "doc_frequency": 5,
+      "score": 1.0,
+      "source": "visitor"
+    },
+    {
+      "poi": "高峰",
+      "doc_frequency": 4,
+      "score": 0.87,
+      "source": "visitor"
+    },
+    {
+      "poi": "鱼池",
+      "doc_frequency": 4,
+      "score": 0.87,
+      "source": "visitor"
+    },
+    {
+      "poi": "孤山景区",
+      "doc_frequency": 3,
+      "score": 0.74,
+      "source": "visitor"
+    },
+    {
+      "poi": "环湖",
+      "doc_frequency": 3,
+      "score": 0.74,
+      "source": "visitor"
+    },
+    {
+      "poi": "荷花池",
+      "doc_frequency": 3,
+      "score": 0.74,
+      "source": "visitor"
+    },
+    {
+      "poi": "华严殿",
+      "doc_frequency": 2,
+      "score": 0.61,
+      "source": "visitor"
+    },
+    {
+      "poi": "天王殿",
+      "doc_frequency": 2,
+      "score": 0.61,
+      "source": "visitor"
+    }
+  ],
+  "condition_cleaning_report": {
+    "input_advice_count": 3,
+    "output_advice_count": 3,
+    "dropped_count": 0,
+    "dropped_reasons": {},
+    "kept_other_subtypes": {},
+    "condition_node_count": 2
+  },
+  "graph_statistics": {
+    "total_nodes": 22,
+    "total_edges": 3,
+    "node_types": {
+      "poi": 20,
+      "condition": 2
+    },
+    "edge_types": {
+      "conditional": 3
+    },
+    "condition_subtypes": {
+      "time": 1,
+      "crowd": 1
+    }
+  },
+  "condition_advice_samples": [
+    {
+      "condition": "只需要提前预约就",
+      "condition_type": "time",
+      "condition_subtype": "time",
+      "poi": "断桥残雪",
+      "advice": "可以进去，大家一定要提前预约早上8:00我们从湖滨出发，步行20分钟就到了断桥残雪",
+      "advice_id": "西湖_travelog_2_adv_0004"
+    },
+    {
+      "condition": "节假日西湖人超级多",
+      "condition_type": "crowd",
+      "condition_subtype": "crowd",
+      "poi": "高峰",
+      "advice": "建议早上6:30就出发,避开人流高峰,不然拍照全是人头!",
+      "advice_id": "西湖_travelog_1_adv_0001"
+    },
+    {
+      "condition": "只需要提前预约就",
+      "condition_type": "time",
+      "condition_subtype": "time",
+      "poi": "湖滨",
+      "advice": "可以进去，大家一定要提前预约早上8:00我们从湖滨出发，步行20分钟就到了断桥残雪",
+      "advice_id": "西湖_travelog_2_adv_0004"
+    }
+  ]
+}

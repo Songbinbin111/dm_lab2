@@ -90,7 +90,8 @@ class CoreferenceEvaluator:
                 results["total_cases"] += 1
 
                 # 找到对应的自动消解结果
-                auto_result = self._find_matching_auto_result(auto_resolutions, pronoun)
+                # 修改调用方式，传入整个 manual_ann 对象以获取位置信息
+                auto_result = self._find_matching_auto_result(auto_resolutions, manual_ann)
 
                 if auto_result is None:
                     # 自动消解未找到结果
@@ -127,13 +128,21 @@ class CoreferenceEvaluator:
                     })
 
                 # 按代词类型统计
+                # 尝试从手工标注获取，如果没有则推断
                 pronoun_type = manual_ann.get('pronoun_type', 'unknown')
+                if pronoun_type == 'unknown':
+                    pronoun_type = self._infer_pronoun_type(pronoun)
+                
                 results["by_pronoun_type"][pronoun_type]["total"] += 1
                 if is_correct:
                     results["by_pronoun_type"][pronoun_type]["correct"] += 1
 
                 # 按先行词类型统计
+                # 尝试从手工标注获取，如果没有则推断
                 antecedent_type = manual_ann.get('antecedent_type', 'unknown')
+                if antecedent_type == 'unknown':
+                    antecedent_type = self._infer_antecedent_type(manual_antecedent)
+
                 results["by_antecedent_type"][antecedent_type]["total"] += 1
                 if is_correct:
                     results["by_antecedent_type"][antecedent_type]["correct"] += 1
@@ -141,13 +150,13 @@ class CoreferenceEvaluator:
         # 计算准确率
         if results["total_cases"] > 0:
             results["accuracy"] = results["correct"] / results["total_cases"]
-
+        
         # 计算各类别的准确率
-        for pronoun_type, stats in results["by_pronoun_type"].items():
+        for p_type, stats in results["by_pronoun_type"].items():
             if stats["total"] > 0:
                 stats["accuracy"] = stats["correct"] / stats["total"]
 
-        for antecedent_type, stats in results["by_antecedent_type"].items():
+        for a_type, stats in results["by_antecedent_type"].items():
             if stats["total"] > 0:
                 stats["accuracy"] = stats["correct"] / stats["total"]
 
@@ -157,11 +166,76 @@ class CoreferenceEvaluator:
 
         return results
 
-    def _find_matching_auto_result(self, auto_resolutions: List[Dict], pronoun: str) -> Dict:
-        """找到匹配的自动消解结果"""
-        for auto_res in auto_resolutions:
-            if auto_res.get('pronoun') == pronoun:
-                return auto_res
+    def _infer_pronoun_type(self, pronoun: str) -> str:
+        """推断代词类型"""
+        if pronoun in ['它', '它们']:
+            return 'personal' # 人称代词(物)
+        elif pronoun in ['他', '她', '他们', '她们']:
+            return 'personal' # 人称代词(人)
+        elif pronoun in ['这里', '那儿', '那里', '此处']:
+            return 'demonstrative_location' # 指示代词-地点
+        elif pronoun in ['这', '那', '该']:
+            return 'demonstrative_general' # 指示代词-通用
+        elif '景点' in pronoun or '景区' in pronoun or '地方' in pronoun:
+            return 'demonstrative_phrase' # 指示短语
+        return 'other'
+
+    def _infer_antecedent_type(self, antecedent: str) -> str:
+        """推断先行词类型"""
+        if not antecedent:
+            return 'unknown'
+            
+        # 常见POI
+        if any(s in antecedent for s in ['泰山', '西湖', '张家界', '黄石寨', '金鞭溪', '天子山', '袁家界', '杨家界', '十里画廊', '雷峰塔', '断桥', '苏堤', '白堤', '灵隐寺', '岱庙', '红门', '中天门', '南天门', '玉皇顶', '碧霞祠', '曲院风荷', '三潭印月', '花港观鱼', '宝石山', '御笔峰', '天然长城']):
+            return 'POI' 
+            
+        # 地点/设施
+        loc_suffixes = ['站', '路', '街', '道', '门', '口', '厅', '室', '馆', '店', '中心', '索道', '缆车', '大巴', '梯', '楼外楼', '湖滨银泰']
+        if any(antecedent.endswith(s) for s in loc_suffixes) or antecedent in ['楼外楼', '湖滨银泰']:
+            return 'Location' 
+        
+        # 人物
+        if antecedent in ['游客', '导游', '师傅', '司机', '挑山工', '猴子', '红鲤鱼']: # 猴子和鱼虽然是动物，但在指代消解中通常作为实体处理
+            return 'Person' # 广义的Person/Animate
+            
+        # 物体
+        if antecedent in ['登山杖', '小火车', '百龙天梯', '观光车', '索道']:
+            return 'Object'
+            
+        return 'Object' # 默认归为Object
+
+    def _find_matching_auto_result(self, auto_resolutions: List[Dict], manual_ann: Dict) -> Dict:
+        """
+        找到匹配的自动消解结果
+        增加基于位置的匹配逻辑，提高准确性
+        """
+        target_pronoun = manual_ann.get('pronoun')
+        target_position = manual_ann.get('position')
+        
+        # 1. 优先尝试完全匹配（代词 + 位置）
+        if target_position is not None:
+            for auto_res in auto_resolutions:
+                # 自动结果可能没有位置信息，或者位置信息格式不同
+                # 假设 auto_res 也有 position 字段（在 extraction 阶段保留）
+                # 注意：auto_resolution_results.json 中的结构是 sentences -> pronouns (带位置) 和 auto_resolution (可能不带位置)
+                # 我们需要检查 auto_resolution 是否保留了位置信息
+                
+                # 如果 auto_res 中有 position，则进行匹配
+                if auto_res.get('pronoun') == target_pronoun and auto_res.get('position') == target_position:
+                    return auto_res
+                    
+        # 2. 如果没有位置匹配，尝试基于代词内容的匹配
+        # 如果句子中有多个相同的代词，这种方法可能会匹配错误，但在没有位置信息的情况下是唯一的选择
+        candidates = [res for res in auto_resolutions if res.get('pronoun') == target_pronoun]
+        
+        if len(candidates) == 1:
+            return candidates[0]
+        elif len(candidates) > 1:
+            # 如果有多个相同代词，且无法通过位置区分
+            # 这里简单返回第一个，或者打印警告
+            # 理想情况下应该在 pipeline 中传递位置信息
+            return candidates[0]
+            
         return None
 
     def _is_match(self, manual: str, auto: str) -> bool:

@@ -1,0 +1,371 @@
+{
+  "metadata": {
+    "scenic_spot": "张家界",
+    "generated_at": "2026-03-04T22:30:30.461634",
+    "graph_stats": {
+      "total_nodes": 17,
+      "total_edges": 5
+    },
+    "condition_cleaning_report": {
+      "input_advice_count": 0,
+      "output_advice_count": 0,
+      "dropped_count": 0,
+      "dropped_reasons": {},
+      "kept_other_subtypes": {},
+      "condition_node_count": 0
+    }
+  },
+  "nodes": [
+    {
+      "id": "poi_袁家界景区",
+      "type": "poi",
+      "label": "袁家界景区",
+      "properties": {
+        "display_label": "袁家界景区",
+        "source": "official",
+        "weight": 1.0,
+        "importance_score": 1.0,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_袁家界平地段_",
+      "type": "poi",
+      "label": "袁家界平地段”",
+      "properties": {
+        "display_label": "袁家界平地段”",
+        "source": "official",
+        "weight": 0.7,
+        "importance_score": 0.7,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi__标志门",
+      "type": "poi",
+      "label": "“标志门",
+      "properties": {
+        "display_label": "“标志门",
+        "source": "official",
+        "weight": 0.7,
+        "importance_score": 0.7,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_金鞭溪核心段",
+      "type": "poi",
+      "label": "金鞭溪核心段",
+      "properties": {
+        "display_label": "金鞭溪核心段",
+        "source": "official",
+        "weight": 0.7,
+        "importance_score": 0.7,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_十里画廊景区",
+      "type": "poi",
+      "label": "十里画廊景区",
+      "properties": {
+        "display_label": "十里画廊景区",
+        "source": "official",
+        "weight": 1.0,
+        "importance_score": 1.0,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_百龙天梯景区",
+      "type": "poi",
+      "label": "百龙天梯景区",
+      "properties": {
+        "display_label": "百龙天梯景区",
+        "source": "official",
+        "weight": 0.94,
+        "importance_score": 0.94,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi__森林公园门票站",
+      "type": "poi",
+      "label": "“森林公园门票站",
+      "properties": {
+        "display_label": "“森林公园门票站",
+        "source": "official",
+        "weight": 0.7,
+        "importance_score": 0.7,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_天子山索道",
+      "type": "poi",
+      "label": "天子山索道",
+      "properties": {
+        "display_label": "天子山索道",
+        "source": "official",
+        "weight": 0.7,
+        "importance_score": 0.7,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_天子山环保车观光",
+      "type": "poi",
+      "label": "天子山环保车观光",
+      "properties": {
+        "display_label": "天子山环保车观光",
+        "source": "official",
+        "weight": 0.7,
+        "importance_score": 0.7,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_四门",
+      "type": "poi",
+      "label": "四门",
+      "properties": {
+        "display_label": "四门",
+        "source": "visitor",
+        "weight": 0.45,
+        "importance_score": 0.45,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_天子山自然保护区",
+      "type": "poi",
+      "label": "天子山自然保护区",
+      "properties": {
+        "display_label": "天子山自然保护区",
+        "source": "visitor",
+        "weight": 0.45,
+        "importance_score": 0.45,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_金鞭溪景区",
+      "type": "poi",
+      "label": "金鞭溪景区",
+      "properties": {
+        "display_label": "金鞭溪景区",
+        "source": "visitor",
+        "weight": 0.45,
+        "importance_score": 0.45,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_市区",
+      "type": "poi",
+      "label": "市区",
+      "properties": {
+        "display_label": "市区",
+        "source": "visitor",
+        "weight": 0.45,
+        "importance_score": 0.45,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_路亚山",
+      "type": "poi",
+      "label": "路亚山",
+      "properties": {
+        "display_label": "路亚山",
+        "source": "visitor",
+        "weight": 0.45,
+        "importance_score": 0.45,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_劈山",
+      "type": "poi",
+      "label": "劈山",
+      "properties": {
+        "display_label": "劈山",
+        "source": "visitor",
+        "weight": 0.45,
+        "importance_score": 0.45,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_大门",
+      "type": "poi",
+      "label": "大门",
+      "properties": {
+        "display_label": "大门",
+        "source": "visitor",
+        "weight": 0.45,
+        "importance_score": 0.45,
+        "original_type": "poi"
+      }
+    },
+    {
+      "id": "poi_奇阁",
+      "type": "poi",
+      "label": "奇阁",
+      "properties": {
+        "display_label": "奇阁",
+        "source": "visitor",
+        "weight": 0.45,
+        "importance_score": 0.45,
+        "original_type": "poi"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "poi__标志门",
+      "target": "poi_十里画廊景区",
+      "type": "sequence",
+      "properties": {
+        "support_count": 1,
+        "route_ids": [
+          "main"
+        ],
+        "route_support": {
+          "main": 1
+        },
+        "sequence_indices": [
+          4
+        ],
+        "recommended_route_id": "main",
+        "recommended_support_count": 1,
+        "recommended_sequence_indices": [
+          4
+        ],
+        "is_recommended": true,
+        "transport": "",
+        "source_format": "structured_time_route",
+        "time_windows": [],
+        "durations": [],
+        "weight": 1.0,
+        "importance_score": 1.0
+      }
+    },
+    {
+      "source": "poi_百龙天梯景区",
+      "target": "poi_袁家界景区",
+      "type": "sequence",
+      "properties": {
+        "support_count": 1,
+        "route_ids": [
+          "main"
+        ],
+        "route_support": {
+          "main": 1
+        },
+        "sequence_indices": [
+          2
+        ],
+        "recommended_route_id": "main",
+        "recommended_support_count": 1,
+        "recommended_sequence_indices": [
+          2
+        ],
+        "is_recommended": true,
+        "transport": "",
+        "source_format": "structured_time_route",
+        "time_windows": [],
+        "durations": [],
+        "weight": 1.0,
+        "importance_score": 1.0
+      }
+    },
+    {
+      "source": "poi__森林公园门票站",
+      "target": "poi_金鞭溪核心段",
+      "type": "sequence",
+      "properties": {
+        "support_count": 1,
+        "route_ids": [
+          "main"
+        ],
+        "route_support": {
+          "main": 1
+        },
+        "sequence_indices": [
+          1
+        ],
+        "recommended_route_id": "main",
+        "recommended_support_count": 1,
+        "recommended_sequence_indices": [
+          1
+        ],
+        "is_recommended": true,
+        "transport": "",
+        "source_format": "structured_time_route",
+        "time_windows": [],
+        "durations": [],
+        "weight": 1.0,
+        "importance_score": 1.0
+      }
+    },
+    {
+      "source": "poi_天子山索道",
+      "target": "poi_十里画廊景区",
+      "type": "sequence",
+      "properties": {
+        "support_count": 1,
+        "route_ids": [
+          "main"
+        ],
+        "route_support": {
+          "main": 1
+        },
+        "sequence_indices": [
+          3
+        ],
+        "recommended_route_id": "main",
+        "recommended_support_count": 1,
+        "recommended_sequence_indices": [
+          3
+        ],
+        "is_recommended": true,
+        "transport": "",
+        "source_format": "structured_time_route",
+        "time_windows": [],
+        "durations": [],
+        "weight": 1.0,
+        "importance_score": 1.0
+      }
+    },
+    {
+      "source": "poi_天子山环保车观光",
+      "target": "poi_袁家界平地段_",
+      "type": "sequence",
+      "properties": {
+        "support_count": 1,
+        "route_ids": [
+          "main"
+        ],
+        "route_support": {
+          "main": 1
+        },
+        "sequence_indices": [
+          5
+        ],
+        "recommended_route_id": "main",
+        "recommended_support_count": 1,
+        "recommended_sequence_indices": [
+          5
+        ],
+        "is_recommended": true,
+        "transport": "",
+        "source_format": "structured_time_route",
+        "time_windows": [],
+        "durations": [],
+        "weight": 1.0,
+        "importance_score": 1.0
+      }
+    }
+  ]
+}

@@ -25,133 +25,59 @@ DAY_LABELS = {"第一天", "第二天", "第三天", "第四天", "第五天"}
 
 # 景点规范化映射：将游客的景点名称统一为官方标准名称
 POI_NORMALIZATION_MAP = {
-    "九寨沟": {
-        "九寨": None,
-        "九寨沟": None,
-        "树正沟": None,
-        "日则沟": None,
-        "则查洼沟": None,
-        "树正群海": None,
-        "沟口": "沟口乘车",
-        "高峰": None,
-        "树正寨": "树正寨",  # 游客提到的真实景点，保留
-        "树正瀑布": "树正瀑布",  # 游客提到的真实景点，保留
+    "泰山": {
+        "中天门": "中天门",
+        "南天门": "南天门",
+        "红门": "红门",
+        "天外村": "天外村",
+        "玉皇顶": "玉皇顶",
+        "岱庙": "岱庙",
+        "十八盘": "十八盘",
+        "经石峪": "经石峪",
+        "碧霞祠": "碧霞祠",
+        "天街": "天街",
+        "天烛峰": "天烛峰",
+        "桃花源": None, # 不在官方路线
+        "斗母宫": None,
+        "五大夫松": None,
+        "黑龙潭": None,
+        "日观峰": None,
     },
-    "故宫": {
-        "东六宫": "东六宫区",
-        "西六宫": "西六宫区",
-        "三宫": None,
-        "六宫": None,
-        "钟表馆": None,  # 位于奉先殿，但是独立展厅，不应直接对齐
-        "珍宝馆": None,  # 位于宁寿宫区，但是独立展厅，不应直接对齐
-        "戏曲馆": None,  # 位于宁寿宫区，但是独立展厅，不应直接对齐
-        "书画馆": None,  # 位于文华殿，但是独立展厅，不应直接对齐
-        "乾清门": None,  # 独立门楼，不在官方路线中
-        "中山公园": None,
-        "天安门": None,
-        "天安门广场": None,
-        "北海": None,
-        "北海公园": None,
-        "景山": None,
-        "景山公园": None,
-        "凡尔赛宫": None,
-        "东城区": None,
-        "太湖区": None,
-        "宫之主": None,
-        "宫猫": None,
-        "宫闱": None,
-        "寒门": None,
-        "小区": None,
-        "水晶宫": None,
-        "江山": None,
-        "池春水": None,
-        "海纳百川": None,
-        "清宫": None,
-        "皇宫": None,
-        "秀山": None,
-        "金銮殿": None,  # 太和殿的俗称，但不应重复计数
-        "山西省": None,
-        "延禧宫": None,
-        "弘义阁": None,
-        "承乾宫": None,
-        "掖门": None,
-        "故宫博物院": None,
-        "景仁宫": None,
-        "寿康宫": None,
-        "故宫": None,
-        "后宫": None,
-        "中宫": None,
-        "宫殿": None,
-        "宫墙": None,
-        "宫廷": None,
-        "门匾": None,
-        "东暖阁": None,
-        "东华门": None,
-        "太湖石": None,
-        "寝宫": None,
-        "山楂": None,
-        "瓷宫": None,
-        "畅音阁": None,
+    "西湖": {
+        "雷峰塔": "雷峰塔",
+        "断桥": "断桥残雪", # 官方全称
+        "断桥残雪": "断桥残雪",
+        "苏堤": "苏堤",
+        "白堤": "白堤",
+        "三潭印月": "三潭印月",
+        "灵隐寺": "灵隐寺",
+        "花港观鱼": "花港观鱼",
+        "曲院风荷": "曲院风荷",
+        "平湖秋月": "平湖秋月",
+        "柳浪闻莺": None,
+        "岳王庙": None,
+        "孤山": None,
+        "宝石山": None,
+        "南屏晚钟": None,
+        "双峰插云": None,
     },
-    "黄山": {
-        "云谷寺": "云谷寺景观区",
-        "云谷景区": "云谷寺景观区",
-        "始信峰": "始信峰景观区",
-        "狮子峰": "狮子峰景观区",
-        "排云亭": "排云亭景观区",
-        "天海": "天海景观区",
-        "天海景区": "天海景观区",
-        "玉屏楼": "玉屏楼景观区",
-        "玉屏景区": "玉屏楼景观区",
-        "慈光阁": "慈光阁景观区",
-        "松谷庵": "松谷庵景观区",
-        "松谷景区": "松谷庵景观区",
-        "北海": "北海中路",
-        "北海景区": "北海中路",
-        "西海": None,
-        "西海景区": None,
-        "南大门": "黄山南大门",
-        "北大门": "黄山北大门",
-        "玉屏": "玉屏楼景观区",
-        "散花坞": None,  # 狮子峰景观区内，但不对齐到整个区域
-        "清凉台": None,  # 狮子峰景观区内，但不对齐到整个区域
-        "云谷索道": None,
-        "玉屏索道": None,
-        "太平索道": None,
-        "前山": None,
-        "后山": None,
-        "云海": None,
-        "仙山": None,
-        "名山": None,
-        "山峰": None,
-        "峰顶": None,
-        "山顶": None,
-        "半山": None,
-        "风景区": None,
-        "服务区": None,
-        "山庄": None,
-        "爬山": None,
-        "观海": None,
-        "高峰": None,
-        "松树": None,
-        "黄山": None,
-        "黄山区": None,
-        "黄山市": None,
-        "屯溪区": None,
-        "天都峰": None,  # 独立山峰，不在官方路线中
-        "天门": None,
-        "黑虎松": None,
-        "迎客松": None,  # 玉屏楼景观区内著名松树，但不对齐到整个区域
-        "莲花峰": None,  # 独立山峰，不在官方路线中
-        "鳌鱼峰": None,  # 天海景观区内，但不对齐到整个区域
-        "西海大峡谷": None,
-        "温泉景区": None,
-        "挑山工": None,
-        "故宫": None,
-        "上海": None,
-        "外滩": None,
-        "黟山": None,
-    },
+    "张家界": {
+        "天门山": None, # 官方路线主要是森林公园
+        "森林公园": "张家界国家森林公园",
+        "武陵源": "武陵源",
+        "袁家界": "袁家界",
+        "金鞭溪": "金鞭溪",
+        "黄石寨": "黄石寨",
+        "十里画廊": "十里画廊",
+        "百龙天梯": "百龙天梯",
+        "天子山": "天子山",
+        "杨家界": "杨家界",
+        "宝峰湖": None,
+        "黄龙洞": "黄龙洞",
+        "鬼谷栈道": None,
+        "天门洞": None,
+        "玻璃栈道": None,
+    }
 }
 
 # 通用停用词（非景点词汇）
@@ -484,26 +410,45 @@ class RouteComparator:
 
     def _official_sequence(self) -> Tuple[List[str], str]:
         """获取官方序列及来源说明"""
+        # 1. 尝试从 hierarchy 中提取（优先支持 time_based 和 sequence_based）
+        hierarchy = self.official_data.get("hierarchy", {})
+        
+        # 检查是否为 Time Based
+        periods = ["清晨", "早上", "上午", "中午", "下午", "傍晚", "晚上"]
+        time_based_pois = []
+        has_time_data = False
+        for period in periods:
+            if period in hierarchy:
+                has_time_data = True
+                activities = hierarchy[period].get("activities", [])
+                for act in activities:
+                    if act.get("poi"):
+                        time_based_pois.append(act["poi"])
+        
+        if has_time_data and time_based_pois:
+            return time_based_pois, "time_based_hierarchy"
+
+        # 检查是否为 Sequence Based (Task 3生成的通用序列)
+        if "游览路线" in hierarchy and "full_sequence" in hierarchy["游览路线"]:
+            seq = hierarchy["游览路线"]["full_sequence"]
+            if seq:
+                return seq, "sequence_based_hierarchy"
+
+        # 2. 回退到 parsed.routes (旧逻辑兼容)
         parsed = self.official_data.get("parsed", {})
         routes = parsed.get("routes", [])
-
-        if self.scenic_spot == "九寨沟" and routes:
+        
+        if routes:
+            # 通用提取：按顺序提取所有 POI
             seq = []
-            first_from = routes[0].get("from_poi")
-            if first_from:
-                seq.append(first_from)
-            seq.extend([r.get("poi", "") for r in routes if r.get("poi")])
-            return _stable_unique([s for s in seq if s]), "explicit_route_sequence"
-
-        if self.scenic_spot == "故宫" and routes:
-            seq = [r.get("poi", "") for r in routes if r.get("poi")]
-            return _stable_unique(seq), "numbered_sequence"
-
-        if self.scenic_spot == "黄山" and routes:
-            # 多线路场景下，取节点最多的一条作为代表官方路线
-            route = max(routes, key=lambda r: len(r.get("nodes", [])))
-            seq = [node for node in route.get("nodes", []) if node]
-            return _stable_unique(seq), "representative_longest_route"
+            for r in routes:
+                if r.get("from_poi") and r.get("from_poi") not in seq:
+                    seq.append(r["from_poi"])
+                if r.get("poi") and r.get("poi") not in seq:
+                    seq.append(r["poi"])
+            
+            if seq:
+                return seq, "parsed_routes_sequence"
 
         return [], "unavailable"
 
@@ -557,23 +502,46 @@ class RouteComparator:
         """对比时间分布（支持三景区统一口径）"""
         official_dist: Dict[str, int] = {}
         method = "unavailable"
-        parsed = self.official_data.get("parsed", {})
-        routes = parsed.get("routes", [])
-
-        if self.scenic_spot == "九寨沟":
+        
+        # 1. 优先从 hierarchy 中获取显式时间分布
+        hierarchy = self.official_data.get("hierarchy", {})
+        has_hierarchy_time = False
+        for period in PERIOD_ORDER:
+            if period in hierarchy:
+                activities = hierarchy[period].get("activities", [])
+                count = len(activities)
+                if count > 0:
+                    official_dist[period] = count
+                    has_hierarchy_time = True
+        
+        if has_hierarchy_time:
+            method = "explicit_time_from_hierarchy"
+        else:
+            # 2. 尝试从 parsed.routes 中获取 period 字段
+            parsed = self.official_data.get("parsed", {})
+            routes = parsed.get("routes", [])
+            has_route_time = False
+            temp_dist = {}
+            
             for route in routes:
                 period = route.get("period", "未知")
+                # 归一化时间
                 period = TIME_PERIOD_NORMALIZATION.get(period, period)
                 if period in PERIOD_ORDER:
-                    official_dist[period] = official_dist.get(period, 0) + 1
-            method = "explicit_time_from_official_route"
-        else:
-            official_seq, seq_method = self._official_sequence()
-            for idx, _poi in enumerate(official_seq):
-                period = _infer_period_from_index(idx, len(official_seq))
-                official_dist[period] = official_dist.get(period, 0) + 1
-            if official_seq:
-                method = f"inferred_from_{seq_method}"
+                    temp_dist[period] = temp_dist.get(period, 0) + 1
+                    has_route_time = True
+            
+            if has_route_time:
+                official_dist = temp_dist
+                method = "explicit_time_from_routes"
+            else:
+                # 3. 最后回退到根据序列推断
+                official_seq, seq_method = self._official_sequence()
+                if official_seq:
+                    for idx, _poi in enumerate(official_seq):
+                        period = _infer_period_from_index(idx, len(official_seq))
+                        official_dist[period] = official_dist.get(period, 0) + 1
+                    method = f"inferred_from_{seq_method}"
 
         visitor_dist: Dict[str, int] = {}
         day_dist: Dict[str, int] = {}
@@ -652,11 +620,16 @@ class RouteComparator:
     def compare_transport_usage(self) -> Dict[str, Any]:
         """对比交通方式使用"""
         official_transport = {}
-        if self.scenic_spot == "九寨沟":
-            for route in self.official_data.get("parsed", {}).get("routes", []):
-                transport = route.get("transport", "")
-                if transport:
-                    official_transport[transport] = official_transport.get(transport, 0) + 1
+        # 通用提取：从 parsed.routes 中提取 transport 字段
+        parsed = self.official_data.get("parsed", {})
+        routes = parsed.get("routes", [])
+        
+        for route in routes:
+            transport = route.get("transport", "")
+            if transport:
+                official_transport[transport] = official_transport.get(transport, 0) + 1
+                
+            # 有些 transport 可能在 details 里，这里简化处理，只取 explicit transport
 
         visitor_transport = {}
         transport_data = self.visitor_data.get("transport", {})
@@ -786,25 +759,26 @@ def main():
 
     # 创建输出目录
     import os
-    if not os.path.exists('route_comparison'):
-        os.makedirs('route_comparison')
+    if not os.path.exists('comparisons'):
+        os.makedirs('comparisons')
 
     # 景区映射
     spot_en_map = {
-        '九寨沟': 'jiuzhaigou',
-        '故宫': 'gugong',
-        '黄山': 'huangshan'
+        '泰山': 'taishan',
+        '西湖': 'xihu',
+        '张家界': 'zhangjiajie'
     }
 
     # 加载游客数据
     print("\n[1/3] 加载游客实体数据...")
-    visitor_data = load_visitor_data('../task2_entity_recognition/entity_results.json')
+    # Update path to match actual location
+    visitor_data = load_visitor_data('../task2_entity_recognition/output/entity_results.json')
 
     # 加载官方路线数据
     print("[2/3] 加载官方路线数据...")
     official_data = {}
     for spot_cn, spot_en in spot_en_map.items():
-        hierarchy_file = f'route_hierarchy/{spot_cn}_hierarchy.json'
+        hierarchy_file = f'hierarchies/{spot_cn}_hierarchy.json'
         try:
             with open(hierarchy_file, 'r', encoding='utf-8') as f:
                 official_data[spot_cn] = json.load(f)
@@ -826,8 +800,12 @@ def main():
             official_data[spot_cn],
             visitor_data[spot_cn]
         )
-
         all_reports.append(report)
+
+        # 保存单份报告
+        spot_en = spot_en_map[spot_cn]
+        with open(f'comparisons/{spot_en}_report.json', 'w', encoding='utf-8') as f:
+            json.dump(report, f, ensure_ascii=False, indent=2)
 
         # 打印摘要
         print(f"    覆盖度: {report['coverage_comparison']['jaccard_similarity']}")
@@ -839,17 +817,15 @@ def main():
         for finding in report['summary']['key_findings']:
             print(f"    - {finding}")
 
-    # 保存完整报告
-    full_report = {
-        "generated_at": str(pd.Timestamp.now()),
-        "total_spots": len(all_reports),
-        "reports": all_reports
+    # 保存总报告
+    final_output = {
+        'timestamp': pd.Timestamp.now().isoformat(),
+        'reports': all_reports
     }
+    with open('comparisons/comparison_report.json', 'w', encoding='utf-8') as f:
+        json.dump(final_output, f, ensure_ascii=False, indent=2)
 
-    with open('route_comparison/comparison_report.json', 'w', encoding='utf-8') as f:
-        json.dump(full_report, f, ensure_ascii=False, indent=2)
-
-    print(f"\n已生成对比报告: route_comparison/comparison_report.json")
+    print(f"\n已生成对比报告: comparisons/comparison_report.json")
     print("\n" + "=" * 60)
     print("分析完成！")
     print("=" * 60)

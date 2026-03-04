@@ -1,0 +1,134 @@
+{
+  "scenic_spot": "西湖",
+  "fused_pois": [
+    "湖滨",
+    "断桥残雪",
+    "曲院风荷景区",
+    "九溪",
+    "雷峰塔景区",
+    "三潭印月景区",
+    "飞来峰",
+    "白堤景区",
+    "花港观鱼景区",
+    "苏堤春晓",
+    "灵隐寺景区",
+    "平湖秋月景区",
+    "雷峰",
+    "高峰",
+    "鱼池",
+    "孤山景区",
+    "环湖",
+    "荷花池",
+    "华严殿",
+    "天王殿"
+  ],
+  "poi_weights": {
+    "湖滨": 1.0,
+    "断桥残雪": 1.0,
+    "曲院风荷景区": 1.0,
+    "九溪": 0.7,
+    "雷峰塔景区": 1.0,
+    "三潭印月景区": 0.94,
+    "飞来峰": 0.82,
+    "白堤景区": 1.0,
+    "花港观鱼景区": 0.94,
+    "苏堤春晓": 1.0,
+    "灵隐寺景区": 0.82,
+    "平湖秋月景区": 1.0,
+    "雷峰": 0.45,
+    "高峰": 0.45,
+    "鱼池": 0.45,
+    "孤山景区": 0.45,
+    "环湖": 0.45,
+    "荷花池": 0.45,
+    "华严殿": 0.45,
+    "天王殿": 0.45
+  },
+  "statistics": {
+    "official_poi_count": 12,
+    "visitor_poi_count": 54,
+    "fused_poi_count": 20,
+    "visitor_supplemented_count": 8,
+    "advice_matched_count": 3,
+    "advice_unmatched_count": 7
+  },
+  "time_periods": {},
+  "normalized_routes": [],
+  "route_normalization_report": {
+    "route_format": "narrative_text",
+    "parsed_route_count": 13,
+    "normalized_route_count": 0,
+    "official_poi_count": 12,
+    "time_period_count": 0
+  },
+  "recommended_route": {
+    "route_id": "",
+    "reason": "no_route"
+  },
+  "visitor_supplemented": [
+    "雷峰",
+    "高峰",
+    "鱼池",
+    "孤山景区",
+    "环湖",
+    "荷花池",
+    "华严殿",
+    "天王殿"
+  ],
+  "visitor_supplemented_details": [
+    {
+      "poi": "雷峰",
+      "doc_frequency": 5,
+      "score": 1.0,
+      "source": "visitor"
+    },
+    {
+      "poi": "高峰",
+      "doc_frequency": 4,
+      "score": 0.87,
+      "source": "visitor"
+    },
+    {
+      "poi": "鱼池",
+      "doc_frequency": 4,
+      "score": 0.87,
+      "source": "visitor"
+    },
+    {
+      "poi": "孤山景区",
+      "doc_frequency": 3,
+      "score": 0.74,
+      "source": "visitor"
+    },
+    {
+      "poi": "环湖",
+      "doc_frequency": 3,
+      "score": 0.74,
+      "source": "visitor"
+    },
+    {
+      "poi": "荷花池",
+      "doc_frequency": 3,
+      "score": 0.74,
+      "source": "visitor"
+    },
+    {
+      "poi": "华严殿",
+      "doc_frequency": 2,
+      "score": 0.61,
+      "source": "visitor"
+    },
+    {
+      "poi": "天王殿",
+      "doc_frequency": 2,
+      "score": 0.61,
+      "source": "visitor"
+    }
+  ],
+  "condition_cleaning_report": {
+    "input_advice_count": 3,
+    "output_advice_count": 3,
+    "dropped_count": 0,
+    "dropped_reasons": {}
+  }
+}

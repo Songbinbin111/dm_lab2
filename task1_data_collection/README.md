@@ -1,90 +1,52 @@
-# 任务1：景区指南数据采集与预处理
+# 实验项目1：景区指南数据采集与预处理
 
-## 任务目标
-1. 采集3个景区的官方游览推荐路线（如"一日游最佳路线"/"亲子游攻略"）
-2. 采集对应景区的游客游记各5篇
-3. 数据清洗和格式统一
+## 对应科研点
+基础数据工程（支撑所有后续研究）。
 
-## 数据说明
+## 实验目标
+获取景区指南相关数据，并处理成合适的格式，为后续知识抽取与挖掘奠定数据基础。
 
-### 原始数据
-- `data.xlsx`: 采集的原始数据，包含官方路线和游客游记。
+## 实验主要内容
+1. **数据采集**：使用自动化工具采集3个景区的官方游览推荐路线（如“一日游最佳路线”“亲子游攻略”）和对应景区的游客游记各5篇。数据来源可包括官方旅游网站、小红书攻略、马蜂窝游记等。
+   > 注：受探索性实验课时限制，考虑到部分学生不熟悉爬虫使用，教师将提供一份数据集，方便需要的同学加速实验进程。
+2. **数据预处理**：对采集的文本进行清洗，包括去除HTML标签、元数据、特殊字符，统一空白格式，并将数据整理为结构化文件（包含来源、景区、文本类型、原始内容等字段）。
 
-### 清洗后数据
-- `data_cleaned.xlsx`: 经过清洗和格式统一的数据
-  - 包含3个景区（九寨沟、故宫、黄山）
-  - 每个景区包含官方推荐路线和游客游记
+## 实验技术方法
+1. **爬虫工具**：browser-use、requests+BeautifulSoup、Selenium等。
+2. **数据清洗**：正则表达式、Python字符串处理、pandas库。
+3. **格式统一**：Excel或CSV文件存储。
 
-## 脚本说明
+## 实验主要步骤
+1. 选择数据获取方式：若使用爬虫，配置工具抓取指定景区数据；若使用教师提供的数据集，则直接加载并熟悉数据结构。
+2. 编写Python脚本对原始文本进行清洗与格式化，生成规范化的Excel文件或CSV文件。
+3. 检查数据质量，确保每个景区至少包含1条官方路线和3篇游记，并保存最终数据集。
 
-### preprocess.py
-数据预处理脚本，主要功能：
-- 读取原始Excel数据
-- 数据清洗（去除空值、格式统一）
-- 输出清洗后的数据到 `data_cleaned.xlsx`
+---
 
-## 使用方法
+## 脚本操作指南
 
-```bash
-python preprocess.py
-```
+### 数据说明
+- **原始数据**：`data/data.xlsx` (教师提供的数据集)
+- **清洗后数据**：`data/data_cleaned.xlsx`
 
-## 输入输出
+### 运行预处理脚本
+本实验提供了 `preprocess.py` 脚本来完成上述的数据清洗与格式化任务。
 
-**输入:**
-- `data/data.xlsx` - 原始采集的数据
+**执行位置**：`task1_data_collection` 目录。
 
-**输出:**
-- `data/data_cleaned.xlsx` - 清洗后的数据（供后续任务使用）
+1. **安装依赖**：
+   ```bash
+   pip install pandas openpyxl
+   ```
 
-## 任务过程
+2. **运行脚本**：
+   ```bash
+   python preprocess.py
+   ```
+   或者指定输入输出路径：
+   ```bash
+   python preprocess.py -i data/data.xlsx -o data/data_cleaned.xlsx
+   ```
 
-- **第 1 步：安装依赖库**（6min）
-  ```bash
-  pip install pandas openpyxl
-  ```
-
-> 本实验python版本要求3.6+，建议3.8，如果你安装了多个 Python 版本，最稳妥的方法是使用 py -3 启动器来调用 Python 3 的 pip或者修改系统的 PATH 环境变量(之后的命令也是如此)：
->
-> ~~~bash
-> py -3 -m pip install pandas openpyxl
-> ~~~
-
-成功结果如下：出现Requirement already satisfied
-
-可以通过此命令确认：
-
-~~~bash
-py -3 -c "import pandas; import openpyxl; print('Pandas version:', pandas.__version__); print('Openpyxl version:', openpyxl.__version__)"
-~~~
-
-如果能正常输出版本号，说明安装成功。
-
-- 第 2 步：查看原始数据(1min)
-  在 `data/data.xlsx` 中查看三个景区（九寨沟、故宫、黄山）的官方推荐路线和游客游记。
-
-- **第 3 步：运行清洗脚本**（3min）
-
-  **执行位置**：`task1_data_collection` 目录。
-
-  ```bash
-  python preprocess.py
-  ```
-
-如果出现：No such file or directory: 'data.xlsx'，这是因为根据脚本的默认行为，它会在当前工作目录下寻找 data.xlsx 。而我们的项目结构是将数据文件存放在 data/ 子目录中的。这时运行脚本时，我们需要通过参数明确告诉它输入和输出文件的 正确路径：
-
-~~~bash
-py preprocess.py -i data/data.xlsx -o data/data_cleaned.xlsx
-~~~
-
-成功结果如下：
-
-- **第 4 步：查看清洗后的数据**变化（2min）
-
-  **位置**：`task1_data_collection`/data 目录。
-
-查看data.xlsx和data_cleaned.xlsx的内容，观察是否去除空值、格式统一、删除了游记顶部的标题、作者、日期、来源等元数据、去除了类似 【上午】 、 【行程安排】 等导航式标签等等，将 非结构化的自然语言文本 转化为 结构化的程序性描述语料。
-
-效果对比如下：
-
-- 预计耗时：15 分钟
+3. **结果验证**：
+   查看 `data/data_cleaned.xlsx`，确认元数据（如标题、日期）已被去除，且格式统一。

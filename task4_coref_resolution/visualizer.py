@@ -163,56 +163,110 @@ class CoreferenceVisualizer:
         # 1. 总体结果饼图
         ax1 = fig.add_subplot(gs[0, 0])
         summary = self.eval_report['summary']
-        sizes = [summary['correct'], summary['incorrect'], summary['not_resolved']]
-        labels = [f'正确 ({summary["correct"]})', f'错误 ({summary["incorrect"]})',
-                 f'未消解 ({summary["not_resolved"]})']
+        # 正确、错误、未消解
+        correct = summary.get('correct', 0)
+        incorrect = summary.get('incorrect', 0)
+        not_resolved = summary.get('not_resolved', 0)
+        
+        sizes = [correct, incorrect, not_resolved]
+        
+        # 标签和颜色
+        labels = [f'正确 ({correct})', f'错误 ({incorrect})', f'未消解 ({not_resolved})']
         colors = ['#4CAF50', '#F44336', '#FFC107']
         explode = (0.05, 0.05, 0.05)
+        
+        # 过滤掉数量为0的部分，避免饼图标签重叠或报错
+        final_sizes = []
+        final_labels = []
+        final_colors = []
+        final_explode = []
+        
+        for s, l, c, e in zip(sizes, labels, colors, explode):
+            if s > 0:
+                final_sizes.append(s)
+                final_labels.append(l)
+                final_colors.append(c)
+                final_explode.append(e)
 
-        ax1.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%',
-               shadow=True, startangle=90, textprops={'fontsize': 11})
+        if final_sizes:
+            ax1.pie(final_sizes, explode=final_explode, labels=final_labels, colors=final_colors, 
+                   autopct='%1.1f%%', shadow=True, startangle=90, textprops={'fontsize': 11})
+        else:
+            ax1.text(0.5, 0.5, "无数据", ha='center', va='center')
+            
         ax1.set_title('总体消解结果分布', fontsize=13, fontweight='bold')
 
         # 2. 按代词类型的准确率
         ax2 = fig.add_subplot(gs[0, 1])
-        by_type = self.eval_report['by_pronoun_type']
-        types = list(by_type.keys())
-        accuracies = [by_type[t]['accuracy'] * 100 for t in types]
-        totals = [by_type[t]['total'] for t in types]
+        by_type = self.eval_report.get('by_pronoun_type', {})
+        
+        if by_type:
+            types = list(by_type.keys())
+            accuracies = []
+            totals = []
+            
+            for t in types:
+                stats = by_type[t]
+                # 兼容可能的字典结构差异
+                if isinstance(stats, dict):
+                    acc = stats.get('accuracy', 0)
+                    tot = stats.get('total', 0)
+                    accuracies.append(acc * 100)
+                    totals.append(tot)
+                else:
+                    accuracies.append(0)
+                    totals.append(0)
 
-        colors = plt.cm.Set3(np.linspace(0, 1, len(types)))
-        bars = ax2.bar(types, accuracies, color=colors, edgecolor='black', alpha=0.7)
+            colors = plt.cm.Set3(np.linspace(0, 1, len(types)))
+            bars = ax2.bar(types, accuracies, color=colors, edgecolor='black', alpha=0.7)
 
-        for bar, acc, tot in zip(bars, accuracies, totals):
-            height = bar.get_height()
-            ax2.text(bar.get_x() + bar.get_width()/2., height,
-                    f'{acc:.0f}%\n(n={tot})', ha='center', va='bottom', fontsize=10)
+            for bar, acc, tot in zip(bars, accuracies, totals):
+                height = bar.get_height()
+                ax2.text(bar.get_x() + bar.get_width()/2., height + 1,
+                        f'{acc:.0f}%\n(n={tot})', ha='center', va='bottom', fontsize=10)
+        else:
+            ax2.text(0.5, 0.5, "无分类数据", ha='center', va='center')
 
         ax2.set_ylabel('准确率 (%)', fontsize=11)
         ax2.set_xlabel('代词类型', fontsize=11)
         ax2.set_title('按代词类型的准确率', fontsize=13, fontweight='bold')
-        ax2.set_ylim(0, 100)
+        ax2.set_ylim(0, 110) # 稍微留点空间给标签
         ax2.grid(True, alpha=0.3, axis='y')
 
         # 3. 按先行词类型的准确率
         ax3 = fig.add_subplot(gs[1, 0])
-        by_ant = self.eval_report['by_antecedent_type']
-        ant_types = list(by_ant.keys())
-        ant_accs = [by_ant[t]['accuracy'] * 100 for t in ant_types]
-        ant_totals = [by_ant[t]['total'] for t in ant_types]
+        by_ant = self.eval_report.get('by_antecedent_type', {})
+        
+        if by_ant:
+            ant_types = list(by_ant.keys())
+            ant_accs = []
+            ant_totals = []
+            
+            for t in ant_types:
+                stats = by_ant[t]
+                if isinstance(stats, dict):
+                    acc = stats.get('accuracy', 0)
+                    tot = stats.get('total', 0)
+                    ant_accs.append(acc * 100)
+                    ant_totals.append(tot)
+                else:
+                    ant_accs.append(0)
+                    ant_totals.append(0)
 
-        colors = plt.cm.Pastel1(np.linspace(0, 1, len(ant_types)))
-        bars = ax3.bar(ant_types, ant_accs, color=colors, edgecolor='black', alpha=0.7)
+            colors = plt.cm.Pastel1(np.linspace(0, 1, len(ant_types)))
+            bars = ax3.bar(ant_types, ant_accs, color=colors, edgecolor='black', alpha=0.7)
 
-        for bar, acc, tot in zip(bars, ant_accs, ant_totals):
-            height = bar.get_height()
-            ax3.text(bar.get_x() + bar.get_width()/2., height,
-                    f'{acc:.0f}%\n(n={tot})', ha='center', va='bottom', fontsize=10)
+            for bar, acc, tot in zip(bars, ant_accs, ant_totals):
+                height = bar.get_height()
+                ax3.text(bar.get_x() + bar.get_width()/2., height + 1,
+                        f'{acc:.0f}%\n(n={tot})', ha='center', va='bottom', fontsize=10)
+        else:
+            ax3.text(0.5, 0.5, "无分类数据", ha='center', va='center')
 
         ax3.set_ylabel('准确率 (%)', fontsize=11)
         ax3.set_xlabel('先行词类型', fontsize=11)
         ax3.set_title('按先行词类型的准确率', fontsize=13, fontweight='bold')
-        ax3.set_ylim(0, 100)
+        ax3.set_ylim(0, 110)
         ax3.grid(True, alpha=0.3, axis='y')
 
         # 4. 关键发现文字总结
@@ -223,14 +277,16 @@ class CoreferenceVisualizer:
         findings.append("共指消解评估关键发现")
         findings.append("=" * 35)
         findings.append(f"\n【总体表现】")
-        findings.append(f"• 总准确率: {summary['accuracy']}")
-        findings.append(f"• 正确案例: {summary['correct']}/{summary['total_cases']}")
-        findings.append(f"• 错误案例: {summary['incorrect']}")
+        findings.append(f"• 总准确率: {summary.get('accuracy', 'N/A')}")
+        findings.append(f"• 正确案例: {correct}/{summary.get('total_cases', 0)}")
+        findings.append(f"• 错误案例: {incorrect}")
+        findings.append(f"• 未消解: {not_resolved}")
 
         findings.append(f"\n【按代词类型】")
         for ptype, stats in by_type.items():
-            findings.append(f"• {ptype}: {stats['correct']}/{stats['total']} "
-                          f"({stats['accuracy']*100:.1f}%)")
+            if isinstance(stats, dict):
+                findings.append(f"• {ptype}: {stats.get('correct', 0)}/{stats.get('total', 0)} "
+                              f"({stats.get('accuracy', 0)*100:.1f}%)")
 
         findings.append(f"\n【主要挑战】")
         findings.append("• 跨句指代消解准确率较低")
@@ -244,7 +300,7 @@ class CoreferenceVisualizer:
 
         text = '\n'.join(findings)
         ax4.text(0.05, 0.95, text, transform=ax4.transAxes,
-                fontsize=10, verticalalignment='top', family='sans-serif',
+                fontsize=10, verticalalignment='top',
                 bbox=dict(boxstyle='round', facecolor='lightyellow', alpha=0.8))
 
         fig.suptitle('共指消解综合评估报告', fontsize=16, fontweight='bold', y=0.98)

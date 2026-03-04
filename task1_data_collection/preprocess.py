@@ -35,7 +35,7 @@ class MetadataRemover:
 
     # 元数据模式定义（按优先级排序）
     PATTERNS = [
-        # Pattern 1: Title: xxx\nDate: xxx\nSource: xxx\n\n (故宫游记格式)
+        # Pattern 1: Title: xxx\nDate: xxx\nSource: xxx\n\n (通用游记格式)
         r'(?:Title|标题)[：:]\s*[^\n]*\n(?:Date|日期)[：:]\s*[^\n]*\n(?:Source|来源)[：:]\s*[^\n]*\n+',
 
         # Pattern 2: 标题\nPublication Date: xxx\nSource: xxx\n\n
@@ -50,7 +50,7 @@ class MetadataRemover:
         # Pattern 5: 标题\n(日期时间)\n (包含各种日期格式)
         r'^[^\n]+\n\([^)]*\d{4}[^)]*\)\n+',
 
-        # Pattern 6: 标题\n作者：xxx\n\n (黄山游记格式)
+        # Pattern 6: 标题\n作者：xxx\n\n (通用游记格式)
         r'^[^\n]+\n作者[：:][^\n]+\n+',
 
         # Pattern 7: 已移除（原模式过于激进，会导致有效数据丢失）
