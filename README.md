@@ -33,13 +33,13 @@
   pip install pandas openpyxl
   ```
 
-> 本实验python版本要求3.6+，建议3.8，如果你安装了多个 Python 版本，最稳妥的方法是使用 py -3 启动器来调用 Python 3 的 pip或者修改系统的 PATH 环境变量(之后的命令也是如此)：
+> 本实验python版本要求3.6+，建议3.8，如果你安装了多个 Python 版本，最稳妥的方法是使用 py -3 启动器来调用 Python 3 的 pip 或者修改系统的 PATH 环境变量(之后的命令也是如此)：
 >
 > ~~~bash
 > py -3 -m pip install pandas openpyxl
 > ~~~
 
-成功结果如下：出现Requirement already satisfied
+成功结果如下：出现 Requirement already satisfied
 
 可以通过此命令确认：
 
@@ -82,7 +82,7 @@ py preprocess.py -i data/data.xlsx -o data/data_cleaned.xlsx
 
 - **第 1 步：安装 NLP 相关依赖**（5min）
   ```bash
-  pip install jieba wordcloud matplotlib
+  py -3 -m pip install jieba wordcloud matplotlib
   ```
   成功结果如下：出现Successfully installed ...
 
