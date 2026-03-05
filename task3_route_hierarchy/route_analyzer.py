@@ -131,9 +131,9 @@ NOISE_PATTERNS = [
 ]
 
 SPOT_TO_DICT = {
-    "九寨沟": "jiuzhaigou",
-    "故宫": "gugong",
-    "黄山": "huangshan",
+    "泰山": "taishan",
+    "西湖": "xihu",
+    "张家界": "zhangjiajie",
 }
 
 _SCENIC_POI_LEXICON_CACHE: Dict[str, Set[str]] = {}

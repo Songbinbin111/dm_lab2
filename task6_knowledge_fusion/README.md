@@ -46,7 +46,7 @@
    ```bash
    python main.py
    ```
-   支持参数：`--fusion` (仅融合), `--build` (仅构建), `--visualize` (仅可视化), `--spot 故宫` (指定景区)。
+   支持参数：`--fusion` (仅融合), `--build` (仅构建), `--visualize` (仅可视化), `--spot 泰山` (指定景区)。
 
 2. **结果检查**：
    查看 `output/knowledge_graph/` 下的 JSON 图谱数据和 `output/visualizations/` 下的图片。
