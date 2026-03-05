@@ -115,7 +115,7 @@ def main():
     print("\n[1/3] 读取entity_results.json...")
     input_file = os.path.join('output', 'entity_results.json')
     if not os.path.exists(input_file):
-        # Fallback to current directory for backward compatibility or if not found
+
         if os.path.exists('entity_results.json'):
             input_file = 'entity_results.json'
         else:
@@ -176,7 +176,6 @@ def main():
             items = record['transport'].get(cat, [])
             all_transport.extend(items)
         
-        # print(f"DEBUG: {spot_cn} transport: {all_transport}") # Debugging
             
         if all_transport:
             transport_freq = Counter(all_transport)

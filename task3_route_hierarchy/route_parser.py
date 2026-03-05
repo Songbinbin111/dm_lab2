@@ -349,15 +349,14 @@ class TimeHierarchyBuilder:
         # 将路线分组（前、中、后）
         routes = data.get("routes", [])
         
-        # Determine full sequence
+
         full_sequence = []
         if routes:
-            # If format is arrow_text, routes are segments (from_poi -> to_poi)
-            # We should include the start point of the first segment
+
             if "from_poi" in routes[0]:
                 full_sequence.append(routes[0]["from_poi"])
             
-            # Add all destination points
+
             full_sequence.extend([r["poi"] for r in routes])
         else:
             full_sequence = []
